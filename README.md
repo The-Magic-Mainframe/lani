@@ -1,16 +1,16 @@
 # lani
 `lani` is a public re-implementation of z/OS, a 64-bit computer operating system for the s390x family of computers.
 
-## FAQ
+## FAQ (Frequently Asked Questions)
 Let me know if you have a question that isn't addressed by the below FAQ.
 
-### Why?
-Personal reasons.
+### Why do you want to do this?
+Why not?
 
-### Who?
+### Who is working on this project?
 Right now I think it's just my company and me.
 
-### Your company?
+### What kind of company?
 I have created a company called **The Magic Mainframe**. We are a company in the State of Iowa once I get around to rename my previous company, **HAL Software**, to **The Magic Mainframe**. We are a Limited Liability Company.
 
 ### Who is in your company?
@@ -29,12 +29,12 @@ Yeah!
 Yes.
 
 ### Which version of z/OS do you plan to implement?
-Many, but I think I will start with z/OS 2.1 (V2R1).
+Sky's the limit, but I think I will start with z/OS 2.1 (V2R1).
 
 ### Why z/OS 2.1?
 1. It covers a large percentage of the current z/OS user base in terms of number of users.
 2. Smaller
-3. Easier to create and support
+3. Easier to support than the latest and greatest z/OS.
 
 ### What other releases are you thinking of implementing?
 Up to z/OS 3.1 and back to z/OS 2.1.
@@ -46,7 +46,7 @@ By creating some software.
 By writing it.
 
 ### What tools will you use to create the software?
-My computer, other machines in my LAN, other machines in my WAN.
+My computer, other machines in my LAN, other machines in my WAN. Maybe even some generative AI.
 
 ### What language will you use to create the software?
 English. It's what I speak!
@@ -84,7 +84,7 @@ A lot of them, probably. These are some of the ones I have in mind.
 I would argue that it is. But I am not a lawyer. I worked for a company that did something similar and they were never sued.
 
 ### How are you licensing the code?
-The source code is licensed under version 3 of the GNU General Public License. Here is a quick guide: [https://www.gnu.org/licenses/quick-guide-gplv3.html]
+The source code is licensed under version 3 of the GNU General Public License. Here is a [https://www.gnu.org/licenses/quick-guide-gplv3.html](quick guide).
 
 ### Do you, Nicholas Aaron Becker, need help?
 No, but thanks for your concern. I have a good support system, medical insurance, a dentist, a therapist, and a family doctor whom I trust. 
@@ -105,7 +105,7 @@ Who are you?
 Ah!!!!
 
 ### Why `lani`?
-Personal reasons. (Lani)[https://en.wikipedia.org/wiki/Lani_(heaven)]
+Personal reasons. [https://en.wikipedia.org/wiki/Lani_(heaven)](Lani)
 
 ### Okay bye?
-Bye. (Stay tuned!)[https://twitch.tv/hal8943]
+Bye. [https://twitch.tv/hal8943](Stay tuned!)
