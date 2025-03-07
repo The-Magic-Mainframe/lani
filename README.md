@@ -108,4 +108,4 @@ Ah!!!!
 Personal reasons. [Lani](https://en.wikipedia.org/wiki/Lani_(heaven))
 
 ### Okay bye?
-Bye. [Stay tuned!](https://twitch.tv/hal8943])
+Bye. [Stay tuned!](https://twitch.tv/hal8943)
