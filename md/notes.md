@@ -22,7 +22,7 @@ leveraging existing compilers, but it targets consumer hardware and
 the s390x (z/Architecture) platforms in particular.
 
 ### Language
-I will probably implement `lani` as a `cpython` package, but at some
+I will probably implement `lani` as a CPython package, but at some
 point I intend to build a custom python interpreter to remove the 
 dependency on CPython. However, supporting CPython is important
 because it is widely used on IBM mainframes and consumer electronics.
