@@ -10,7 +10,7 @@ Why not?
 ### Who is working on this project?
 Right now I think it's just my company and me.
 
-### What kind of company?
+### Your company?
 I have created a company called **The Magic Mainframe**. We are a company in the State of Iowa once I get around to rename my previous company, **HAL Software**, to **The Magic Mainframe**. We are a Limited Liability Company.
 
 ### Who is in your company?
