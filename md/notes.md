@@ -2,11 +2,14 @@
 Random notes.
 
 ## What is it?
-Lani is essentially a new programming language that can be
-described as bilingual IBM HLASM and python.
+There are a number of pieces, but I consider `lani` itself to be a 
+programming language. I intend to use this programming language to 
+implement something like the Windows Subsystem For Linux (WSL). The 
+difference between `lani` and WSL is that `lani` is cross-platform 
+and implement something like z/OS rather than linux.
 
 ## Hierarchy
-Here is where `lani` exists in my mind's eye.
+Some layers to think about.
 
 1. Architecture - s390x, arm, x86, etc.
 2. Language - C, MIPS, HLASM, `lani`, etc.
@@ -15,6 +18,8 @@ Here is where `lani` exists in my mind's eye.
 
 Thus, `lani` acts as a translation layer between a computer 
 architecture, such as `ARM`, and an operating system like Windows 11.
+It also allows a programmer to create and deploy cross-platform
+applications in a mixed computing environment.
 
 ### Architecture
 The `lani` language supports all modern computer architectures by
@@ -40,18 +45,23 @@ operating system mediation layer as needed.
 
 ## Implementation
 * `lani` - Bilingual HLASM / python implemented in C.
+* `lani-vm` - The lani virtual machine.
+    * CPU 
+    * Registers
+    * Cache
+    * Core storage
+    * Device emulation
 * `lani-os` - The lani virtual operating system.
   * Dispatcher
     * Allocation
     * Scheduling
   * Storage Manager
-    * Real
     * Virtual
     * File System
     * Backup
   * I/O and Device Manager
   * Communication Protocols and Servers
-* `lani-util` - Tools for the 
+* `lani-util` - Tools for the lani virtual operating system.
   * `IEFBR142` - Just another "do nothing" program
   * `fuller` - A [fuller](https://github.com/The-Magic-Mainframe/fuller) SPOOL archiver.
   * `submit` - Submit jobs to batch processing subsystem.
