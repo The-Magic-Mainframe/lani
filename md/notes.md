@@ -38,3 +38,21 @@ I intend to implement or in some cases re-implement some UNIX-like
 utilities for IBM Z operating systems. These will run as native
 applications on the host machine, firing up the pieces of the 
 operating system mediation layer as needed.
+
+## Implementation
+* `lani` - Bilingual HLASM / python implemented in C.
+* `lani-os` - The lani virtual operating system.
+  * Dispatcher
+    * Allocation
+    * Scheduling
+  * Storage Manager
+    * Real
+    * Virtual
+    * File System
+    * Backup
+  * I/O and Device Manager
+  * Communication Protocols and Servers
+* `lani-util` - Tools for the 
+  * `IEFBR142` - Just another "do nothing" program
+  * `fuller` - A [fuller](https://github.com/The-Magic-Mainframe/fuller) SPOOL archiver.
+  * `submit` - Submit jobs to batch processing subsystem.
