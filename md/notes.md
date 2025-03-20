@@ -45,13 +45,31 @@ operating system mediation layer as needed.
 
 ## Implementation
 * `lani` - Bilingual HLASM / python implemented in C.
+  * Variables/Symbols
+    * Data structures
+    * Data types
+    * Data representation
+    * Data manipulation
+  * Instructions
+    * Assembly
+      * AMODE, RSECT, DS, DC, ORG, etc...
+    * Runtime
+      * General, Control, Math, Vector, I/O
+    * S/360, S/370, ESA, z/Architecture
 * `lani-vm` - The lani virtual machine.
-    * CPU 
+    * CPU
+      * 1 or more
+      * Spawned as processes
     * Registers
+      * General, Control, AR, Floating
+      * PSW, PSWE, ...
+      * TOD, BEAR, etc...
     * Cache
+      * L1, L2, L3
     * Core storage
+    * Facility emulation
     * Device emulation
-* `lani-os` - The lani virtual operating system.
+* `lani-vos` - The lani virtual operating system.
   * Dispatcher
     * Allocation
     * Scheduling
@@ -61,7 +79,7 @@ operating system mediation layer as needed.
     * Backup
   * I/O and Device Manager
   * Communication Protocols and Servers
-* `lani-util` - Tools for the lani virtual operating system.
+* `lani-vutil` - Tools for the lani virtual operating system.
   * `IEFBR142` - Just another "do nothing" program
   * `fuller` - A [fuller](https://github.com/The-Magic-Mainframe/fuller) SPOOL archiver.
   * `submit` - Submit jobs to batch processing subsystem.
