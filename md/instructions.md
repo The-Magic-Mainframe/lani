@@ -87,4 +87,28 @@ Some subset of these via C preprocessor?
 * `MNOTE`
 
 ## Machine
-All documented z/Architecture machine instructions.
+All documented z/Architecture machine instructions. Support z16
+and eventually support compatibility modes (ESA/390, ESA/370, 
+S/370, and S/360)
+
+### General
+
+### Decimal
+
+### Floating-Point
+
+### Control
+
+### I/O
+
+### Hex-Floating-Point
+
+### Binary-Floating-Point
+
+### Decimal-Floating-Point
+
+### Vector Integer
+
+### Vector String
+
+### Special
