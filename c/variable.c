@@ -20,7 +20,7 @@ static PyModuleDef variableModule = {
   .m_size = -1,
 };
 
-MyMODINIT_FUNC PyInit_variable(void) {
+PyMODINIT_FUNC PyInit_variable(void) {
   /*
   Initialize the VariableType class, the `variable` module, and add 
   VariableType to the module dictionary.
