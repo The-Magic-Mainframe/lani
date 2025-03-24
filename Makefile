@@ -10,9 +10,10 @@ CC = gcc
 CFLAGS = -Wall -Wextra -O2 -fPIC
 
 # gather python compile information
-PYINCLUDE = $(shell python3-config --includes)
-PYLDFLAGS = $(shell python3-config --ldflags)
-PYSUFFIX = $(shell python3-config --extension-suffix)
+PYTHON := python3
+PYINCLUDE = $(shell $(PYTHON)-config --includes)
+PYLDFLAGS = $(shell $(PYTHON)-config --ldflags)
+PYSUFFIX = $(shell $(PYTHON)-config --extension-suffix)
 
 # lani package
 LANI := $(INSTALL)/__init__.py
@@ -39,6 +40,10 @@ $(INSTALL)/%$(PYSUFFIX): $(OBJ)/%.o
 $(OBJ)/%.o: $(SRC)/%.c $(HEADERS)
 	mkdir -p $(@D)
 	$(CC) $(CFLAGS) $(PYINCLUDE) -I$(INC) -c $< -o $@
+
+# generate python bytecode for all modules
+compile:
+	$(PYTHON) -m compileall $(INSTALL)
 
 # clean up 
 clean:
