@@ -1,39 +1,43 @@
 # Makefile
 INSTALL = lani
-CSRC = c
+SRC = c
 PYSRC = py
 OBJ = o
+INC = h
 
 # compiler and flags
 CC = gcc
 CFLAGS = -Wall -Wextra -O2 -fPIC
 
 # gather python compile information
-PY_INCLUDE = $(shell python3-config --includes)
-PY_LDFLAGS = $(shell python3-config --ldflags)
-PY_SUFFIX = $(shell python3-config --extension-suffix)
+PYINCLUDE = $(shell python3-config --includes)
+PYLDFLAGS = $(shell python3-config --ldflags)
+PYSUFFIX = $(shell python3-config --extension-suffix)
 
 # lani package
 LANI := $(INSTALL)/__init__.py
+LANI += $(INSTALL)/variable$(PYSUFFIX)
 
-# lani.variable module
-VARIABLE := $(INSTALL)/variable.$(PY_SUFFIX)
+# headers
+HEADERS := $(INC)/
 
 # build everything
 all: $(LANI)
 
 # copy python source files
 $(INSTALL)/%.py: $(PYSRC)/%.py
-	mkdir $(@D)
+	mkdir -p $(@D)
 	cp $< $@
 
-# compile python extensions
-$(TARGET): $(OBJS)
-	$(CC) -shared $(OBJS) -o $(TARGET) $(PY_LDFLAGS)
+# bind extension modules
+$(INSTALL)/%$(PYSUFFIX): $(OBJ)/%.o
+	mkdir -p $(@D)
+	$(CC) $(PYLDFLAGS) -shared $< -o $@
 
 # compile source files
-%.o: %.c
-	$(CC) $(CFLAGS) $(PY_INCLUDE) -c $< -o $@
+$(OBJ)/%.o: $(SRC)/%.c
+	mkdir -p $(@D)
+	$(CC) $(CFLAGS) $(PYINCLUDE) -I$(INC) -c $< -o $@
 
 # Clean up build files
 clean:
