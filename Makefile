@@ -16,6 +16,7 @@ PYSUFFIX = $(shell python3-config --extension-suffix)
 
 # lani package
 LANI := $(INSTALL)/__init__.py
+LANI += $(INSTALL)/all.py
 LANI += $(INSTALL)/variable$(PYSUFFIX)
 
 # headers
