@@ -40,6 +40,9 @@ $(OBJ)/%.o: $(SRC)/%.c $(HEADERS)
 	mkdir -p $(@D)
 	$(CC) $(CFLAGS) $(PYINCLUDE) -I$(INC) -c $< -o $@
 
-# Clean up build files
+# clean up 
 clean:
 	rm -rf $(INSTALL) $(OBJ)
+
+# keep these around
+.PRECIOUS: $(OBJ)/%.o
