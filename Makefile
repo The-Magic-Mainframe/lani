@@ -19,7 +19,7 @@ LANI := $(INSTALL)/__init__.py
 LANI += $(INSTALL)/variable$(PYSUFFIX)
 
 # headers
-HEADERS := $(INC)/
+HEADERS := $(INC)/variable.h
 
 # build everything
 all: $(LANI)
@@ -35,7 +35,7 @@ $(INSTALL)/%$(PYSUFFIX): $(OBJ)/%.o
 	$(CC) $(PYLDFLAGS) -shared $< -o $@
 
 # compile source files
-$(OBJ)/%.o: $(SRC)/%.c
+$(OBJ)/%.o: $(SRC)/%.c $(HEADERS)
 	mkdir -p $(@D)
 	$(CC) $(CFLAGS) $(PYINCLUDE) -I$(INC) -c $< -o $@
 
