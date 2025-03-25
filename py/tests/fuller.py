@@ -68,7 +68,6 @@ class FULLER(RSECT):
   AMODE (31)                       # 31-bit addressing
   RMODE ('ANY')                    # 31-bit or 24-bit residency
   TITLE ('FULLER - Main entry point')
-  SPACE (1)
   #-------------------------------------------------------------------#
   #     Main entry point.                                             #
   #-------------------------------------------------------------------#
@@ -82,7 +81,7 @@ class FULLER(RSECT):
   SPACE (1)
   LARL  (12, START)                # Set local base register
   LHI   (10, 0)                    # No work area, yet!
-  SPACE (1)
+  TITLE ('FULLER - Exit point')
   #-------------------------------------------------------------------#
   #     Return to caller.                                             #
   #-------------------------------------------------------------------#
@@ -95,7 +94,7 @@ class FULLER(RSECT):
 
   def __init__(self):
     """
-    Initialize an intance of FULLER.
+    Initialize an instance of FULLER.
     """
     print("Yo!")
 
