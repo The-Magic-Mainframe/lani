@@ -18,13 +18,23 @@ PYSUFFIX = $(shell $(PYTHON)-config --extension-suffix)
 # lani package
 LANI := $(INSTALL)/__init__.py
 LANI += $(INSTALL)/all.py
+LANI += $(INSTALL)/core.py
 LANI += $(INSTALL)/variable$(PYSUFFIX)
+
+# lani.tests package
+LANI_TESTS := $(INSTALL)/tests/__init__.py
+LANI_TESTS += $(INSTALL)/tests/fuller.py
 
 # headers
 HEADERS := $(INC)/variable.h
 
+# default rule - build, compile, and test
+default: $(LANI) $(LANI_TESTS)
+	$(PYTHON) -m compileall $(INSTALL)
+	$(PYTHON) -m unittest lani.tests.fuller
+
 # build everything
-all: $(LANI)
+all: $(LANI) $(LANI_TESTS)
 
 # copy python source files
 $(INSTALL)/%.py: $(PYSRC)/%.py
@@ -44,6 +54,10 @@ $(OBJ)/%.o: $(SRC)/%.c $(HEADERS)
 # generate python bytecode for all modules
 compile:
 	$(PYTHON) -m compileall $(INSTALL)
+
+# run tests
+test:
+	$(PYTHON) -m unittest lani.tests.fuller
 
 # clean up 
 clean:
