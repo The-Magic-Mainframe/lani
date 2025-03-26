@@ -1,0 +1,20 @@
+make[1]: Entering directory '/home/nicholas/lani'
+mkdir -p lani
+cp py/__init__.py lani/__init__.py
+mkdir -p lani
+cp py/all.py lani/all.py
+mkdir -p lani
+cp py/core.py lani/core.py
+mkdir -p o
+gcc -Wall -Wextra -O2 -fPIC -I/usr/include/python3.10 -I/usr/include/python3.10 -Ih -c c/variable.c -o o/variable.o
+mkdir -p lani
+gcc -L/usr/lib/python3.10/config-3.10-x86_64-linux-gnu -L/usr/lib/x86_64-linux-gnu  -lcrypt -ldl  -lm -lm  -shared o/variable.o -o lani/variable.cpython-310-x86_64-linux-gnu.so
+mkdir -p lani/tests
+cp py/tests/__init__.py lani/tests/__init__.py
+mkdir -p lani/tests
+cp py/tests/all.py lani/tests/all.py
+mkdir -p lani/tests
+cp py/tests/fuller.py lani/tests/fuller.py
+mkdir -p lani/tests
+cp py/tests/health.py lani/tests/health.py
+make[1]: Leaving directory '/home/nicholas/lani'

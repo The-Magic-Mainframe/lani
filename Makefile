@@ -1,9 +1,15 @@
 # Makefile
+
+# install location
 INSTALL = lani
-SRC = c
-PYSRC = py
-OBJ = o
+
+# source and target directories
 INC = h
+OBJ = o
+PYSRC = py
+SRC = c
+TXT = txt
+VENV = venv
 
 # compiler and flags
 CC = gcc
@@ -11,6 +17,7 @@ CFLAGS = -Wall -Wextra -O2 -fPIC
 
 # gather python compile information
 PYTHON := python3
+PIP := pip3
 PYINCLUDE = $(shell $(PYTHON)-config --includes)
 PYLDFLAGS = $(shell $(PYTHON)-config --ldflags)
 PYSUFFIX = $(shell $(PYTHON)-config --extension-suffix)
@@ -61,9 +68,32 @@ compile:
 test:
 	$(PYTHON) -m unittest lani.tests.all
 
+# create documentation
+doc:
+
+# full build with logging
+logs:
+	make clean
+	mkdir -p $(TXT)
+	make lani > $(TXT)/build.txt
+	make compile > $(TXT)/compile.txt
+	make test > $(TXT)/tests.txt
+
+# create python virtual environment
+venv:
+	$(PYTHON) -m venv $(VENV)
+
+# update requirements.txt file with current python requirements
+freeze:
+	$(PIP) freeze > requirements.txt
+
 # clean up 
 clean:
 	rm -rf $(INSTALL) $(OBJ)
+
+# clean up, including python virtual environment
+cleanall:
+	rm -rf $(INSTALL) $(OBJ) $(VENV)
 
 # keep these around
 .PRECIOUS: $(OBJ)/%.o

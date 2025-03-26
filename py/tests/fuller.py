@@ -96,7 +96,8 @@ class FULLER(RSECT):
     """
     Initialize an instance of FULLER.
     """
-    print("Yo!")
+    #print("Yo!")
+    pass
 
 class WORKAREA(DSECT):
   """
@@ -123,5 +124,6 @@ class TestFuller(unittest.TestCase):
     """
     f = FULLER()
     f()
+    del f
     d = WORKAREA()
-    d.dump()
+    del d
