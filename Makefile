@@ -4,6 +4,7 @@
 INSTALL = lani
 
 # source and target directories
+DOC = docs
 INC = h
 OBJ = o
 PYSRC = py
@@ -40,6 +41,7 @@ HEADERS := $(INC)/variable.h
 # default rule - build, compile, and test
 default: $(LANI) $(LANI_TESTS)
 	$(PYTHON) -m compileall $(INSTALL)
+	$(PYTHON) -m pdoc -o $(DOC) $(INSTALL)
 	$(PYTHON) -m unittest lani.tests.all
 
 # build everything
@@ -70,6 +72,8 @@ test:
 
 # create documentation
 doc:
+	mkdir -p $(DOC)
+	$(PYTHON) -m pdoc -o $(DOC) $(INSTALL)
 
 # full build with logging
 logs:
@@ -83,6 +87,10 @@ logs:
 venv:
 	$(PYTHON) -m venv $(VENV)
 
+# install requirements
+reqs:
+	$(PIP) install -r requirements.txt
+
 # update requirements.txt file with current python requirements
 freeze:
 	$(PIP) freeze > requirements.txt
@@ -91,9 +99,9 @@ freeze:
 clean:
 	rm -rf $(INSTALL) $(OBJ)
 
-# clean up, including python virtual environment
+# clean up, including python virtual environment and documentation
 cleanall:
-	rm -rf $(INSTALL) $(OBJ) $(VENV)
+	rm -rf $(INSTALL) $(OBJ) $(VENV) $(DOC)
 
 # keep these around
 .PRECIOUS: $(OBJ)/%.o
