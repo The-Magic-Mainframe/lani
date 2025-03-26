@@ -97,11 +97,11 @@ freeze:
 
 # clean up 
 clean:
-	rm -rf $(INSTALL) $(OBJ)
+	rm -rf $(INSTALL) $(OBJ) $(DOC)
 
-# clean up, including python virtual environment and documentation
+# clean up, including python virtual environment
 cleanall:
-	rm -rf $(INSTALL) $(OBJ) $(VENV) $(DOC)
+	rm -rf $(INSTALL) $(OBJ) $(DOC) $(VENV)
 
 # keep these around
 .PRECIOUS: $(OBJ)/%.o
