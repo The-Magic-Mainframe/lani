@@ -7,9 +7,6 @@ class T:
   def __call__(self, *args):
     pass
 
-  def dump(self):
-    print(repr(self))
-
 DSECT = \
 RSECT = \
 AMODE = \
