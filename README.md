@@ -84,7 +84,7 @@ A lot of them, probably. These are some of the ones I have in mind.
 I would argue that it is. But I am not a lawyer. I worked for a company that did something similar and they were never sued.
 
 ### How are you licensing the code?
-The source code is licensed under version 3 of the GNU General Public License. Here is a [https://www.gnu.org/licenses/quick-guide-gplv3.html](quick guide).
+The source code is licensed under version 3 of the GNU General Public License. Here is a [quick guide](https://www.gnu.org/licenses/quick-guide-gplv3.html).
 
 ### Do you, Nicholas Aaron Becker, need help?
 No, but thanks for your concern. I have a good support system, medical insurance, a dentist, a therapist, and a family doctor whom I trust. 
@@ -105,7 +105,7 @@ Who are you?
 Ah!!!!
 
 ### Why `lani`?
-Personal reasons. [https://en.wikipedia.org/wiki/Lani_(heaven)](Lani)
+Personal reasons. [Lani](https://en.wikipedia.org/wiki/Lani_(heaven))
 
 ### Okay bye?
-Bye. [https://twitch.tv/hal8943](Stay tuned!)
+Bye. [Stay tuned!](https://twitch.tv/hal8943)
