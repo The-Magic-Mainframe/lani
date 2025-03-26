@@ -35,6 +35,7 @@ LANI_TESTS += $(INSTALL)/tests/all.py
 LANI_TESTS += $(INSTALL)/tests/console.py
 LANI_TESTS += $(INSTALL)/tests/fuller.py
 LANI_TESTS += $(INSTALL)/tests/health.py
+LANI_TESTS += $(INSTALL)/tests/iebiball.py
 
 # headers
 HEADERS := $(INC)/variable.h
@@ -42,7 +43,7 @@ HEADERS := $(INC)/variable.h
 # default rule - build, compile, and test
 default: $(LANI) $(LANI_TESTS)
 	$(PYTHON) -m compileall $(INSTALL)
-	$(PYTHON) -m pdoc -o $(DOC) $(INSTALL)
+	#$(PYTHON) -m pdoc -o $(DOC) $(INSTALL)
 	$(PYTHON) -m unittest lani.tests.all
 
 # build everything
