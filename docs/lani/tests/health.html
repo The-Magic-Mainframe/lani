@@ -374,222 +374,224 @@
 </span><span id="L-58"><a href="#L-58"><span class="linenos"> 58</span></a><span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
 </span><span id="L-59"><a href="#L-59"><span class="linenos"> 59</span></a><span class="sd">  Map the MGB_MSGINSERTD data area, described in MVS Data Areas, Volume 2.</span>
 </span><span id="L-60"><a href="#L-60"><span class="linenos"> 60</span></a><span class="sd">  &quot;&quot;&quot;</span>
-</span><span id="L-61"><a href="#L-61"><span class="linenos"> 61</span></a>  <span class="c1"># Insert description</span>
+</span><span id="L-61"><a href="#L-61"><span class="linenos"> 61</span></a><span class="w">  </span><span class="sd">&quot;&quot;&quot;Insert description&quot;&quot;&quot;</span>
 </span><span id="L-62"><a href="#L-62"><span class="linenos"> 62</span></a>  <span class="n">MGB_MSGINSERTD_HEADER</span> <span class="o">=</span> <span class="n">DS</span><span class="p">(</span><span class="s1">&#39;0CL2&#39;</span><span class="p">)</span>
-</span><span id="L-63"><a href="#L-63"><span class="linenos"> 63</span></a>  <span class="c1"># The length of the insert For a null insert, use a length of 0.</span>
+</span><span id="L-63"><a href="#L-63"><span class="linenos"> 63</span></a><span class="w">  </span><span class="sd">&quot;&quot;&quot;The length of the insert For a null insert, use a length of 0.&quot;&quot;&quot;</span>
 </span><span id="L-64"><a href="#L-64"><span class="linenos"> 64</span></a>  <span class="n">MGB_MSGILEN</span> <span class="o">=</span> <span class="n">DS</span><span class="p">(</span><span class="s1">&#39;H&#39;</span><span class="p">)</span>
 </span><span id="L-65"><a href="#L-65"><span class="linenos"> 65</span></a>  <span class="n">MGB_MSGINSERTD_DATA</span> <span class="o">=</span> <span class="n">DS</span><span class="p">(</span><span class="s1">&#39;0C&#39;</span><span class="p">)</span>
-</span><span id="L-66"><a href="#L-66"><span class="linenos"> 66</span></a>  <span class="c1"># The insert value</span>
+</span><span id="L-66"><a href="#L-66"><span class="linenos"> 66</span></a><span class="w">  </span><span class="sd">&quot;&quot;&quot;The insert value&quot;&quot;&quot;</span>
 </span><span id="L-67"><a href="#L-67"><span class="linenos"> 67</span></a>  <span class="n">MGB_MSGIVAL</span> <span class="o">=</span> <span class="n">DS</span><span class="p">(</span><span class="s1">&#39;C&#39;</span><span class="p">)</span>
 </span><span id="L-68"><a href="#L-68"><span class="linenos"> 68</span></a>  <span class="n">MGB_MSGINSERTLEN</span> <span class="o">=</span> <span class="mh">0x100</span>
-</span><span id="L-69"><a href="#L-69"><span class="linenos"> 69</span></a>  <span class="c1"># &quot;*-MGB_MsgInsertD&quot;</span>
-</span><span id="L-70"><a href="#L-70"><span class="linenos"> 70</span></a>  <span class="n">MGB_MSGINSERTD_LEN</span> <span class="o">=</span> <span class="mh">0x2</span>
-</span><span id="L-71"><a href="#L-71"><span class="linenos"> 71</span></a>
-</span><span id="L-72"><a href="#L-72"><span class="linenos"> 72</span></a><span class="k">class</span><span class="w"> </span><span class="nc">HZSMGB1</span><span class="p">(</span><span class="n">DSECT</span><span class="p">):</span>
-</span><span id="L-73"><a href="#L-73"><span class="linenos"> 73</span></a><span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="L-74"><a href="#L-74"><span class="linenos"> 74</span></a><span class="sd">  Map the HZSMGB1 data area, described in MVS Data Areas, Volume 2.</span>
-</span><span id="L-75"><a href="#L-75"><span class="linenos"> 75</span></a><span class="sd">  &quot;&quot;&quot;</span>
-</span><span id="L-76"><a href="#L-76"><span class="linenos"> 76</span></a>  <span class="n">MGB1_INSERT_STRUCTURE</span> <span class="o">=</span> <span class="n">DS</span><span class="p">(</span><span class="s1">&#39;0CL8&#39;</span><span class="p">)</span>
-</span><span id="L-77"><a href="#L-77"><span class="linenos"> 77</span></a>  <span class="c1"># Message inserts header</span>
-</span><span id="L-78"><a href="#L-78"><span class="linenos"> 78</span></a>  <span class="n">MGB1_INSERT_STRUCTURE_HEADER</span> <span class="o">=</span> <span class="n">DS</span><span class="p">(</span><span class="s1">&#39;0CL8&#39;</span><span class="p">)</span>
-</span><span id="L-79"><a href="#L-79"><span class="linenos"> 79</span></a><span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="L-80"><a href="#L-80"><span class="linenos"> 80</span></a><span class="sd">  The message number. This is the value provided in</span>
-</span><span id="L-81"><a href="#L-81"><span class="linenos"> 81</span></a><span class="sd">  &quot;XREFTEXT=MessageNumber&quot; within the &lt;msgnum&gt; tag of the message</span>
-</span><span id="L-82"><a href="#L-82"><span class="linenos"> 82</span></a><span class="sd">  source. This field need not be when REQUEST=HZSMSSG is specified on</span>
-</span><span id="L-83"><a href="#L-83"><span class="linenos"> 83</span></a><span class="sd">  HZSFMSG.</span>
-</span><span id="L-84"><a href="#L-84"><span class="linenos"> 84</span></a><span class="sd">  &quot;&quot;&quot;</span>
-</span><span id="L-85"><a href="#L-85"><span class="linenos"> 85</span></a>  <span class="n">MGB1_MESSAGENUMBER</span> <span class="o">=</span> <span class="n">DS</span><span class="p">(</span><span class="s1">&#39;0F&#39;</span><span class="p">)</span>
-</span><span id="L-86"><a href="#L-86"><span class="linenos"> 86</span></a>  <span class="c1"># Same as MGB1_MessageNumber</span>
-</span><span id="L-87"><a href="#L-87"><span class="linenos"> 87</span></a>  <span class="n">MGB1_ID</span> <span class="o">=</span> <span class="n">DS</span><span class="p">(</span><span class="s1">&#39;F&#39;</span><span class="p">)</span>
-</span><span id="L-88"><a href="#L-88"><span class="linenos"> 88</span></a>  <span class="c1"># The number of insert addresses in the MGB1_Insert_Structure_Entries area</span>
-</span><span id="L-89"><a href="#L-89"><span class="linenos"> 89</span></a>  <span class="n">MGB1_INSERT_CNT</span> <span class="o">=</span> <span class="n">DS</span><span class="p">(</span><span class="s1">&#39;F&#39;</span><span class="p">)</span>
-</span><span id="L-90"><a href="#L-90"><span class="linenos"> 90</span></a><span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="L-91"><a href="#L-91"><span class="linenos"> 91</span></a><span class="sd">  The start of a contiguous area identifying the inserts. The area consist of</span>
-</span><span id="L-92"><a href="#L-92"><span class="linenos"> 92</span></a><span class="sd">  &quot;MGB1_insert_cnt&quot; 8-byte segments where each segment is mappe dby DSECT</span>
-</span><span id="L-93"><a href="#L-93"><span class="linenos"> 93</span></a><span class="sd">  MGB1_MsgInsertDesc. Note that equate HZSMGB1_LEN provides only enough</span>
-</span><span id="L-94"><a href="#L-94"><span class="linenos"> 94</span></a><span class="sd">  room for the HZSMGB1 area itself. To account for inserts as well, use</span>
-</span><span id="L-95"><a href="#L-95"><span class="linenos"> 95</span></a><span class="sd">  something like HZSMGB1_Len + (n)*MGB1_MsgInsertDesc_Len where n is the number</span>
-</span><span id="L-96"><a href="#L-96"><span class="linenos"> 96</span></a><span class="sd">  of inserts.</span>
-</span><span id="L-97"><a href="#L-97"><span class="linenos"> 97</span></a><span class="sd">  &quot;&quot;&quot;</span>
-</span><span id="L-98"><a href="#L-98"><span class="linenos"> 98</span></a>  <span class="n">MGB1_INSERT_STRUCTURE_ENTRIES</span> <span class="o">=</span> <span class="n">DS</span><span class="p">(</span><span class="s1">&#39;0C&#39;</span><span class="p">)</span>
-</span><span id="L-99"><a href="#L-99"><span class="linenos"> 99</span></a>  <span class="c1"># &quot;20&quot; The maximum number of inserts</span>
-</span><span id="L-100"><a href="#L-100"><span class="linenos">100</span></a>  <span class="n">MGB1_MAXINSERTS</span> <span class="o">=</span> <span class="mh">0x14</span>
-</span><span id="L-101"><a href="#L-101"><span class="linenos">101</span></a>  <span class="c1"># &quot;*-HZSMGB1&quot;</span>
-</span><span id="L-102"><a href="#L-102"><span class="linenos">102</span></a>  <span class="n">MGB_MSGINSERTD_LEN</span> <span class="o">=</span> <span class="mh">0x8</span>
-</span><span id="L-103"><a href="#L-103"><span class="linenos">103</span></a>
-</span><span id="L-104"><a href="#L-104"><span class="linenos">104</span></a><span class="k">class</span><span class="w"> </span><span class="nc">MGB1_MSGINSERTDESC</span><span class="p">(</span><span class="n">DSECT</span><span class="p">):</span>
-</span><span id="L-105"><a href="#L-105"><span class="linenos">105</span></a><span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="L-106"><a href="#L-106"><span class="linenos">106</span></a><span class="sd">  Map the MGB1_MSGINSERTDESC data area, described in MVS Data Areas, Volume 2.</span>
-</span><span id="L-107"><a href="#L-107"><span class="linenos">107</span></a><span class="sd">  &quot;&quot;&quot;</span>
-</span><span id="L-108"><a href="#L-108"><span class="linenos">108</span></a>  <span class="c1"># The length of the insert. For a null insert, use a length of 0.</span>
-</span><span id="L-109"><a href="#L-109"><span class="linenos">109</span></a>  <span class="n">MGB1_MSGINSERTDESC_LENGTH</span> <span class="o">=</span> <span class="n">DS</span><span class="p">(</span><span class="s1">&#39;H&#39;</span><span class="p">)</span>
-</span><span id="L-110"><a href="#L-110"><span class="linenos">110</span></a>  <span class="c1"># Reserved</span>
-</span><span id="L-111"><a href="#L-111"><span class="linenos">111</span></a>  <span class="n">DS</span><span class="p">(</span><span class="s1">&#39;XL2&#39;</span><span class="p">)</span>
-</span><span id="L-112"><a href="#L-112"><span class="linenos">112</span></a>  <span class="c1"># The address of the insert. This need not be set when the length is 0.</span>
-</span><span id="L-113"><a href="#L-113"><span class="linenos">113</span></a>  <span class="n">MGB1_MSGINSERTDESC_ADDR</span> <span class="o">=</span> <span class="n">DS</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">)</span>
-</span><span id="L-114"><a href="#L-114"><span class="linenos">114</span></a>  <span class="c1"># &quot;256&quot; The maximum length of an insert.</span>
-</span><span id="L-115"><a href="#L-115"><span class="linenos">115</span></a>  <span class="n">MGB1_MSGINSERTLEN</span> <span class="o">=</span> <span class="mh">0x100</span>
-</span><span id="L-116"><a href="#L-116"><span class="linenos">116</span></a>  <span class="c1"># &quot;*-MGB1_MsgInsertDesc&quot;</span>
-</span><span id="L-117"><a href="#L-117"><span class="linenos">117</span></a>  <span class="n">MGB1_MSGINSERTDESC_LEN</span> <span class="o">=</span> <span class="mh">0x8</span>
-</span><span id="L-118"><a href="#L-118"><span class="linenos">118</span></a>
-</span><span id="L-119"><a href="#L-119"><span class="linenos">119</span></a><span class="c1">#-------------------------------------------------------------------#</span>
-</span><span id="L-120"><a href="#L-120"><span class="linenos">120</span></a><span class="c1">#     HZSPQE data areas.                                            #</span>
+</span><span id="L-69"><a href="#L-69"><span class="linenos"> 69</span></a><span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="L-70"><a href="#L-70"><span class="linenos"> 70</span></a><span class="sd">  &quot;*-MGB_MsgInsertD\&quot;</span>
+</span><span id="L-71"><a href="#L-71"><span class="linenos"> 71</span></a><span class="sd">  &quot;&quot;&quot;</span>
+</span><span id="L-72"><a href="#L-72"><span class="linenos"> 72</span></a>  <span class="n">MGB_MSGINSERTD_LEN</span> <span class="o">=</span> <span class="mh">0x2</span>
+</span><span id="L-73"><a href="#L-73"><span class="linenos"> 73</span></a>
+</span><span id="L-74"><a href="#L-74"><span class="linenos"> 74</span></a><span class="k">class</span><span class="w"> </span><span class="nc">HZSMGB1</span><span class="p">(</span><span class="n">DSECT</span><span class="p">):</span>
+</span><span id="L-75"><a href="#L-75"><span class="linenos"> 75</span></a><span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="L-76"><a href="#L-76"><span class="linenos"> 76</span></a><span class="sd">  Map the HZSMGB1 data area, described in MVS Data Areas, Volume 2.</span>
+</span><span id="L-77"><a href="#L-77"><span class="linenos"> 77</span></a><span class="sd">  &quot;&quot;&quot;</span>
+</span><span id="L-78"><a href="#L-78"><span class="linenos"> 78</span></a>  <span class="n">MGB1_INSERT_STRUCTURE</span> <span class="o">=</span> <span class="n">DS</span><span class="p">(</span><span class="s1">&#39;0CL8&#39;</span><span class="p">)</span>
+</span><span id="L-79"><a href="#L-79"><span class="linenos"> 79</span></a>  <span class="c1"># Message inserts header</span>
+</span><span id="L-80"><a href="#L-80"><span class="linenos"> 80</span></a>  <span class="n">MGB1_INSERT_STRUCTURE_HEADER</span> <span class="o">=</span> <span class="n">DS</span><span class="p">(</span><span class="s1">&#39;0CL8&#39;</span><span class="p">)</span>
+</span><span id="L-81"><a href="#L-81"><span class="linenos"> 81</span></a><span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="L-82"><a href="#L-82"><span class="linenos"> 82</span></a><span class="sd">  The message number. This is the value provided in</span>
+</span><span id="L-83"><a href="#L-83"><span class="linenos"> 83</span></a><span class="sd">  &quot;XREFTEXT=MessageNumber&quot; within the &lt;msgnum&gt; tag of the message</span>
+</span><span id="L-84"><a href="#L-84"><span class="linenos"> 84</span></a><span class="sd">  source. This field need not be when REQUEST=HZSMSSG is specified on</span>
+</span><span id="L-85"><a href="#L-85"><span class="linenos"> 85</span></a><span class="sd">  HZSFMSG.</span>
+</span><span id="L-86"><a href="#L-86"><span class="linenos"> 86</span></a><span class="sd">  &quot;&quot;&quot;</span>
+</span><span id="L-87"><a href="#L-87"><span class="linenos"> 87</span></a>  <span class="n">MGB1_MESSAGENUMBER</span> <span class="o">=</span> <span class="n">DS</span><span class="p">(</span><span class="s1">&#39;0F&#39;</span><span class="p">)</span>
+</span><span id="L-88"><a href="#L-88"><span class="linenos"> 88</span></a>  <span class="c1"># Same as MGB1_MessageNumber</span>
+</span><span id="L-89"><a href="#L-89"><span class="linenos"> 89</span></a>  <span class="n">MGB1_ID</span> <span class="o">=</span> <span class="n">DS</span><span class="p">(</span><span class="s1">&#39;F&#39;</span><span class="p">)</span>
+</span><span id="L-90"><a href="#L-90"><span class="linenos"> 90</span></a>  <span class="c1"># The number of insert addresses in the MGB1_Insert_Structure_Entries area</span>
+</span><span id="L-91"><a href="#L-91"><span class="linenos"> 91</span></a>  <span class="n">MGB1_INSERT_CNT</span> <span class="o">=</span> <span class="n">DS</span><span class="p">(</span><span class="s1">&#39;F&#39;</span><span class="p">)</span>
+</span><span id="L-92"><a href="#L-92"><span class="linenos"> 92</span></a><span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="L-93"><a href="#L-93"><span class="linenos"> 93</span></a><span class="sd">  The start of a contiguous area identifying the inserts. The area consist of</span>
+</span><span id="L-94"><a href="#L-94"><span class="linenos"> 94</span></a><span class="sd">  &quot;MGB1_insert_cnt&quot; 8-byte segments where each segment is mappe dby DSECT</span>
+</span><span id="L-95"><a href="#L-95"><span class="linenos"> 95</span></a><span class="sd">  MGB1_MsgInsertDesc. Note that equate HZSMGB1_LEN provides only enough</span>
+</span><span id="L-96"><a href="#L-96"><span class="linenos"> 96</span></a><span class="sd">  room for the HZSMGB1 area itself. To account for inserts as well, use</span>
+</span><span id="L-97"><a href="#L-97"><span class="linenos"> 97</span></a><span class="sd">  something like HZSMGB1_Len + (n)*MGB1_MsgInsertDesc_Len where n is the number</span>
+</span><span id="L-98"><a href="#L-98"><span class="linenos"> 98</span></a><span class="sd">  of inserts.</span>
+</span><span id="L-99"><a href="#L-99"><span class="linenos"> 99</span></a><span class="sd">  &quot;&quot;&quot;</span>
+</span><span id="L-100"><a href="#L-100"><span class="linenos">100</span></a>  <span class="n">MGB1_INSERT_STRUCTURE_ENTRIES</span> <span class="o">=</span> <span class="n">DS</span><span class="p">(</span><span class="s1">&#39;0C&#39;</span><span class="p">)</span>
+</span><span id="L-101"><a href="#L-101"><span class="linenos">101</span></a>  <span class="c1"># &quot;20&quot; The maximum number of inserts</span>
+</span><span id="L-102"><a href="#L-102"><span class="linenos">102</span></a>  <span class="n">MGB1_MAXINSERTS</span> <span class="o">=</span> <span class="mh">0x14</span>
+</span><span id="L-103"><a href="#L-103"><span class="linenos">103</span></a>  <span class="c1"># &quot;*-HZSMGB1&quot;</span>
+</span><span id="L-104"><a href="#L-104"><span class="linenos">104</span></a>  <span class="n">MGB_MSGINSERTD_LEN</span> <span class="o">=</span> <span class="mh">0x8</span>
+</span><span id="L-105"><a href="#L-105"><span class="linenos">105</span></a>
+</span><span id="L-106"><a href="#L-106"><span class="linenos">106</span></a><span class="k">class</span><span class="w"> </span><span class="nc">MGB1_MSGINSERTDESC</span><span class="p">(</span><span class="n">DSECT</span><span class="p">):</span>
+</span><span id="L-107"><a href="#L-107"><span class="linenos">107</span></a><span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="L-108"><a href="#L-108"><span class="linenos">108</span></a><span class="sd">  Map the MGB1_MSGINSERTDESC data area, described in MVS Data Areas, Volume 2.</span>
+</span><span id="L-109"><a href="#L-109"><span class="linenos">109</span></a><span class="sd">  &quot;&quot;&quot;</span>
+</span><span id="L-110"><a href="#L-110"><span class="linenos">110</span></a>  <span class="c1"># The length of the insert. For a null insert, use a length of 0.</span>
+</span><span id="L-111"><a href="#L-111"><span class="linenos">111</span></a>  <span class="n">MGB1_MSGINSERTDESC_LENGTH</span> <span class="o">=</span> <span class="n">DS</span><span class="p">(</span><span class="s1">&#39;H&#39;</span><span class="p">)</span>
+</span><span id="L-112"><a href="#L-112"><span class="linenos">112</span></a>  <span class="c1"># Reserved</span>
+</span><span id="L-113"><a href="#L-113"><span class="linenos">113</span></a>  <span class="n">DS</span><span class="p">(</span><span class="s1">&#39;XL2&#39;</span><span class="p">)</span>
+</span><span id="L-114"><a href="#L-114"><span class="linenos">114</span></a>  <span class="c1"># The address of the insert. This need not be set when the length is 0.</span>
+</span><span id="L-115"><a href="#L-115"><span class="linenos">115</span></a>  <span class="n">MGB1_MSGINSERTDESC_ADDR</span> <span class="o">=</span> <span class="n">DS</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">)</span>
+</span><span id="L-116"><a href="#L-116"><span class="linenos">116</span></a>  <span class="c1"># &quot;256&quot; The maximum length of an insert.</span>
+</span><span id="L-117"><a href="#L-117"><span class="linenos">117</span></a>  <span class="n">MGB1_MSGINSERTLEN</span> <span class="o">=</span> <span class="mh">0x100</span>
+</span><span id="L-118"><a href="#L-118"><span class="linenos">118</span></a>  <span class="c1"># &quot;*-MGB1_MsgInsertDesc&quot;</span>
+</span><span id="L-119"><a href="#L-119"><span class="linenos">119</span></a>  <span class="n">MGB1_MSGINSERTDESC_LEN</span> <span class="o">=</span> <span class="mh">0x8</span>
+</span><span id="L-120"><a href="#L-120"><span class="linenos">120</span></a>
 </span><span id="L-121"><a href="#L-121"><span class="linenos">121</span></a><span class="c1">#-------------------------------------------------------------------#</span>
-</span><span id="L-122"><a href="#L-122"><span class="linenos">122</span></a>
-</span><span id="L-123"><a href="#L-123"><span class="linenos">123</span></a><span class="k">class</span><span class="w"> </span><span class="nc">HZSPQE</span><span class="p">(</span><span class="n">DSECT</span><span class="p">):</span>
-</span><span id="L-124"><a href="#L-124"><span class="linenos">124</span></a>  <span class="k">pass</span>
-</span><span id="L-125"><a href="#L-125"><span class="linenos">125</span></a>
-</span><span id="L-126"><a href="#L-126"><span class="linenos">126</span></a><span class="k">class</span><span class="w"> </span><span class="nc">PQE_LASTUPDATEDBY_TYPE</span><span class="p">(</span><span class="n">DSECT</span><span class="p">):</span>
-</span><span id="L-127"><a href="#L-127"><span class="linenos">127</span></a>	<span class="k">pass</span>
-</span><span id="L-128"><a href="#L-128"><span class="linenos">128</span></a>
-</span><span id="L-129"><a href="#L-129"><span class="linenos">129</span></a><span class="c1">#-------------------------------------------------------------------#</span>
-</span><span id="L-130"><a href="#L-130"><span class="linenos">130</span></a><span class="c1">#     HZSQUAA data areas.                                           #</span>
+</span><span id="L-122"><a href="#L-122"><span class="linenos">122</span></a><span class="c1">#     HZSPQE data areas.                                            #</span>
+</span><span id="L-123"><a href="#L-123"><span class="linenos">123</span></a><span class="c1">#-------------------------------------------------------------------#</span>
+</span><span id="L-124"><a href="#L-124"><span class="linenos">124</span></a>
+</span><span id="L-125"><a href="#L-125"><span class="linenos">125</span></a><span class="k">class</span><span class="w"> </span><span class="nc">HZSPQE</span><span class="p">(</span><span class="n">DSECT</span><span class="p">):</span>
+</span><span id="L-126"><a href="#L-126"><span class="linenos">126</span></a>  <span class="k">pass</span>
+</span><span id="L-127"><a href="#L-127"><span class="linenos">127</span></a>
+</span><span id="L-128"><a href="#L-128"><span class="linenos">128</span></a><span class="k">class</span><span class="w"> </span><span class="nc">PQE_LASTUPDATEDBY_TYPE</span><span class="p">(</span><span class="n">DSECT</span><span class="p">):</span>
+</span><span id="L-129"><a href="#L-129"><span class="linenos">129</span></a>	<span class="k">pass</span>
+</span><span id="L-130"><a href="#L-130"><span class="linenos">130</span></a>
 </span><span id="L-131"><a href="#L-131"><span class="linenos">131</span></a><span class="c1">#-------------------------------------------------------------------#</span>
-</span><span id="L-132"><a href="#L-132"><span class="linenos">132</span></a>
-</span><span id="L-133"><a href="#L-133"><span class="linenos">133</span></a><span class="k">class</span><span class="w"> </span><span class="nc">HZSQUAAHDR</span><span class="p">(</span><span class="n">DSECT</span><span class="p">):</span>
-</span><span id="L-134"><a href="#L-134"><span class="linenos">134</span></a>  <span class="k">pass</span>
-</span><span id="L-135"><a href="#L-135"><span class="linenos">135</span></a>  
-</span><span id="L-136"><a href="#L-136"><span class="linenos">136</span></a><span class="k">class</span><span class="w"> </span><span class="nc">HZSQUAAHDR64</span><span class="p">(</span><span class="n">DSECT</span><span class="p">):</span>
-</span><span id="L-137"><a href="#L-137"><span class="linenos">137</span></a>  <span class="k">pass</span>
-</span><span id="L-138"><a href="#L-138"><span class="linenos">138</span></a>  
-</span><span id="L-139"><a href="#L-139"><span class="linenos">139</span></a><span class="k">class</span><span class="w"> </span><span class="nc">HZSQUAAC</span><span class="p">(</span><span class="n">DSECT</span><span class="p">):</span>
-</span><span id="L-140"><a href="#L-140"><span class="linenos">140</span></a>  <span class="k">pass</span>
-</span><span id="L-141"><a href="#L-141"><span class="linenos">141</span></a>  
-</span><span id="L-142"><a href="#L-142"><span class="linenos">142</span></a><span class="k">class</span><span class="w"> </span><span class="nc">HZSQUAAC1</span><span class="p">(</span><span class="n">DSECT</span><span class="p">):</span>
-</span><span id="L-143"><a href="#L-143"><span class="linenos">143</span></a>  <span class="k">pass</span>
-</span><span id="L-144"><a href="#L-144"><span class="linenos">144</span></a>  
-</span><span id="L-145"><a href="#L-145"><span class="linenos">145</span></a><span class="k">class</span><span class="w"> </span><span class="nc">HZSQUAAG</span><span class="p">(</span><span class="n">DSECT</span><span class="p">):</span>
-</span><span id="L-146"><a href="#L-146"><span class="linenos">146</span></a>  <span class="k">pass</span>
-</span><span id="L-147"><a href="#L-147"><span class="linenos">147</span></a>  
-</span><span id="L-148"><a href="#L-148"><span class="linenos">148</span></a><span class="k">class</span><span class="w"> </span><span class="nc">HZSQUAACS</span><span class="p">(</span><span class="n">DSECT</span><span class="p">):</span>
-</span><span id="L-149"><a href="#L-149"><span class="linenos">149</span></a>  <span class="k">pass</span>
-</span><span id="L-150"><a href="#L-150"><span class="linenos">150</span></a>  
-</span><span id="L-151"><a href="#L-151"><span class="linenos">151</span></a><span class="c1">#-------------------------------------------------------------------#</span>
-</span><span id="L-152"><a href="#L-152"><span class="linenos">152</span></a><span class="c1">#     HZSCONS data areas.                                           #</span>
+</span><span id="L-132"><a href="#L-132"><span class="linenos">132</span></a><span class="c1">#     HZSQUAA data areas.                                           #</span>
+</span><span id="L-133"><a href="#L-133"><span class="linenos">133</span></a><span class="c1">#-------------------------------------------------------------------#</span>
+</span><span id="L-134"><a href="#L-134"><span class="linenos">134</span></a>
+</span><span id="L-135"><a href="#L-135"><span class="linenos">135</span></a><span class="k">class</span><span class="w"> </span><span class="nc">HZSQUAAHDR</span><span class="p">(</span><span class="n">DSECT</span><span class="p">):</span>
+</span><span id="L-136"><a href="#L-136"><span class="linenos">136</span></a>  <span class="k">pass</span>
+</span><span id="L-137"><a href="#L-137"><span class="linenos">137</span></a>  
+</span><span id="L-138"><a href="#L-138"><span class="linenos">138</span></a><span class="k">class</span><span class="w"> </span><span class="nc">HZSQUAAHDR64</span><span class="p">(</span><span class="n">DSECT</span><span class="p">):</span>
+</span><span id="L-139"><a href="#L-139"><span class="linenos">139</span></a>  <span class="k">pass</span>
+</span><span id="L-140"><a href="#L-140"><span class="linenos">140</span></a>  
+</span><span id="L-141"><a href="#L-141"><span class="linenos">141</span></a><span class="k">class</span><span class="w"> </span><span class="nc">HZSQUAAC</span><span class="p">(</span><span class="n">DSECT</span><span class="p">):</span>
+</span><span id="L-142"><a href="#L-142"><span class="linenos">142</span></a>  <span class="k">pass</span>
+</span><span id="L-143"><a href="#L-143"><span class="linenos">143</span></a>  
+</span><span id="L-144"><a href="#L-144"><span class="linenos">144</span></a><span class="k">class</span><span class="w"> </span><span class="nc">HZSQUAAC1</span><span class="p">(</span><span class="n">DSECT</span><span class="p">):</span>
+</span><span id="L-145"><a href="#L-145"><span class="linenos">145</span></a>  <span class="k">pass</span>
+</span><span id="L-146"><a href="#L-146"><span class="linenos">146</span></a>  
+</span><span id="L-147"><a href="#L-147"><span class="linenos">147</span></a><span class="k">class</span><span class="w"> </span><span class="nc">HZSQUAAG</span><span class="p">(</span><span class="n">DSECT</span><span class="p">):</span>
+</span><span id="L-148"><a href="#L-148"><span class="linenos">148</span></a>  <span class="k">pass</span>
+</span><span id="L-149"><a href="#L-149"><span class="linenos">149</span></a>  
+</span><span id="L-150"><a href="#L-150"><span class="linenos">150</span></a><span class="k">class</span><span class="w"> </span><span class="nc">HZSQUAACS</span><span class="p">(</span><span class="n">DSECT</span><span class="p">):</span>
+</span><span id="L-151"><a href="#L-151"><span class="linenos">151</span></a>  <span class="k">pass</span>
+</span><span id="L-152"><a href="#L-152"><span class="linenos">152</span></a>  
 </span><span id="L-153"><a href="#L-153"><span class="linenos">153</span></a><span class="c1">#-------------------------------------------------------------------#</span>
-</span><span id="L-154"><a href="#L-154"><span class="linenos">154</span></a>
+</span><span id="L-154"><a href="#L-154"><span class="linenos">154</span></a><span class="c1">#     HZSCONS data areas.                                           #</span>
 </span><span id="L-155"><a href="#L-155"><span class="linenos">155</span></a><span class="c1">#-------------------------------------------------------------------#</span>
-</span><span id="L-156"><a href="#L-156"><span class="linenos">156</span></a><span class="c1">#     HZSZCPAR data areas.                                          #</span>
+</span><span id="L-156"><a href="#L-156"><span class="linenos">156</span></a>
 </span><span id="L-157"><a href="#L-157"><span class="linenos">157</span></a><span class="c1">#-------------------------------------------------------------------#</span>
-</span><span id="L-158"><a href="#L-158"><span class="linenos">158</span></a>
-</span><span id="L-159"><a href="#L-159"><span class="linenos">159</span></a><span class="k">class</span><span class="w"> </span><span class="nc">CPARAREA</span><span class="p">(</span><span class="n">DSECT</span><span class="p">):</span>
-</span><span id="L-160"><a href="#L-160"><span class="linenos">160</span></a>  <span class="k">pass</span>
-</span><span id="L-161"><a href="#L-161"><span class="linenos">161</span></a>  
-</span><span id="L-162"><a href="#L-162"><span class="linenos">162</span></a><span class="k">class</span><span class="w"> </span><span class="nc">CPARKEYWORDENTRY</span><span class="p">(</span><span class="n">DSECT</span><span class="p">):</span>
-</span><span id="L-163"><a href="#L-163"><span class="linenos">163</span></a>  <span class="k">pass</span>
-</span><span id="L-164"><a href="#L-164"><span class="linenos">164</span></a>  
-</span><span id="L-165"><a href="#L-165"><span class="linenos">165</span></a><span class="k">class</span><span class="w"> </span><span class="nc">CPARKEYWORDVALUEENTRY</span><span class="p">(</span><span class="n">DSECT</span><span class="p">):</span>
-</span><span id="L-166"><a href="#L-166"><span class="linenos">166</span></a>  <span class="k">pass</span>
-</span><span id="L-167"><a href="#L-167"><span class="linenos">167</span></a>  
-</span><span id="L-168"><a href="#L-168"><span class="linenos">168</span></a><span class="k">class</span><span class="w"> </span><span class="nc">CPARKEYWORDINFO</span><span class="p">(</span><span class="n">DSECT</span><span class="p">):</span>
-</span><span id="L-169"><a href="#L-169"><span class="linenos">169</span></a>  <span class="k">pass</span>
-</span><span id="L-170"><a href="#L-170"><span class="linenos">170</span></a>  
-</span><span id="L-171"><a href="#L-171"><span class="linenos">171</span></a><span class="k">class</span><span class="w"> </span><span class="nc">CPARKEYWORDFLAGS</span><span class="p">(</span><span class="n">DSECT</span><span class="p">):</span>
-</span><span id="L-172"><a href="#L-172"><span class="linenos">172</span></a>  <span class="k">pass</span>
-</span><span id="L-173"><a href="#L-173"><span class="linenos">173</span></a>  
-</span><span id="L-174"><a href="#L-174"><span class="linenos">174</span></a><span class="k">class</span><span class="w"> </span><span class="nc">CPARKEYWORDDATA</span><span class="p">(</span><span class="n">DSECT</span><span class="p">):</span>
-</span><span id="L-175"><a href="#L-175"><span class="linenos">175</span></a>  <span class="k">pass</span>
-</span><span id="L-176"><a href="#L-176"><span class="linenos">176</span></a>
-</span><span id="L-177"><a href="#L-177"><span class="linenos">177</span></a><span class="c1">#-------------------------------------------------------------------#</span>
-</span><span id="L-178"><a href="#L-178"><span class="linenos">178</span></a><span class="c1">#     HZSZENF data areas.                                           #</span>
+</span><span id="L-158"><a href="#L-158"><span class="linenos">158</span></a><span class="c1">#     HZSZCPAR data areas.                                          #</span>
+</span><span id="L-159"><a href="#L-159"><span class="linenos">159</span></a><span class="c1">#-------------------------------------------------------------------#</span>
+</span><span id="L-160"><a href="#L-160"><span class="linenos">160</span></a>
+</span><span id="L-161"><a href="#L-161"><span class="linenos">161</span></a><span class="k">class</span><span class="w"> </span><span class="nc">CPARAREA</span><span class="p">(</span><span class="n">DSECT</span><span class="p">):</span>
+</span><span id="L-162"><a href="#L-162"><span class="linenos">162</span></a>  <span class="k">pass</span>
+</span><span id="L-163"><a href="#L-163"><span class="linenos">163</span></a>  
+</span><span id="L-164"><a href="#L-164"><span class="linenos">164</span></a><span class="k">class</span><span class="w"> </span><span class="nc">CPARKEYWORDENTRY</span><span class="p">(</span><span class="n">DSECT</span><span class="p">):</span>
+</span><span id="L-165"><a href="#L-165"><span class="linenos">165</span></a>  <span class="k">pass</span>
+</span><span id="L-166"><a href="#L-166"><span class="linenos">166</span></a>  
+</span><span id="L-167"><a href="#L-167"><span class="linenos">167</span></a><span class="k">class</span><span class="w"> </span><span class="nc">CPARKEYWORDVALUEENTRY</span><span class="p">(</span><span class="n">DSECT</span><span class="p">):</span>
+</span><span id="L-168"><a href="#L-168"><span class="linenos">168</span></a>  <span class="k">pass</span>
+</span><span id="L-169"><a href="#L-169"><span class="linenos">169</span></a>  
+</span><span id="L-170"><a href="#L-170"><span class="linenos">170</span></a><span class="k">class</span><span class="w"> </span><span class="nc">CPARKEYWORDINFO</span><span class="p">(</span><span class="n">DSECT</span><span class="p">):</span>
+</span><span id="L-171"><a href="#L-171"><span class="linenos">171</span></a>  <span class="k">pass</span>
+</span><span id="L-172"><a href="#L-172"><span class="linenos">172</span></a>  
+</span><span id="L-173"><a href="#L-173"><span class="linenos">173</span></a><span class="k">class</span><span class="w"> </span><span class="nc">CPARKEYWORDFLAGS</span><span class="p">(</span><span class="n">DSECT</span><span class="p">):</span>
+</span><span id="L-174"><a href="#L-174"><span class="linenos">174</span></a>  <span class="k">pass</span>
+</span><span id="L-175"><a href="#L-175"><span class="linenos">175</span></a>  
+</span><span id="L-176"><a href="#L-176"><span class="linenos">176</span></a><span class="k">class</span><span class="w"> </span><span class="nc">CPARKEYWORDDATA</span><span class="p">(</span><span class="n">DSECT</span><span class="p">):</span>
+</span><span id="L-177"><a href="#L-177"><span class="linenos">177</span></a>  <span class="k">pass</span>
+</span><span id="L-178"><a href="#L-178"><span class="linenos">178</span></a>
 </span><span id="L-179"><a href="#L-179"><span class="linenos">179</span></a><span class="c1">#-------------------------------------------------------------------#</span>
-</span><span id="L-180"><a href="#L-180"><span class="linenos">180</span></a>
-</span><span id="L-181"><a href="#L-181"><span class="linenos">181</span></a><span class="k">class</span><span class="w"> </span><span class="nc">ENF067</span><span class="p">(</span><span class="n">DSECT</span><span class="p">):</span>
-</span><span id="L-182"><a href="#L-182"><span class="linenos">182</span></a>  <span class="k">pass</span>
-</span><span id="L-183"><a href="#L-183"><span class="linenos">183</span></a>  
-</span><span id="L-184"><a href="#L-184"><span class="linenos">184</span></a><span class="k">class</span><span class="w"> </span><span class="nc">ENF067_BITQUAL</span><span class="p">(</span><span class="n">DSECT</span><span class="p">):</span>
-</span><span id="L-185"><a href="#L-185"><span class="linenos">185</span></a>  <span class="k">pass</span>
-</span><span id="L-186"><a href="#L-186"><span class="linenos">186</span></a>  
-</span><span id="L-187"><a href="#L-187"><span class="linenos">187</span></a><span class="c1">#-------------------------------------------------------------------#</span>
-</span><span id="L-188"><a href="#L-188"><span class="linenos">188</span></a><span class="c1">#     HZSZHCKL data areas.                                          # </span>
+</span><span id="L-180"><a href="#L-180"><span class="linenos">180</span></a><span class="c1">#     HZSZENF data areas.                                           #</span>
+</span><span id="L-181"><a href="#L-181"><span class="linenos">181</span></a><span class="c1">#-------------------------------------------------------------------#</span>
+</span><span id="L-182"><a href="#L-182"><span class="linenos">182</span></a>
+</span><span id="L-183"><a href="#L-183"><span class="linenos">183</span></a><span class="k">class</span><span class="w"> </span><span class="nc">ENF067</span><span class="p">(</span><span class="n">DSECT</span><span class="p">):</span>
+</span><span id="L-184"><a href="#L-184"><span class="linenos">184</span></a>  <span class="k">pass</span>
+</span><span id="L-185"><a href="#L-185"><span class="linenos">185</span></a>  
+</span><span id="L-186"><a href="#L-186"><span class="linenos">186</span></a><span class="k">class</span><span class="w"> </span><span class="nc">ENF067_BITQUAL</span><span class="p">(</span><span class="n">DSECT</span><span class="p">):</span>
+</span><span id="L-187"><a href="#L-187"><span class="linenos">187</span></a>  <span class="k">pass</span>
+</span><span id="L-188"><a href="#L-188"><span class="linenos">188</span></a>  
 </span><span id="L-189"><a href="#L-189"><span class="linenos">189</span></a><span class="c1">#-------------------------------------------------------------------#</span>
-</span><span id="L-190"><a href="#L-190"><span class="linenos">190</span></a>
-</span><span id="L-191"><a href="#L-191"><span class="linenos">191</span></a><span class="k">class</span><span class="w"> </span><span class="nc">HCKLOG</span><span class="p">(</span><span class="n">DSECT</span><span class="p">):</span>
-</span><span id="L-192"><a href="#L-192"><span class="linenos">192</span></a>  <span class="k">pass</span>
-</span><span id="L-193"><a href="#L-193"><span class="linenos">193</span></a>  
-</span><span id="L-194"><a href="#L-194"><span class="linenos">194</span></a><span class="k">class</span><span class="w"> </span><span class="nc">HCKLOGE</span><span class="p">(</span><span class="n">DSECT</span><span class="p">):</span>
-</span><span id="L-195"><a href="#L-195"><span class="linenos">195</span></a>  <span class="k">pass</span>
-</span><span id="L-196"><a href="#L-196"><span class="linenos">196</span></a>  
-</span><span id="L-197"><a href="#L-197"><span class="linenos">197</span></a><span class="c1">#-------------------------------------------------------------------#</span>
-</span><span id="L-198"><a href="#L-198"><span class="linenos">198</span></a><span class="c1">#     Tests.                                                        #</span>
+</span><span id="L-190"><a href="#L-190"><span class="linenos">190</span></a><span class="c1">#     HZSZHCKL data areas.                                          # </span>
+</span><span id="L-191"><a href="#L-191"><span class="linenos">191</span></a><span class="c1">#-------------------------------------------------------------------#</span>
+</span><span id="L-192"><a href="#L-192"><span class="linenos">192</span></a>
+</span><span id="L-193"><a href="#L-193"><span class="linenos">193</span></a><span class="k">class</span><span class="w"> </span><span class="nc">HCKLOG</span><span class="p">(</span><span class="n">DSECT</span><span class="p">):</span>
+</span><span id="L-194"><a href="#L-194"><span class="linenos">194</span></a>  <span class="k">pass</span>
+</span><span id="L-195"><a href="#L-195"><span class="linenos">195</span></a>  
+</span><span id="L-196"><a href="#L-196"><span class="linenos">196</span></a><span class="k">class</span><span class="w"> </span><span class="nc">HCKLOGE</span><span class="p">(</span><span class="n">DSECT</span><span class="p">):</span>
+</span><span id="L-197"><a href="#L-197"><span class="linenos">197</span></a>  <span class="k">pass</span>
+</span><span id="L-198"><a href="#L-198"><span class="linenos">198</span></a>  
 </span><span id="L-199"><a href="#L-199"><span class="linenos">199</span></a><span class="c1">#-------------------------------------------------------------------#</span>
-</span><span id="L-200"><a href="#L-200"><span class="linenos">200</span></a>
-</span><span id="L-201"><a href="#L-201"><span class="linenos">201</span></a><span class="k">class</span><span class="w"> </span><span class="nc">TestHealth</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
-</span><span id="L-202"><a href="#L-202"><span class="linenos">202</span></a><span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="L-203"><a href="#L-203"><span class="linenos">203</span></a><span class="sd">  Tests for the `health.py` module.</span>
-</span><span id="L-204"><a href="#L-204"><span class="linenos">204</span></a><span class="sd">  &quot;&quot;&quot;</span>
-</span><span id="L-205"><a href="#L-205"><span class="linenos">205</span></a>  <span class="k">def</span><span class="w"> </span><span class="nf">test_hzsdpqe</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="L-206"><a href="#L-206"><span class="linenos">206</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="L-207"><a href="#L-207"><span class="linenos">207</span></a><span class="sd">    Create and destroy all DSECTs defined in the HZSDPQEMGB data area.</span>
-</span><span id="L-208"><a href="#L-208"><span class="linenos">208</span></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="L-209"><a href="#L-209"><span class="linenos">209</span></a>    <span class="n">dsects</span> <span class="o">=</span> <span class="p">(</span><span class="n">HZSDPQE</span><span class="p">,</span> <span class="n">DPQE_LASTUPDATEDBY_TYPE</span><span class="p">)</span>
-</span><span id="L-210"><a href="#L-210"><span class="linenos">210</span></a>    <span class="k">for</span> <span class="n">D</span> <span class="ow">in</span> <span class="n">dsects</span><span class="p">:</span>
-</span><span id="L-211"><a href="#L-211"><span class="linenos">211</span></a>      <span class="n">d</span> <span class="o">=</span> <span class="n">D</span><span class="p">()</span>
-</span><span id="L-212"><a href="#L-212"><span class="linenos">212</span></a>      <span class="k">del</span> <span class="n">d</span>
-</span><span id="L-213"><a href="#L-213"><span class="linenos">213</span></a>
-</span><span id="L-214"><a href="#L-214"><span class="linenos">214</span></a>  <span class="k">def</span><span class="w"> </span><span class="nf">test_hzsmgb</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="L-215"><a href="#L-215"><span class="linenos">215</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="L-216"><a href="#L-216"><span class="linenos">216</span></a><span class="sd">    Create and destroy all DSECTs defined in the HZSMGB data area.</span>
-</span><span id="L-217"><a href="#L-217"><span class="linenos">217</span></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="L-218"><a href="#L-218"><span class="linenos">218</span></a>    <span class="n">dsects</span> <span class="o">=</span> <span class="p">(</span><span class="n">HZSMGB</span><span class="p">,</span> <span class="n">MGB_MSGINSERTD</span><span class="p">,</span> <span class="n">HZSMGB1</span><span class="p">,</span> <span class="n">MGB1_MSGINSERTDESC</span><span class="p">)</span>
-</span><span id="L-219"><a href="#L-219"><span class="linenos">219</span></a>    <span class="k">for</span> <span class="n">D</span> <span class="ow">in</span> <span class="n">dsects</span><span class="p">:</span>
-</span><span id="L-220"><a href="#L-220"><span class="linenos">220</span></a>      <span class="n">d</span> <span class="o">=</span> <span class="n">D</span><span class="p">()</span>
-</span><span id="L-221"><a href="#L-221"><span class="linenos">221</span></a>      <span class="k">del</span> <span class="n">d</span>
-</span><span id="L-222"><a href="#L-222"><span class="linenos">222</span></a>
-</span><span id="L-223"><a href="#L-223"><span class="linenos">223</span></a>  <span class="k">def</span><span class="w"> </span><span class="nf">test_hzspqe</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="L-224"><a href="#L-224"><span class="linenos">224</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="L-225"><a href="#L-225"><span class="linenos">225</span></a><span class="sd">    Create and destroy all DSECTs defined in the HZSPQE data area.</span>
-</span><span id="L-226"><a href="#L-226"><span class="linenos">226</span></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="L-227"><a href="#L-227"><span class="linenos">227</span></a>    <span class="n">dsects</span> <span class="o">=</span> <span class="p">(</span><span class="n">HZSPQE</span><span class="p">,</span> <span class="n">PQE_LASTUPDATEDBY_TYPE</span><span class="p">)</span>
-</span><span id="L-228"><a href="#L-228"><span class="linenos">228</span></a>    <span class="k">for</span> <span class="n">D</span> <span class="ow">in</span> <span class="n">dsects</span><span class="p">:</span>
-</span><span id="L-229"><a href="#L-229"><span class="linenos">229</span></a>      <span class="n">d</span> <span class="o">=</span> <span class="n">D</span><span class="p">()</span>
-</span><span id="L-230"><a href="#L-230"><span class="linenos">230</span></a>      <span class="k">del</span> <span class="n">d</span>
-</span><span id="L-231"><a href="#L-231"><span class="linenos">231</span></a>
-</span><span id="L-232"><a href="#L-232"><span class="linenos">232</span></a>  <span class="k">def</span><span class="w"> </span><span class="nf">test_hzsquaa</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="L-233"><a href="#L-233"><span class="linenos">233</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="L-234"><a href="#L-234"><span class="linenos">234</span></a><span class="sd">    Create and destroy all DSECTs defined in the HZSQUAA data area.</span>
-</span><span id="L-235"><a href="#L-235"><span class="linenos">235</span></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="L-236"><a href="#L-236"><span class="linenos">236</span></a>    <span class="n">dsects</span> <span class="o">=</span> <span class="p">(</span><span class="n">HZSQUAAHDR</span><span class="p">,</span> <span class="n">HZSQUAAHDR64</span><span class="p">,</span> <span class="n">HZSQUAAC</span><span class="p">,</span> <span class="n">HZSQUAAC1</span><span class="p">,</span> <span class="n">HZSQUAAG</span><span class="p">,</span> <span class="n">HZSQUAACS</span><span class="p">)</span>
-</span><span id="L-237"><a href="#L-237"><span class="linenos">237</span></a>    <span class="k">for</span> <span class="n">D</span> <span class="ow">in</span> <span class="n">dsects</span><span class="p">:</span>
-</span><span id="L-238"><a href="#L-238"><span class="linenos">238</span></a>      <span class="n">d</span> <span class="o">=</span> <span class="n">D</span><span class="p">()</span>
-</span><span id="L-239"><a href="#L-239"><span class="linenos">239</span></a>      <span class="k">del</span> <span class="n">d</span>
-</span><span id="L-240"><a href="#L-240"><span class="linenos">240</span></a>
-</span><span id="L-241"><a href="#L-241"><span class="linenos">241</span></a>  <span class="k">def</span><span class="w"> </span><span class="nf">test_hzszcons</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="L-242"><a href="#L-242"><span class="linenos">242</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="L-243"><a href="#L-243"><span class="linenos">243</span></a><span class="sd">    Create and destroy all DSECTs defined in the HZSZCONS data area.</span>
-</span><span id="L-244"><a href="#L-244"><span class="linenos">244</span></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="L-245"><a href="#L-245"><span class="linenos">245</span></a>    <span class="n">dsects</span> <span class="o">=</span> <span class="p">[]</span>
-</span><span id="L-246"><a href="#L-246"><span class="linenos">246</span></a>    <span class="k">for</span> <span class="n">D</span> <span class="ow">in</span> <span class="n">dsects</span><span class="p">:</span>
-</span><span id="L-247"><a href="#L-247"><span class="linenos">247</span></a>      <span class="n">d</span> <span class="o">=</span> <span class="n">D</span><span class="p">()</span>
-</span><span id="L-248"><a href="#L-248"><span class="linenos">248</span></a>      <span class="k">del</span> <span class="n">d</span>
-</span><span id="L-249"><a href="#L-249"><span class="linenos">249</span></a>
-</span><span id="L-250"><a href="#L-250"><span class="linenos">250</span></a>  <span class="k">def</span><span class="w"> </span><span class="nf">test_hzscpar</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="L-251"><a href="#L-251"><span class="linenos">251</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="L-252"><a href="#L-252"><span class="linenos">252</span></a><span class="sd">    Create and destroy all DSECTs defined in the HZSCPAR data area.</span>
-</span><span id="L-253"><a href="#L-253"><span class="linenos">253</span></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="L-254"><a href="#L-254"><span class="linenos">254</span></a>    <span class="n">dsects</span> <span class="o">=</span> <span class="p">(</span><span class="n">CPARAREA</span><span class="p">,</span> <span class="n">CPARKEYWORDENTRY</span><span class="p">,</span> <span class="n">CPARKEYWORDVALUEENTRY</span><span class="p">,</span>
-</span><span id="L-255"><a href="#L-255"><span class="linenos">255</span></a>      <span class="n">CPARKEYWORDINFO</span><span class="p">,</span> <span class="n">CPARKEYWORDFLAGS</span><span class="p">,</span> <span class="n">CPARKEYWORDDATA</span><span class="p">)</span>
-</span><span id="L-256"><a href="#L-256"><span class="linenos">256</span></a>    <span class="k">for</span> <span class="n">D</span> <span class="ow">in</span> <span class="n">dsects</span><span class="p">:</span>
-</span><span id="L-257"><a href="#L-257"><span class="linenos">257</span></a>      <span class="n">d</span> <span class="o">=</span> <span class="n">D</span><span class="p">()</span>
-</span><span id="L-258"><a href="#L-258"><span class="linenos">258</span></a>      <span class="k">del</span> <span class="n">d</span>
-</span><span id="L-259"><a href="#L-259"><span class="linenos">259</span></a>
-</span><span id="L-260"><a href="#L-260"><span class="linenos">260</span></a>  <span class="k">def</span><span class="w"> </span><span class="nf">test_hzszenf</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="L-261"><a href="#L-261"><span class="linenos">261</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="L-262"><a href="#L-262"><span class="linenos">262</span></a><span class="sd">    Create and destroy all DSECTs defined in the HZSCZENF data area.</span>
-</span><span id="L-263"><a href="#L-263"><span class="linenos">263</span></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="L-264"><a href="#L-264"><span class="linenos">264</span></a>    <span class="n">dsects</span> <span class="o">=</span> <span class="p">(</span><span class="n">ENF067</span><span class="p">,</span> <span class="n">ENF067_BITQUAL</span><span class="p">)</span>
-</span><span id="L-265"><a href="#L-265"><span class="linenos">265</span></a>    <span class="k">for</span> <span class="n">D</span> <span class="ow">in</span> <span class="n">dsects</span><span class="p">:</span>
-</span><span id="L-266"><a href="#L-266"><span class="linenos">266</span></a>      <span class="n">d</span> <span class="o">=</span> <span class="n">D</span><span class="p">()</span>
-</span><span id="L-267"><a href="#L-267"><span class="linenos">267</span></a>      <span class="k">del</span> <span class="n">d</span>
-</span><span id="L-268"><a href="#L-268"><span class="linenos">268</span></a>
-</span><span id="L-269"><a href="#L-269"><span class="linenos">269</span></a>  <span class="k">def</span><span class="w"> </span><span class="nf">test_hzszhckl</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="L-270"><a href="#L-270"><span class="linenos">270</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="L-271"><a href="#L-271"><span class="linenos">271</span></a><span class="sd">    Create and destroy all DSECTs defined in the HZSZHCKL data area.</span>
-</span><span id="L-272"><a href="#L-272"><span class="linenos">272</span></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="L-273"><a href="#L-273"><span class="linenos">273</span></a>    <span class="n">dsects</span> <span class="o">=</span> <span class="p">(</span><span class="n">HCKLOG</span><span class="p">,</span> <span class="n">HCKLOGE</span><span class="p">)</span>
-</span><span id="L-274"><a href="#L-274"><span class="linenos">274</span></a>    <span class="k">for</span> <span class="n">D</span> <span class="ow">in</span> <span class="n">dsects</span><span class="p">:</span>
-</span><span id="L-275"><a href="#L-275"><span class="linenos">275</span></a>      <span class="n">d</span> <span class="o">=</span> <span class="n">D</span><span class="p">()</span>
-</span><span id="L-276"><a href="#L-276"><span class="linenos">276</span></a>      <span class="k">del</span> <span class="n">d</span>
+</span><span id="L-200"><a href="#L-200"><span class="linenos">200</span></a><span class="c1">#     Tests.                                                        #</span>
+</span><span id="L-201"><a href="#L-201"><span class="linenos">201</span></a><span class="c1">#-------------------------------------------------------------------#</span>
+</span><span id="L-202"><a href="#L-202"><span class="linenos">202</span></a>
+</span><span id="L-203"><a href="#L-203"><span class="linenos">203</span></a><span class="k">class</span><span class="w"> </span><span class="nc">TestHealth</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+</span><span id="L-204"><a href="#L-204"><span class="linenos">204</span></a><span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="L-205"><a href="#L-205"><span class="linenos">205</span></a><span class="sd">  Tests for the `health.py` module.</span>
+</span><span id="L-206"><a href="#L-206"><span class="linenos">206</span></a><span class="sd">  &quot;&quot;&quot;</span>
+</span><span id="L-207"><a href="#L-207"><span class="linenos">207</span></a>  <span class="k">def</span><span class="w"> </span><span class="nf">test_hzsdpqe</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="L-208"><a href="#L-208"><span class="linenos">208</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="L-209"><a href="#L-209"><span class="linenos">209</span></a><span class="sd">    Create and destroy all DSECTs defined in the HZSDPQEMGB data area.</span>
+</span><span id="L-210"><a href="#L-210"><span class="linenos">210</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="L-211"><a href="#L-211"><span class="linenos">211</span></a>    <span class="n">dsects</span> <span class="o">=</span> <span class="p">(</span><span class="n">HZSDPQE</span><span class="p">,</span> <span class="n">DPQE_LASTUPDATEDBY_TYPE</span><span class="p">)</span>
+</span><span id="L-212"><a href="#L-212"><span class="linenos">212</span></a>    <span class="k">for</span> <span class="n">D</span> <span class="ow">in</span> <span class="n">dsects</span><span class="p">:</span>
+</span><span id="L-213"><a href="#L-213"><span class="linenos">213</span></a>      <span class="n">d</span> <span class="o">=</span> <span class="n">D</span><span class="p">()</span>
+</span><span id="L-214"><a href="#L-214"><span class="linenos">214</span></a>      <span class="k">del</span> <span class="n">d</span>
+</span><span id="L-215"><a href="#L-215"><span class="linenos">215</span></a>
+</span><span id="L-216"><a href="#L-216"><span class="linenos">216</span></a>  <span class="k">def</span><span class="w"> </span><span class="nf">test_hzsmgb</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="L-217"><a href="#L-217"><span class="linenos">217</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="L-218"><a href="#L-218"><span class="linenos">218</span></a><span class="sd">    Create and destroy all DSECTs defined in the HZSMGB data area.</span>
+</span><span id="L-219"><a href="#L-219"><span class="linenos">219</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="L-220"><a href="#L-220"><span class="linenos">220</span></a>    <span class="n">dsects</span> <span class="o">=</span> <span class="p">(</span><span class="n">HZSMGB</span><span class="p">,</span> <span class="n">MGB_MSGINSERTD</span><span class="p">,</span> <span class="n">HZSMGB1</span><span class="p">,</span> <span class="n">MGB1_MSGINSERTDESC</span><span class="p">)</span>
+</span><span id="L-221"><a href="#L-221"><span class="linenos">221</span></a>    <span class="k">for</span> <span class="n">D</span> <span class="ow">in</span> <span class="n">dsects</span><span class="p">:</span>
+</span><span id="L-222"><a href="#L-222"><span class="linenos">222</span></a>      <span class="n">d</span> <span class="o">=</span> <span class="n">D</span><span class="p">()</span>
+</span><span id="L-223"><a href="#L-223"><span class="linenos">223</span></a>      <span class="k">del</span> <span class="n">d</span>
+</span><span id="L-224"><a href="#L-224"><span class="linenos">224</span></a>
+</span><span id="L-225"><a href="#L-225"><span class="linenos">225</span></a>  <span class="k">def</span><span class="w"> </span><span class="nf">test_hzspqe</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="L-226"><a href="#L-226"><span class="linenos">226</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="L-227"><a href="#L-227"><span class="linenos">227</span></a><span class="sd">    Create and destroy all DSECTs defined in the HZSPQE data area.</span>
+</span><span id="L-228"><a href="#L-228"><span class="linenos">228</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="L-229"><a href="#L-229"><span class="linenos">229</span></a>    <span class="n">dsects</span> <span class="o">=</span> <span class="p">(</span><span class="n">HZSPQE</span><span class="p">,</span> <span class="n">PQE_LASTUPDATEDBY_TYPE</span><span class="p">)</span>
+</span><span id="L-230"><a href="#L-230"><span class="linenos">230</span></a>    <span class="k">for</span> <span class="n">D</span> <span class="ow">in</span> <span class="n">dsects</span><span class="p">:</span>
+</span><span id="L-231"><a href="#L-231"><span class="linenos">231</span></a>      <span class="n">d</span> <span class="o">=</span> <span class="n">D</span><span class="p">()</span>
+</span><span id="L-232"><a href="#L-232"><span class="linenos">232</span></a>      <span class="k">del</span> <span class="n">d</span>
+</span><span id="L-233"><a href="#L-233"><span class="linenos">233</span></a>
+</span><span id="L-234"><a href="#L-234"><span class="linenos">234</span></a>  <span class="k">def</span><span class="w"> </span><span class="nf">test_hzsquaa</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="L-235"><a href="#L-235"><span class="linenos">235</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="L-236"><a href="#L-236"><span class="linenos">236</span></a><span class="sd">    Create and destroy all DSECTs defined in the HZSQUAA data area.</span>
+</span><span id="L-237"><a href="#L-237"><span class="linenos">237</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="L-238"><a href="#L-238"><span class="linenos">238</span></a>    <span class="n">dsects</span> <span class="o">=</span> <span class="p">(</span><span class="n">HZSQUAAHDR</span><span class="p">,</span> <span class="n">HZSQUAAHDR64</span><span class="p">,</span> <span class="n">HZSQUAAC</span><span class="p">,</span> <span class="n">HZSQUAAC1</span><span class="p">,</span> <span class="n">HZSQUAAG</span><span class="p">,</span> <span class="n">HZSQUAACS</span><span class="p">)</span>
+</span><span id="L-239"><a href="#L-239"><span class="linenos">239</span></a>    <span class="k">for</span> <span class="n">D</span> <span class="ow">in</span> <span class="n">dsects</span><span class="p">:</span>
+</span><span id="L-240"><a href="#L-240"><span class="linenos">240</span></a>      <span class="n">d</span> <span class="o">=</span> <span class="n">D</span><span class="p">()</span>
+</span><span id="L-241"><a href="#L-241"><span class="linenos">241</span></a>      <span class="k">del</span> <span class="n">d</span>
+</span><span id="L-242"><a href="#L-242"><span class="linenos">242</span></a>
+</span><span id="L-243"><a href="#L-243"><span class="linenos">243</span></a>  <span class="k">def</span><span class="w"> </span><span class="nf">test_hzszcons</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="L-244"><a href="#L-244"><span class="linenos">244</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="L-245"><a href="#L-245"><span class="linenos">245</span></a><span class="sd">    Create and destroy all DSECTs defined in the HZSZCONS data area.</span>
+</span><span id="L-246"><a href="#L-246"><span class="linenos">246</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="L-247"><a href="#L-247"><span class="linenos">247</span></a>    <span class="n">dsects</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span id="L-248"><a href="#L-248"><span class="linenos">248</span></a>    <span class="k">for</span> <span class="n">D</span> <span class="ow">in</span> <span class="n">dsects</span><span class="p">:</span>
+</span><span id="L-249"><a href="#L-249"><span class="linenos">249</span></a>      <span class="n">d</span> <span class="o">=</span> <span class="n">D</span><span class="p">()</span>
+</span><span id="L-250"><a href="#L-250"><span class="linenos">250</span></a>      <span class="k">del</span> <span class="n">d</span>
+</span><span id="L-251"><a href="#L-251"><span class="linenos">251</span></a>
+</span><span id="L-252"><a href="#L-252"><span class="linenos">252</span></a>  <span class="k">def</span><span class="w"> </span><span class="nf">test_hzscpar</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="L-253"><a href="#L-253"><span class="linenos">253</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="L-254"><a href="#L-254"><span class="linenos">254</span></a><span class="sd">    Create and destroy all DSECTs defined in the HZSCPAR data area.</span>
+</span><span id="L-255"><a href="#L-255"><span class="linenos">255</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="L-256"><a href="#L-256"><span class="linenos">256</span></a>    <span class="n">dsects</span> <span class="o">=</span> <span class="p">(</span><span class="n">CPARAREA</span><span class="p">,</span> <span class="n">CPARKEYWORDENTRY</span><span class="p">,</span> <span class="n">CPARKEYWORDVALUEENTRY</span><span class="p">,</span>
+</span><span id="L-257"><a href="#L-257"><span class="linenos">257</span></a>      <span class="n">CPARKEYWORDINFO</span><span class="p">,</span> <span class="n">CPARKEYWORDFLAGS</span><span class="p">,</span> <span class="n">CPARKEYWORDDATA</span><span class="p">)</span>
+</span><span id="L-258"><a href="#L-258"><span class="linenos">258</span></a>    <span class="k">for</span> <span class="n">D</span> <span class="ow">in</span> <span class="n">dsects</span><span class="p">:</span>
+</span><span id="L-259"><a href="#L-259"><span class="linenos">259</span></a>      <span class="n">d</span> <span class="o">=</span> <span class="n">D</span><span class="p">()</span>
+</span><span id="L-260"><a href="#L-260"><span class="linenos">260</span></a>      <span class="k">del</span> <span class="n">d</span>
+</span><span id="L-261"><a href="#L-261"><span class="linenos">261</span></a>
+</span><span id="L-262"><a href="#L-262"><span class="linenos">262</span></a>  <span class="k">def</span><span class="w"> </span><span class="nf">test_hzszenf</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="L-263"><a href="#L-263"><span class="linenos">263</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="L-264"><a href="#L-264"><span class="linenos">264</span></a><span class="sd">    Create and destroy all DSECTs defined in the HZSCZENF data area.</span>
+</span><span id="L-265"><a href="#L-265"><span class="linenos">265</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="L-266"><a href="#L-266"><span class="linenos">266</span></a>    <span class="n">dsects</span> <span class="o">=</span> <span class="p">(</span><span class="n">ENF067</span><span class="p">,</span> <span class="n">ENF067_BITQUAL</span><span class="p">)</span>
+</span><span id="L-267"><a href="#L-267"><span class="linenos">267</span></a>    <span class="k">for</span> <span class="n">D</span> <span class="ow">in</span> <span class="n">dsects</span><span class="p">:</span>
+</span><span id="L-268"><a href="#L-268"><span class="linenos">268</span></a>      <span class="n">d</span> <span class="o">=</span> <span class="n">D</span><span class="p">()</span>
+</span><span id="L-269"><a href="#L-269"><span class="linenos">269</span></a>      <span class="k">del</span> <span class="n">d</span>
+</span><span id="L-270"><a href="#L-270"><span class="linenos">270</span></a>
+</span><span id="L-271"><a href="#L-271"><span class="linenos">271</span></a>  <span class="k">def</span><span class="w"> </span><span class="nf">test_hzszhckl</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="L-272"><a href="#L-272"><span class="linenos">272</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="L-273"><a href="#L-273"><span class="linenos">273</span></a><span class="sd">    Create and destroy all DSECTs defined in the HZSZHCKL data area.</span>
+</span><span id="L-274"><a href="#L-274"><span class="linenos">274</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="L-275"><a href="#L-275"><span class="linenos">275</span></a>    <span class="n">dsects</span> <span class="o">=</span> <span class="p">(</span><span class="n">HCKLOG</span><span class="p">,</span> <span class="n">HCKLOGE</span><span class="p">)</span>
+</span><span id="L-276"><a href="#L-276"><span class="linenos">276</span></a>    <span class="k">for</span> <span class="n">D</span> <span class="ow">in</span> <span class="n">dsects</span><span class="p">:</span>
+</span><span id="L-277"><a href="#L-277"><span class="linenos">277</span></a>      <span class="n">d</span> <span class="o">=</span> <span class="n">D</span><span class="p">()</span>
+</span><span id="L-278"><a href="#L-278"><span class="linenos">278</span></a>      <span class="k">del</span> <span class="n">d</span>
 </span></pre></div>
 
 
@@ -866,16 +868,18 @@ one insert</p>
 </span><span id="MGB_MSGINSERTD-59"><a href="#MGB_MSGINSERTD-59"><span class="linenos">59</span></a><span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
 </span><span id="MGB_MSGINSERTD-60"><a href="#MGB_MSGINSERTD-60"><span class="linenos">60</span></a><span class="sd">  Map the MGB_MSGINSERTD data area, described in MVS Data Areas, Volume 2.</span>
 </span><span id="MGB_MSGINSERTD-61"><a href="#MGB_MSGINSERTD-61"><span class="linenos">61</span></a><span class="sd">  &quot;&quot;&quot;</span>
-</span><span id="MGB_MSGINSERTD-62"><a href="#MGB_MSGINSERTD-62"><span class="linenos">62</span></a>  <span class="c1"># Insert description</span>
+</span><span id="MGB_MSGINSERTD-62"><a href="#MGB_MSGINSERTD-62"><span class="linenos">62</span></a><span class="w">  </span><span class="sd">&quot;&quot;&quot;Insert description&quot;&quot;&quot;</span>
 </span><span id="MGB_MSGINSERTD-63"><a href="#MGB_MSGINSERTD-63"><span class="linenos">63</span></a>  <span class="n">MGB_MSGINSERTD_HEADER</span> <span class="o">=</span> <span class="n">DS</span><span class="p">(</span><span class="s1">&#39;0CL2&#39;</span><span class="p">)</span>
-</span><span id="MGB_MSGINSERTD-64"><a href="#MGB_MSGINSERTD-64"><span class="linenos">64</span></a>  <span class="c1"># The length of the insert For a null insert, use a length of 0.</span>
+</span><span id="MGB_MSGINSERTD-64"><a href="#MGB_MSGINSERTD-64"><span class="linenos">64</span></a><span class="w">  </span><span class="sd">&quot;&quot;&quot;The length of the insert For a null insert, use a length of 0.&quot;&quot;&quot;</span>
 </span><span id="MGB_MSGINSERTD-65"><a href="#MGB_MSGINSERTD-65"><span class="linenos">65</span></a>  <span class="n">MGB_MSGILEN</span> <span class="o">=</span> <span class="n">DS</span><span class="p">(</span><span class="s1">&#39;H&#39;</span><span class="p">)</span>
 </span><span id="MGB_MSGINSERTD-66"><a href="#MGB_MSGINSERTD-66"><span class="linenos">66</span></a>  <span class="n">MGB_MSGINSERTD_DATA</span> <span class="o">=</span> <span class="n">DS</span><span class="p">(</span><span class="s1">&#39;0C&#39;</span><span class="p">)</span>
-</span><span id="MGB_MSGINSERTD-67"><a href="#MGB_MSGINSERTD-67"><span class="linenos">67</span></a>  <span class="c1"># The insert value</span>
+</span><span id="MGB_MSGINSERTD-67"><a href="#MGB_MSGINSERTD-67"><span class="linenos">67</span></a><span class="w">  </span><span class="sd">&quot;&quot;&quot;The insert value&quot;&quot;&quot;</span>
 </span><span id="MGB_MSGINSERTD-68"><a href="#MGB_MSGINSERTD-68"><span class="linenos">68</span></a>  <span class="n">MGB_MSGIVAL</span> <span class="o">=</span> <span class="n">DS</span><span class="p">(</span><span class="s1">&#39;C&#39;</span><span class="p">)</span>
 </span><span id="MGB_MSGINSERTD-69"><a href="#MGB_MSGINSERTD-69"><span class="linenos">69</span></a>  <span class="n">MGB_MSGINSERTLEN</span> <span class="o">=</span> <span class="mh">0x100</span>
-</span><span id="MGB_MSGINSERTD-70"><a href="#MGB_MSGINSERTD-70"><span class="linenos">70</span></a>  <span class="c1"># &quot;*-MGB_MsgInsertD&quot;</span>
-</span><span id="MGB_MSGINSERTD-71"><a href="#MGB_MSGINSERTD-71"><span class="linenos">71</span></a>  <span class="n">MGB_MSGINSERTD_LEN</span> <span class="o">=</span> <span class="mh">0x2</span>
+</span><span id="MGB_MSGINSERTD-70"><a href="#MGB_MSGINSERTD-70"><span class="linenos">70</span></a><span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="MGB_MSGINSERTD-71"><a href="#MGB_MSGINSERTD-71"><span class="linenos">71</span></a><span class="sd">  &quot;*-MGB_MsgInsertD\&quot;</span>
+</span><span id="MGB_MSGINSERTD-72"><a href="#MGB_MSGINSERTD-72"><span class="linenos">72</span></a><span class="sd">  &quot;&quot;&quot;</span>
+</span><span id="MGB_MSGINSERTD-73"><a href="#MGB_MSGINSERTD-73"><span class="linenos">73</span></a>  <span class="n">MGB_MSGINSERTD_LEN</span> <span class="o">=</span> <span class="mh">0x2</span>
 </span></pre></div>
 
 
@@ -892,7 +896,9 @@ one insert</p>
     </div>
     <a class="headerlink" href="#MGB_MSGINSERTD.MGB_MSGINSERTD_HEADER"></a>
     
-    
+            <div class="docstring"><p>The length of the insert For a null insert, use a length of 0.</p>
+</div>
+
 
                             </div>
                             <div id="MGB_MSGINSERTD.MGB_MSGILEN" class="classattr">
@@ -916,7 +922,9 @@ one insert</p>
     </div>
     <a class="headerlink" href="#MGB_MSGINSERTD.MGB_MSGINSERTD_DATA"></a>
     
-    
+            <div class="docstring"><p>The insert value</p>
+</div>
+
 
                             </div>
                             <div id="MGB_MSGINSERTD.MGB_MSGIVAL" class="classattr">
@@ -940,7 +948,9 @@ one insert</p>
     </div>
     <a class="headerlink" href="#MGB_MSGINSERTD.MGB_MSGINSERTLEN"></a>
     
-    
+            <div class="docstring"><p>"*-MGB_MsgInsertD"</p>
+</div>
+
 
                             </div>
                             <div id="MGB_MSGINSERTD.MGB_MSGINSERTD_LEN" class="classattr">
@@ -976,37 +986,37 @@ one insert</p>
 
     </div>
     <a class="headerlink" href="#HZSMGB1"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="HZSMGB1-73"><a href="#HZSMGB1-73"><span class="linenos"> 73</span></a><span class="k">class</span><span class="w"> </span><span class="nc">HZSMGB1</span><span class="p">(</span><span class="n">DSECT</span><span class="p">):</span>
-</span><span id="HZSMGB1-74"><a href="#HZSMGB1-74"><span class="linenos"> 74</span></a><span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="HZSMGB1-75"><a href="#HZSMGB1-75"><span class="linenos"> 75</span></a><span class="sd">  Map the HZSMGB1 data area, described in MVS Data Areas, Volume 2.</span>
-</span><span id="HZSMGB1-76"><a href="#HZSMGB1-76"><span class="linenos"> 76</span></a><span class="sd">  &quot;&quot;&quot;</span>
-</span><span id="HZSMGB1-77"><a href="#HZSMGB1-77"><span class="linenos"> 77</span></a>  <span class="n">MGB1_INSERT_STRUCTURE</span> <span class="o">=</span> <span class="n">DS</span><span class="p">(</span><span class="s1">&#39;0CL8&#39;</span><span class="p">)</span>
-</span><span id="HZSMGB1-78"><a href="#HZSMGB1-78"><span class="linenos"> 78</span></a>  <span class="c1"># Message inserts header</span>
-</span><span id="HZSMGB1-79"><a href="#HZSMGB1-79"><span class="linenos"> 79</span></a>  <span class="n">MGB1_INSERT_STRUCTURE_HEADER</span> <span class="o">=</span> <span class="n">DS</span><span class="p">(</span><span class="s1">&#39;0CL8&#39;</span><span class="p">)</span>
-</span><span id="HZSMGB1-80"><a href="#HZSMGB1-80"><span class="linenos"> 80</span></a><span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="HZSMGB1-81"><a href="#HZSMGB1-81"><span class="linenos"> 81</span></a><span class="sd">  The message number. This is the value provided in</span>
-</span><span id="HZSMGB1-82"><a href="#HZSMGB1-82"><span class="linenos"> 82</span></a><span class="sd">  &quot;XREFTEXT=MessageNumber&quot; within the &lt;msgnum&gt; tag of the message</span>
-</span><span id="HZSMGB1-83"><a href="#HZSMGB1-83"><span class="linenos"> 83</span></a><span class="sd">  source. This field need not be when REQUEST=HZSMSSG is specified on</span>
-</span><span id="HZSMGB1-84"><a href="#HZSMGB1-84"><span class="linenos"> 84</span></a><span class="sd">  HZSFMSG.</span>
-</span><span id="HZSMGB1-85"><a href="#HZSMGB1-85"><span class="linenos"> 85</span></a><span class="sd">  &quot;&quot;&quot;</span>
-</span><span id="HZSMGB1-86"><a href="#HZSMGB1-86"><span class="linenos"> 86</span></a>  <span class="n">MGB1_MESSAGENUMBER</span> <span class="o">=</span> <span class="n">DS</span><span class="p">(</span><span class="s1">&#39;0F&#39;</span><span class="p">)</span>
-</span><span id="HZSMGB1-87"><a href="#HZSMGB1-87"><span class="linenos"> 87</span></a>  <span class="c1"># Same as MGB1_MessageNumber</span>
-</span><span id="HZSMGB1-88"><a href="#HZSMGB1-88"><span class="linenos"> 88</span></a>  <span class="n">MGB1_ID</span> <span class="o">=</span> <span class="n">DS</span><span class="p">(</span><span class="s1">&#39;F&#39;</span><span class="p">)</span>
-</span><span id="HZSMGB1-89"><a href="#HZSMGB1-89"><span class="linenos"> 89</span></a>  <span class="c1"># The number of insert addresses in the MGB1_Insert_Structure_Entries area</span>
-</span><span id="HZSMGB1-90"><a href="#HZSMGB1-90"><span class="linenos"> 90</span></a>  <span class="n">MGB1_INSERT_CNT</span> <span class="o">=</span> <span class="n">DS</span><span class="p">(</span><span class="s1">&#39;F&#39;</span><span class="p">)</span>
-</span><span id="HZSMGB1-91"><a href="#HZSMGB1-91"><span class="linenos"> 91</span></a><span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="HZSMGB1-92"><a href="#HZSMGB1-92"><span class="linenos"> 92</span></a><span class="sd">  The start of a contiguous area identifying the inserts. The area consist of</span>
-</span><span id="HZSMGB1-93"><a href="#HZSMGB1-93"><span class="linenos"> 93</span></a><span class="sd">  &quot;MGB1_insert_cnt&quot; 8-byte segments where each segment is mappe dby DSECT</span>
-</span><span id="HZSMGB1-94"><a href="#HZSMGB1-94"><span class="linenos"> 94</span></a><span class="sd">  MGB1_MsgInsertDesc. Note that equate HZSMGB1_LEN provides only enough</span>
-</span><span id="HZSMGB1-95"><a href="#HZSMGB1-95"><span class="linenos"> 95</span></a><span class="sd">  room for the HZSMGB1 area itself. To account for inserts as well, use</span>
-</span><span id="HZSMGB1-96"><a href="#HZSMGB1-96"><span class="linenos"> 96</span></a><span class="sd">  something like HZSMGB1_Len + (n)*MGB1_MsgInsertDesc_Len where n is the number</span>
-</span><span id="HZSMGB1-97"><a href="#HZSMGB1-97"><span class="linenos"> 97</span></a><span class="sd">  of inserts.</span>
-</span><span id="HZSMGB1-98"><a href="#HZSMGB1-98"><span class="linenos"> 98</span></a><span class="sd">  &quot;&quot;&quot;</span>
-</span><span id="HZSMGB1-99"><a href="#HZSMGB1-99"><span class="linenos"> 99</span></a>  <span class="n">MGB1_INSERT_STRUCTURE_ENTRIES</span> <span class="o">=</span> <span class="n">DS</span><span class="p">(</span><span class="s1">&#39;0C&#39;</span><span class="p">)</span>
-</span><span id="HZSMGB1-100"><a href="#HZSMGB1-100"><span class="linenos">100</span></a>  <span class="c1"># &quot;20&quot; The maximum number of inserts</span>
-</span><span id="HZSMGB1-101"><a href="#HZSMGB1-101"><span class="linenos">101</span></a>  <span class="n">MGB1_MAXINSERTS</span> <span class="o">=</span> <span class="mh">0x14</span>
-</span><span id="HZSMGB1-102"><a href="#HZSMGB1-102"><span class="linenos">102</span></a>  <span class="c1"># &quot;*-HZSMGB1&quot;</span>
-</span><span id="HZSMGB1-103"><a href="#HZSMGB1-103"><span class="linenos">103</span></a>  <span class="n">MGB_MSGINSERTD_LEN</span> <span class="o">=</span> <span class="mh">0x8</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="HZSMGB1-75"><a href="#HZSMGB1-75"><span class="linenos"> 75</span></a><span class="k">class</span><span class="w"> </span><span class="nc">HZSMGB1</span><span class="p">(</span><span class="n">DSECT</span><span class="p">):</span>
+</span><span id="HZSMGB1-76"><a href="#HZSMGB1-76"><span class="linenos"> 76</span></a><span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="HZSMGB1-77"><a href="#HZSMGB1-77"><span class="linenos"> 77</span></a><span class="sd">  Map the HZSMGB1 data area, described in MVS Data Areas, Volume 2.</span>
+</span><span id="HZSMGB1-78"><a href="#HZSMGB1-78"><span class="linenos"> 78</span></a><span class="sd">  &quot;&quot;&quot;</span>
+</span><span id="HZSMGB1-79"><a href="#HZSMGB1-79"><span class="linenos"> 79</span></a>  <span class="n">MGB1_INSERT_STRUCTURE</span> <span class="o">=</span> <span class="n">DS</span><span class="p">(</span><span class="s1">&#39;0CL8&#39;</span><span class="p">)</span>
+</span><span id="HZSMGB1-80"><a href="#HZSMGB1-80"><span class="linenos"> 80</span></a>  <span class="c1"># Message inserts header</span>
+</span><span id="HZSMGB1-81"><a href="#HZSMGB1-81"><span class="linenos"> 81</span></a>  <span class="n">MGB1_INSERT_STRUCTURE_HEADER</span> <span class="o">=</span> <span class="n">DS</span><span class="p">(</span><span class="s1">&#39;0CL8&#39;</span><span class="p">)</span>
+</span><span id="HZSMGB1-82"><a href="#HZSMGB1-82"><span class="linenos"> 82</span></a><span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="HZSMGB1-83"><a href="#HZSMGB1-83"><span class="linenos"> 83</span></a><span class="sd">  The message number. This is the value provided in</span>
+</span><span id="HZSMGB1-84"><a href="#HZSMGB1-84"><span class="linenos"> 84</span></a><span class="sd">  &quot;XREFTEXT=MessageNumber&quot; within the &lt;msgnum&gt; tag of the message</span>
+</span><span id="HZSMGB1-85"><a href="#HZSMGB1-85"><span class="linenos"> 85</span></a><span class="sd">  source. This field need not be when REQUEST=HZSMSSG is specified on</span>
+</span><span id="HZSMGB1-86"><a href="#HZSMGB1-86"><span class="linenos"> 86</span></a><span class="sd">  HZSFMSG.</span>
+</span><span id="HZSMGB1-87"><a href="#HZSMGB1-87"><span class="linenos"> 87</span></a><span class="sd">  &quot;&quot;&quot;</span>
+</span><span id="HZSMGB1-88"><a href="#HZSMGB1-88"><span class="linenos"> 88</span></a>  <span class="n">MGB1_MESSAGENUMBER</span> <span class="o">=</span> <span class="n">DS</span><span class="p">(</span><span class="s1">&#39;0F&#39;</span><span class="p">)</span>
+</span><span id="HZSMGB1-89"><a href="#HZSMGB1-89"><span class="linenos"> 89</span></a>  <span class="c1"># Same as MGB1_MessageNumber</span>
+</span><span id="HZSMGB1-90"><a href="#HZSMGB1-90"><span class="linenos"> 90</span></a>  <span class="n">MGB1_ID</span> <span class="o">=</span> <span class="n">DS</span><span class="p">(</span><span class="s1">&#39;F&#39;</span><span class="p">)</span>
+</span><span id="HZSMGB1-91"><a href="#HZSMGB1-91"><span class="linenos"> 91</span></a>  <span class="c1"># The number of insert addresses in the MGB1_Insert_Structure_Entries area</span>
+</span><span id="HZSMGB1-92"><a href="#HZSMGB1-92"><span class="linenos"> 92</span></a>  <span class="n">MGB1_INSERT_CNT</span> <span class="o">=</span> <span class="n">DS</span><span class="p">(</span><span class="s1">&#39;F&#39;</span><span class="p">)</span>
+</span><span id="HZSMGB1-93"><a href="#HZSMGB1-93"><span class="linenos"> 93</span></a><span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="HZSMGB1-94"><a href="#HZSMGB1-94"><span class="linenos"> 94</span></a><span class="sd">  The start of a contiguous area identifying the inserts. The area consist of</span>
+</span><span id="HZSMGB1-95"><a href="#HZSMGB1-95"><span class="linenos"> 95</span></a><span class="sd">  &quot;MGB1_insert_cnt&quot; 8-byte segments where each segment is mappe dby DSECT</span>
+</span><span id="HZSMGB1-96"><a href="#HZSMGB1-96"><span class="linenos"> 96</span></a><span class="sd">  MGB1_MsgInsertDesc. Note that equate HZSMGB1_LEN provides only enough</span>
+</span><span id="HZSMGB1-97"><a href="#HZSMGB1-97"><span class="linenos"> 97</span></a><span class="sd">  room for the HZSMGB1 area itself. To account for inserts as well, use</span>
+</span><span id="HZSMGB1-98"><a href="#HZSMGB1-98"><span class="linenos"> 98</span></a><span class="sd">  something like HZSMGB1_Len + (n)*MGB1_MsgInsertDesc_Len where n is the number</span>
+</span><span id="HZSMGB1-99"><a href="#HZSMGB1-99"><span class="linenos"> 99</span></a><span class="sd">  of inserts.</span>
+</span><span id="HZSMGB1-100"><a href="#HZSMGB1-100"><span class="linenos">100</span></a><span class="sd">  &quot;&quot;&quot;</span>
+</span><span id="HZSMGB1-101"><a href="#HZSMGB1-101"><span class="linenos">101</span></a>  <span class="n">MGB1_INSERT_STRUCTURE_ENTRIES</span> <span class="o">=</span> <span class="n">DS</span><span class="p">(</span><span class="s1">&#39;0C&#39;</span><span class="p">)</span>
+</span><span id="HZSMGB1-102"><a href="#HZSMGB1-102"><span class="linenos">102</span></a>  <span class="c1"># &quot;20&quot; The maximum number of inserts</span>
+</span><span id="HZSMGB1-103"><a href="#HZSMGB1-103"><span class="linenos">103</span></a>  <span class="n">MGB1_MAXINSERTS</span> <span class="o">=</span> <span class="mh">0x14</span>
+</span><span id="HZSMGB1-104"><a href="#HZSMGB1-104"><span class="linenos">104</span></a>  <span class="c1"># &quot;*-HZSMGB1&quot;</span>
+</span><span id="HZSMGB1-105"><a href="#HZSMGB1-105"><span class="linenos">105</span></a>  <span class="n">MGB_MSGINSERTD_LEN</span> <span class="o">=</span> <span class="mh">0x8</span>
 </span></pre></div>
 
 
@@ -1143,20 +1153,20 @@ of inserts.</p>
 
     </div>
     <a class="headerlink" href="#MGB1_MSGINSERTDESC"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="MGB1_MSGINSERTDESC-105"><a href="#MGB1_MSGINSERTDESC-105"><span class="linenos">105</span></a><span class="k">class</span><span class="w"> </span><span class="nc">MGB1_MSGINSERTDESC</span><span class="p">(</span><span class="n">DSECT</span><span class="p">):</span>
-</span><span id="MGB1_MSGINSERTDESC-106"><a href="#MGB1_MSGINSERTDESC-106"><span class="linenos">106</span></a><span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="MGB1_MSGINSERTDESC-107"><a href="#MGB1_MSGINSERTDESC-107"><span class="linenos">107</span></a><span class="sd">  Map the MGB1_MSGINSERTDESC data area, described in MVS Data Areas, Volume 2.</span>
-</span><span id="MGB1_MSGINSERTDESC-108"><a href="#MGB1_MSGINSERTDESC-108"><span class="linenos">108</span></a><span class="sd">  &quot;&quot;&quot;</span>
-</span><span id="MGB1_MSGINSERTDESC-109"><a href="#MGB1_MSGINSERTDESC-109"><span class="linenos">109</span></a>  <span class="c1"># The length of the insert. For a null insert, use a length of 0.</span>
-</span><span id="MGB1_MSGINSERTDESC-110"><a href="#MGB1_MSGINSERTDESC-110"><span class="linenos">110</span></a>  <span class="n">MGB1_MSGINSERTDESC_LENGTH</span> <span class="o">=</span> <span class="n">DS</span><span class="p">(</span><span class="s1">&#39;H&#39;</span><span class="p">)</span>
-</span><span id="MGB1_MSGINSERTDESC-111"><a href="#MGB1_MSGINSERTDESC-111"><span class="linenos">111</span></a>  <span class="c1"># Reserved</span>
-</span><span id="MGB1_MSGINSERTDESC-112"><a href="#MGB1_MSGINSERTDESC-112"><span class="linenos">112</span></a>  <span class="n">DS</span><span class="p">(</span><span class="s1">&#39;XL2&#39;</span><span class="p">)</span>
-</span><span id="MGB1_MSGINSERTDESC-113"><a href="#MGB1_MSGINSERTDESC-113"><span class="linenos">113</span></a>  <span class="c1"># The address of the insert. This need not be set when the length is 0.</span>
-</span><span id="MGB1_MSGINSERTDESC-114"><a href="#MGB1_MSGINSERTDESC-114"><span class="linenos">114</span></a>  <span class="n">MGB1_MSGINSERTDESC_ADDR</span> <span class="o">=</span> <span class="n">DS</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">)</span>
-</span><span id="MGB1_MSGINSERTDESC-115"><a href="#MGB1_MSGINSERTDESC-115"><span class="linenos">115</span></a>  <span class="c1"># &quot;256&quot; The maximum length of an insert.</span>
-</span><span id="MGB1_MSGINSERTDESC-116"><a href="#MGB1_MSGINSERTDESC-116"><span class="linenos">116</span></a>  <span class="n">MGB1_MSGINSERTLEN</span> <span class="o">=</span> <span class="mh">0x100</span>
-</span><span id="MGB1_MSGINSERTDESC-117"><a href="#MGB1_MSGINSERTDESC-117"><span class="linenos">117</span></a>  <span class="c1"># &quot;*-MGB1_MsgInsertDesc&quot;</span>
-</span><span id="MGB1_MSGINSERTDESC-118"><a href="#MGB1_MSGINSERTDESC-118"><span class="linenos">118</span></a>  <span class="n">MGB1_MSGINSERTDESC_LEN</span> <span class="o">=</span> <span class="mh">0x8</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="MGB1_MSGINSERTDESC-107"><a href="#MGB1_MSGINSERTDESC-107"><span class="linenos">107</span></a><span class="k">class</span><span class="w"> </span><span class="nc">MGB1_MSGINSERTDESC</span><span class="p">(</span><span class="n">DSECT</span><span class="p">):</span>
+</span><span id="MGB1_MSGINSERTDESC-108"><a href="#MGB1_MSGINSERTDESC-108"><span class="linenos">108</span></a><span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="MGB1_MSGINSERTDESC-109"><a href="#MGB1_MSGINSERTDESC-109"><span class="linenos">109</span></a><span class="sd">  Map the MGB1_MSGINSERTDESC data area, described in MVS Data Areas, Volume 2.</span>
+</span><span id="MGB1_MSGINSERTDESC-110"><a href="#MGB1_MSGINSERTDESC-110"><span class="linenos">110</span></a><span class="sd">  &quot;&quot;&quot;</span>
+</span><span id="MGB1_MSGINSERTDESC-111"><a href="#MGB1_MSGINSERTDESC-111"><span class="linenos">111</span></a>  <span class="c1"># The length of the insert. For a null insert, use a length of 0.</span>
+</span><span id="MGB1_MSGINSERTDESC-112"><a href="#MGB1_MSGINSERTDESC-112"><span class="linenos">112</span></a>  <span class="n">MGB1_MSGINSERTDESC_LENGTH</span> <span class="o">=</span> <span class="n">DS</span><span class="p">(</span><span class="s1">&#39;H&#39;</span><span class="p">)</span>
+</span><span id="MGB1_MSGINSERTDESC-113"><a href="#MGB1_MSGINSERTDESC-113"><span class="linenos">113</span></a>  <span class="c1"># Reserved</span>
+</span><span id="MGB1_MSGINSERTDESC-114"><a href="#MGB1_MSGINSERTDESC-114"><span class="linenos">114</span></a>  <span class="n">DS</span><span class="p">(</span><span class="s1">&#39;XL2&#39;</span><span class="p">)</span>
+</span><span id="MGB1_MSGINSERTDESC-115"><a href="#MGB1_MSGINSERTDESC-115"><span class="linenos">115</span></a>  <span class="c1"># The address of the insert. This need not be set when the length is 0.</span>
+</span><span id="MGB1_MSGINSERTDESC-116"><a href="#MGB1_MSGINSERTDESC-116"><span class="linenos">116</span></a>  <span class="n">MGB1_MSGINSERTDESC_ADDR</span> <span class="o">=</span> <span class="n">DS</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">)</span>
+</span><span id="MGB1_MSGINSERTDESC-117"><a href="#MGB1_MSGINSERTDESC-117"><span class="linenos">117</span></a>  <span class="c1"># &quot;256&quot; The maximum length of an insert.</span>
+</span><span id="MGB1_MSGINSERTDESC-118"><a href="#MGB1_MSGINSERTDESC-118"><span class="linenos">118</span></a>  <span class="n">MGB1_MSGINSERTLEN</span> <span class="o">=</span> <span class="mh">0x100</span>
+</span><span id="MGB1_MSGINSERTDESC-119"><a href="#MGB1_MSGINSERTDESC-119"><span class="linenos">119</span></a>  <span class="c1"># &quot;*-MGB1_MsgInsertDesc&quot;</span>
+</span><span id="MGB1_MSGINSERTDESC-120"><a href="#MGB1_MSGINSERTDESC-120"><span class="linenos">120</span></a>  <span class="n">MGB1_MSGINSERTDESC_LEN</span> <span class="o">=</span> <span class="mh">0x8</span>
 </span></pre></div>
 
 
@@ -1233,8 +1243,8 @@ of inserts.</p>
 
     </div>
     <a class="headerlink" href="#HZSPQE"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="HZSPQE-124"><a href="#HZSPQE-124"><span class="linenos">124</span></a><span class="k">class</span><span class="w"> </span><span class="nc">HZSPQE</span><span class="p">(</span><span class="n">DSECT</span><span class="p">):</span>
-</span><span id="HZSPQE-125"><a href="#HZSPQE-125"><span class="linenos">125</span></a>  <span class="k">pass</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="HZSPQE-126"><a href="#HZSPQE-126"><span class="linenos">126</span></a><span class="k">class</span><span class="w"> </span><span class="nc">HZSPQE</span><span class="p">(</span><span class="n">DSECT</span><span class="p">):</span>
+</span><span id="HZSPQE-127"><a href="#HZSPQE-127"><span class="linenos">127</span></a>  <span class="k">pass</span>
 </span></pre></div>
 
 
@@ -1261,8 +1271,8 @@ of inserts.</p>
 
     </div>
     <a class="headerlink" href="#PQE_LASTUPDATEDBY_TYPE"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="PQE_LASTUPDATEDBY_TYPE-127"><a href="#PQE_LASTUPDATEDBY_TYPE-127"><span class="linenos">127</span></a><span class="k">class</span><span class="w"> </span><span class="nc">PQE_LASTUPDATEDBY_TYPE</span><span class="p">(</span><span class="n">DSECT</span><span class="p">):</span>
-</span><span id="PQE_LASTUPDATEDBY_TYPE-128"><a href="#PQE_LASTUPDATEDBY_TYPE-128"><span class="linenos">128</span></a>	<span class="k">pass</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="PQE_LASTUPDATEDBY_TYPE-129"><a href="#PQE_LASTUPDATEDBY_TYPE-129"><span class="linenos">129</span></a><span class="k">class</span><span class="w"> </span><span class="nc">PQE_LASTUPDATEDBY_TYPE</span><span class="p">(</span><span class="n">DSECT</span><span class="p">):</span>
+</span><span id="PQE_LASTUPDATEDBY_TYPE-130"><a href="#PQE_LASTUPDATEDBY_TYPE-130"><span class="linenos">130</span></a>	<span class="k">pass</span>
 </span></pre></div>
 
 
@@ -1289,8 +1299,8 @@ of inserts.</p>
 
     </div>
     <a class="headerlink" href="#HZSQUAAHDR"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="HZSQUAAHDR-134"><a href="#HZSQUAAHDR-134"><span class="linenos">134</span></a><span class="k">class</span><span class="w"> </span><span class="nc">HZSQUAAHDR</span><span class="p">(</span><span class="n">DSECT</span><span class="p">):</span>
-</span><span id="HZSQUAAHDR-135"><a href="#HZSQUAAHDR-135"><span class="linenos">135</span></a>  <span class="k">pass</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="HZSQUAAHDR-136"><a href="#HZSQUAAHDR-136"><span class="linenos">136</span></a><span class="k">class</span><span class="w"> </span><span class="nc">HZSQUAAHDR</span><span class="p">(</span><span class="n">DSECT</span><span class="p">):</span>
+</span><span id="HZSQUAAHDR-137"><a href="#HZSQUAAHDR-137"><span class="linenos">137</span></a>  <span class="k">pass</span>
 </span></pre></div>
 
 
@@ -1317,8 +1327,8 @@ of inserts.</p>
 
     </div>
     <a class="headerlink" href="#HZSQUAAHDR64"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="HZSQUAAHDR64-137"><a href="#HZSQUAAHDR64-137"><span class="linenos">137</span></a><span class="k">class</span><span class="w"> </span><span class="nc">HZSQUAAHDR64</span><span class="p">(</span><span class="n">DSECT</span><span class="p">):</span>
-</span><span id="HZSQUAAHDR64-138"><a href="#HZSQUAAHDR64-138"><span class="linenos">138</span></a>  <span class="k">pass</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="HZSQUAAHDR64-139"><a href="#HZSQUAAHDR64-139"><span class="linenos">139</span></a><span class="k">class</span><span class="w"> </span><span class="nc">HZSQUAAHDR64</span><span class="p">(</span><span class="n">DSECT</span><span class="p">):</span>
+</span><span id="HZSQUAAHDR64-140"><a href="#HZSQUAAHDR64-140"><span class="linenos">140</span></a>  <span class="k">pass</span>
 </span></pre></div>
 
 
@@ -1345,8 +1355,8 @@ of inserts.</p>
 
     </div>
     <a class="headerlink" href="#HZSQUAAC"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="HZSQUAAC-140"><a href="#HZSQUAAC-140"><span class="linenos">140</span></a><span class="k">class</span><span class="w"> </span><span class="nc">HZSQUAAC</span><span class="p">(</span><span class="n">DSECT</span><span class="p">):</span>
-</span><span id="HZSQUAAC-141"><a href="#HZSQUAAC-141"><span class="linenos">141</span></a>  <span class="k">pass</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="HZSQUAAC-142"><a href="#HZSQUAAC-142"><span class="linenos">142</span></a><span class="k">class</span><span class="w"> </span><span class="nc">HZSQUAAC</span><span class="p">(</span><span class="n">DSECT</span><span class="p">):</span>
+</span><span id="HZSQUAAC-143"><a href="#HZSQUAAC-143"><span class="linenos">143</span></a>  <span class="k">pass</span>
 </span></pre></div>
 
 
@@ -1373,8 +1383,8 @@ of inserts.</p>
 
     </div>
     <a class="headerlink" href="#HZSQUAAC1"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="HZSQUAAC1-143"><a href="#HZSQUAAC1-143"><span class="linenos">143</span></a><span class="k">class</span><span class="w"> </span><span class="nc">HZSQUAAC1</span><span class="p">(</span><span class="n">DSECT</span><span class="p">):</span>
-</span><span id="HZSQUAAC1-144"><a href="#HZSQUAAC1-144"><span class="linenos">144</span></a>  <span class="k">pass</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="HZSQUAAC1-145"><a href="#HZSQUAAC1-145"><span class="linenos">145</span></a><span class="k">class</span><span class="w"> </span><span class="nc">HZSQUAAC1</span><span class="p">(</span><span class="n">DSECT</span><span class="p">):</span>
+</span><span id="HZSQUAAC1-146"><a href="#HZSQUAAC1-146"><span class="linenos">146</span></a>  <span class="k">pass</span>
 </span></pre></div>
 
 
@@ -1401,8 +1411,8 @@ of inserts.</p>
 
     </div>
     <a class="headerlink" href="#HZSQUAAG"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="HZSQUAAG-146"><a href="#HZSQUAAG-146"><span class="linenos">146</span></a><span class="k">class</span><span class="w"> </span><span class="nc">HZSQUAAG</span><span class="p">(</span><span class="n">DSECT</span><span class="p">):</span>
-</span><span id="HZSQUAAG-147"><a href="#HZSQUAAG-147"><span class="linenos">147</span></a>  <span class="k">pass</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="HZSQUAAG-148"><a href="#HZSQUAAG-148"><span class="linenos">148</span></a><span class="k">class</span><span class="w"> </span><span class="nc">HZSQUAAG</span><span class="p">(</span><span class="n">DSECT</span><span class="p">):</span>
+</span><span id="HZSQUAAG-149"><a href="#HZSQUAAG-149"><span class="linenos">149</span></a>  <span class="k">pass</span>
 </span></pre></div>
 
 
@@ -1429,8 +1439,8 @@ of inserts.</p>
 
     </div>
     <a class="headerlink" href="#HZSQUAACS"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="HZSQUAACS-149"><a href="#HZSQUAACS-149"><span class="linenos">149</span></a><span class="k">class</span><span class="w"> </span><span class="nc">HZSQUAACS</span><span class="p">(</span><span class="n">DSECT</span><span class="p">):</span>
-</span><span id="HZSQUAACS-150"><a href="#HZSQUAACS-150"><span class="linenos">150</span></a>  <span class="k">pass</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="HZSQUAACS-151"><a href="#HZSQUAACS-151"><span class="linenos">151</span></a><span class="k">class</span><span class="w"> </span><span class="nc">HZSQUAACS</span><span class="p">(</span><span class="n">DSECT</span><span class="p">):</span>
+</span><span id="HZSQUAACS-152"><a href="#HZSQUAACS-152"><span class="linenos">152</span></a>  <span class="k">pass</span>
 </span></pre></div>
 
 
@@ -1457,8 +1467,8 @@ of inserts.</p>
 
     </div>
     <a class="headerlink" href="#CPARAREA"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="CPARAREA-160"><a href="#CPARAREA-160"><span class="linenos">160</span></a><span class="k">class</span><span class="w"> </span><span class="nc">CPARAREA</span><span class="p">(</span><span class="n">DSECT</span><span class="p">):</span>
-</span><span id="CPARAREA-161"><a href="#CPARAREA-161"><span class="linenos">161</span></a>  <span class="k">pass</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="CPARAREA-162"><a href="#CPARAREA-162"><span class="linenos">162</span></a><span class="k">class</span><span class="w"> </span><span class="nc">CPARAREA</span><span class="p">(</span><span class="n">DSECT</span><span class="p">):</span>
+</span><span id="CPARAREA-163"><a href="#CPARAREA-163"><span class="linenos">163</span></a>  <span class="k">pass</span>
 </span></pre></div>
 
 
@@ -1485,8 +1495,8 @@ of inserts.</p>
 
     </div>
     <a class="headerlink" href="#CPARKEYWORDENTRY"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="CPARKEYWORDENTRY-163"><a href="#CPARKEYWORDENTRY-163"><span class="linenos">163</span></a><span class="k">class</span><span class="w"> </span><span class="nc">CPARKEYWORDENTRY</span><span class="p">(</span><span class="n">DSECT</span><span class="p">):</span>
-</span><span id="CPARKEYWORDENTRY-164"><a href="#CPARKEYWORDENTRY-164"><span class="linenos">164</span></a>  <span class="k">pass</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="CPARKEYWORDENTRY-165"><a href="#CPARKEYWORDENTRY-165"><span class="linenos">165</span></a><span class="k">class</span><span class="w"> </span><span class="nc">CPARKEYWORDENTRY</span><span class="p">(</span><span class="n">DSECT</span><span class="p">):</span>
+</span><span id="CPARKEYWORDENTRY-166"><a href="#CPARKEYWORDENTRY-166"><span class="linenos">166</span></a>  <span class="k">pass</span>
 </span></pre></div>
 
 
@@ -1513,8 +1523,8 @@ of inserts.</p>
 
     </div>
     <a class="headerlink" href="#CPARKEYWORDVALUEENTRY"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="CPARKEYWORDVALUEENTRY-166"><a href="#CPARKEYWORDVALUEENTRY-166"><span class="linenos">166</span></a><span class="k">class</span><span class="w"> </span><span class="nc">CPARKEYWORDVALUEENTRY</span><span class="p">(</span><span class="n">DSECT</span><span class="p">):</span>
-</span><span id="CPARKEYWORDVALUEENTRY-167"><a href="#CPARKEYWORDVALUEENTRY-167"><span class="linenos">167</span></a>  <span class="k">pass</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="CPARKEYWORDVALUEENTRY-168"><a href="#CPARKEYWORDVALUEENTRY-168"><span class="linenos">168</span></a><span class="k">class</span><span class="w"> </span><span class="nc">CPARKEYWORDVALUEENTRY</span><span class="p">(</span><span class="n">DSECT</span><span class="p">):</span>
+</span><span id="CPARKEYWORDVALUEENTRY-169"><a href="#CPARKEYWORDVALUEENTRY-169"><span class="linenos">169</span></a>  <span class="k">pass</span>
 </span></pre></div>
 
 
@@ -1541,8 +1551,8 @@ of inserts.</p>
 
     </div>
     <a class="headerlink" href="#CPARKEYWORDINFO"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="CPARKEYWORDINFO-169"><a href="#CPARKEYWORDINFO-169"><span class="linenos">169</span></a><span class="k">class</span><span class="w"> </span><span class="nc">CPARKEYWORDINFO</span><span class="p">(</span><span class="n">DSECT</span><span class="p">):</span>
-</span><span id="CPARKEYWORDINFO-170"><a href="#CPARKEYWORDINFO-170"><span class="linenos">170</span></a>  <span class="k">pass</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="CPARKEYWORDINFO-171"><a href="#CPARKEYWORDINFO-171"><span class="linenos">171</span></a><span class="k">class</span><span class="w"> </span><span class="nc">CPARKEYWORDINFO</span><span class="p">(</span><span class="n">DSECT</span><span class="p">):</span>
+</span><span id="CPARKEYWORDINFO-172"><a href="#CPARKEYWORDINFO-172"><span class="linenos">172</span></a>  <span class="k">pass</span>
 </span></pre></div>
 
 
@@ -1569,8 +1579,8 @@ of inserts.</p>
 
     </div>
     <a class="headerlink" href="#CPARKEYWORDFLAGS"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="CPARKEYWORDFLAGS-172"><a href="#CPARKEYWORDFLAGS-172"><span class="linenos">172</span></a><span class="k">class</span><span class="w"> </span><span class="nc">CPARKEYWORDFLAGS</span><span class="p">(</span><span class="n">DSECT</span><span class="p">):</span>
-</span><span id="CPARKEYWORDFLAGS-173"><a href="#CPARKEYWORDFLAGS-173"><span class="linenos">173</span></a>  <span class="k">pass</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="CPARKEYWORDFLAGS-174"><a href="#CPARKEYWORDFLAGS-174"><span class="linenos">174</span></a><span class="k">class</span><span class="w"> </span><span class="nc">CPARKEYWORDFLAGS</span><span class="p">(</span><span class="n">DSECT</span><span class="p">):</span>
+</span><span id="CPARKEYWORDFLAGS-175"><a href="#CPARKEYWORDFLAGS-175"><span class="linenos">175</span></a>  <span class="k">pass</span>
 </span></pre></div>
 
 
@@ -1597,8 +1607,8 @@ of inserts.</p>
 
     </div>
     <a class="headerlink" href="#CPARKEYWORDDATA"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="CPARKEYWORDDATA-175"><a href="#CPARKEYWORDDATA-175"><span class="linenos">175</span></a><span class="k">class</span><span class="w"> </span><span class="nc">CPARKEYWORDDATA</span><span class="p">(</span><span class="n">DSECT</span><span class="p">):</span>
-</span><span id="CPARKEYWORDDATA-176"><a href="#CPARKEYWORDDATA-176"><span class="linenos">176</span></a>  <span class="k">pass</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="CPARKEYWORDDATA-177"><a href="#CPARKEYWORDDATA-177"><span class="linenos">177</span></a><span class="k">class</span><span class="w"> </span><span class="nc">CPARKEYWORDDATA</span><span class="p">(</span><span class="n">DSECT</span><span class="p">):</span>
+</span><span id="CPARKEYWORDDATA-178"><a href="#CPARKEYWORDDATA-178"><span class="linenos">178</span></a>  <span class="k">pass</span>
 </span></pre></div>
 
 
@@ -1625,8 +1635,8 @@ of inserts.</p>
 
     </div>
     <a class="headerlink" href="#ENF067"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="ENF067-182"><a href="#ENF067-182"><span class="linenos">182</span></a><span class="k">class</span><span class="w"> </span><span class="nc">ENF067</span><span class="p">(</span><span class="n">DSECT</span><span class="p">):</span>
-</span><span id="ENF067-183"><a href="#ENF067-183"><span class="linenos">183</span></a>  <span class="k">pass</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="ENF067-184"><a href="#ENF067-184"><span class="linenos">184</span></a><span class="k">class</span><span class="w"> </span><span class="nc">ENF067</span><span class="p">(</span><span class="n">DSECT</span><span class="p">):</span>
+</span><span id="ENF067-185"><a href="#ENF067-185"><span class="linenos">185</span></a>  <span class="k">pass</span>
 </span></pre></div>
 
 
@@ -1653,8 +1663,8 @@ of inserts.</p>
 
     </div>
     <a class="headerlink" href="#ENF067_BITQUAL"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="ENF067_BITQUAL-185"><a href="#ENF067_BITQUAL-185"><span class="linenos">185</span></a><span class="k">class</span><span class="w"> </span><span class="nc">ENF067_BITQUAL</span><span class="p">(</span><span class="n">DSECT</span><span class="p">):</span>
-</span><span id="ENF067_BITQUAL-186"><a href="#ENF067_BITQUAL-186"><span class="linenos">186</span></a>  <span class="k">pass</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="ENF067_BITQUAL-187"><a href="#ENF067_BITQUAL-187"><span class="linenos">187</span></a><span class="k">class</span><span class="w"> </span><span class="nc">ENF067_BITQUAL</span><span class="p">(</span><span class="n">DSECT</span><span class="p">):</span>
+</span><span id="ENF067_BITQUAL-188"><a href="#ENF067_BITQUAL-188"><span class="linenos">188</span></a>  <span class="k">pass</span>
 </span></pre></div>
 
 
@@ -1681,8 +1691,8 @@ of inserts.</p>
 
     </div>
     <a class="headerlink" href="#HCKLOG"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="HCKLOG-192"><a href="#HCKLOG-192"><span class="linenos">192</span></a><span class="k">class</span><span class="w"> </span><span class="nc">HCKLOG</span><span class="p">(</span><span class="n">DSECT</span><span class="p">):</span>
-</span><span id="HCKLOG-193"><a href="#HCKLOG-193"><span class="linenos">193</span></a>  <span class="k">pass</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="HCKLOG-194"><a href="#HCKLOG-194"><span class="linenos">194</span></a><span class="k">class</span><span class="w"> </span><span class="nc">HCKLOG</span><span class="p">(</span><span class="n">DSECT</span><span class="p">):</span>
+</span><span id="HCKLOG-195"><a href="#HCKLOG-195"><span class="linenos">195</span></a>  <span class="k">pass</span>
 </span></pre></div>
 
 
@@ -1709,8 +1719,8 @@ of inserts.</p>
 
     </div>
     <a class="headerlink" href="#HCKLOGE"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="HCKLOGE-195"><a href="#HCKLOGE-195"><span class="linenos">195</span></a><span class="k">class</span><span class="w"> </span><span class="nc">HCKLOGE</span><span class="p">(</span><span class="n">DSECT</span><span class="p">):</span>
-</span><span id="HCKLOGE-196"><a href="#HCKLOGE-196"><span class="linenos">196</span></a>  <span class="k">pass</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="HCKLOGE-197"><a href="#HCKLOGE-197"><span class="linenos">197</span></a><span class="k">class</span><span class="w"> </span><span class="nc">HCKLOGE</span><span class="p">(</span><span class="n">DSECT</span><span class="p">):</span>
+</span><span id="HCKLOGE-198"><a href="#HCKLOGE-198"><span class="linenos">198</span></a>  <span class="k">pass</span>
 </span></pre></div>
 
 
@@ -1737,82 +1747,82 @@ of inserts.</p>
 
     </div>
     <a class="headerlink" href="#TestHealth"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="TestHealth-202"><a href="#TestHealth-202"><span class="linenos">202</span></a><span class="k">class</span><span class="w"> </span><span class="nc">TestHealth</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
-</span><span id="TestHealth-203"><a href="#TestHealth-203"><span class="linenos">203</span></a><span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="TestHealth-204"><a href="#TestHealth-204"><span class="linenos">204</span></a><span class="sd">  Tests for the `health.py` module.</span>
-</span><span id="TestHealth-205"><a href="#TestHealth-205"><span class="linenos">205</span></a><span class="sd">  &quot;&quot;&quot;</span>
-</span><span id="TestHealth-206"><a href="#TestHealth-206"><span class="linenos">206</span></a>  <span class="k">def</span><span class="w"> </span><span class="nf">test_hzsdpqe</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="TestHealth-207"><a href="#TestHealth-207"><span class="linenos">207</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="TestHealth-208"><a href="#TestHealth-208"><span class="linenos">208</span></a><span class="sd">    Create and destroy all DSECTs defined in the HZSDPQEMGB data area.</span>
-</span><span id="TestHealth-209"><a href="#TestHealth-209"><span class="linenos">209</span></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="TestHealth-210"><a href="#TestHealth-210"><span class="linenos">210</span></a>    <span class="n">dsects</span> <span class="o">=</span> <span class="p">(</span><span class="n">HZSDPQE</span><span class="p">,</span> <span class="n">DPQE_LASTUPDATEDBY_TYPE</span><span class="p">)</span>
-</span><span id="TestHealth-211"><a href="#TestHealth-211"><span class="linenos">211</span></a>    <span class="k">for</span> <span class="n">D</span> <span class="ow">in</span> <span class="n">dsects</span><span class="p">:</span>
-</span><span id="TestHealth-212"><a href="#TestHealth-212"><span class="linenos">212</span></a>      <span class="n">d</span> <span class="o">=</span> <span class="n">D</span><span class="p">()</span>
-</span><span id="TestHealth-213"><a href="#TestHealth-213"><span class="linenos">213</span></a>      <span class="k">del</span> <span class="n">d</span>
-</span><span id="TestHealth-214"><a href="#TestHealth-214"><span class="linenos">214</span></a>
-</span><span id="TestHealth-215"><a href="#TestHealth-215"><span class="linenos">215</span></a>  <span class="k">def</span><span class="w"> </span><span class="nf">test_hzsmgb</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="TestHealth-216"><a href="#TestHealth-216"><span class="linenos">216</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="TestHealth-217"><a href="#TestHealth-217"><span class="linenos">217</span></a><span class="sd">    Create and destroy all DSECTs defined in the HZSMGB data area.</span>
-</span><span id="TestHealth-218"><a href="#TestHealth-218"><span class="linenos">218</span></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="TestHealth-219"><a href="#TestHealth-219"><span class="linenos">219</span></a>    <span class="n">dsects</span> <span class="o">=</span> <span class="p">(</span><span class="n">HZSMGB</span><span class="p">,</span> <span class="n">MGB_MSGINSERTD</span><span class="p">,</span> <span class="n">HZSMGB1</span><span class="p">,</span> <span class="n">MGB1_MSGINSERTDESC</span><span class="p">)</span>
-</span><span id="TestHealth-220"><a href="#TestHealth-220"><span class="linenos">220</span></a>    <span class="k">for</span> <span class="n">D</span> <span class="ow">in</span> <span class="n">dsects</span><span class="p">:</span>
-</span><span id="TestHealth-221"><a href="#TestHealth-221"><span class="linenos">221</span></a>      <span class="n">d</span> <span class="o">=</span> <span class="n">D</span><span class="p">()</span>
-</span><span id="TestHealth-222"><a href="#TestHealth-222"><span class="linenos">222</span></a>      <span class="k">del</span> <span class="n">d</span>
-</span><span id="TestHealth-223"><a href="#TestHealth-223"><span class="linenos">223</span></a>
-</span><span id="TestHealth-224"><a href="#TestHealth-224"><span class="linenos">224</span></a>  <span class="k">def</span><span class="w"> </span><span class="nf">test_hzspqe</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="TestHealth-225"><a href="#TestHealth-225"><span class="linenos">225</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="TestHealth-226"><a href="#TestHealth-226"><span class="linenos">226</span></a><span class="sd">    Create and destroy all DSECTs defined in the HZSPQE data area.</span>
-</span><span id="TestHealth-227"><a href="#TestHealth-227"><span class="linenos">227</span></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="TestHealth-228"><a href="#TestHealth-228"><span class="linenos">228</span></a>    <span class="n">dsects</span> <span class="o">=</span> <span class="p">(</span><span class="n">HZSPQE</span><span class="p">,</span> <span class="n">PQE_LASTUPDATEDBY_TYPE</span><span class="p">)</span>
-</span><span id="TestHealth-229"><a href="#TestHealth-229"><span class="linenos">229</span></a>    <span class="k">for</span> <span class="n">D</span> <span class="ow">in</span> <span class="n">dsects</span><span class="p">:</span>
-</span><span id="TestHealth-230"><a href="#TestHealth-230"><span class="linenos">230</span></a>      <span class="n">d</span> <span class="o">=</span> <span class="n">D</span><span class="p">()</span>
-</span><span id="TestHealth-231"><a href="#TestHealth-231"><span class="linenos">231</span></a>      <span class="k">del</span> <span class="n">d</span>
-</span><span id="TestHealth-232"><a href="#TestHealth-232"><span class="linenos">232</span></a>
-</span><span id="TestHealth-233"><a href="#TestHealth-233"><span class="linenos">233</span></a>  <span class="k">def</span><span class="w"> </span><span class="nf">test_hzsquaa</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="TestHealth-234"><a href="#TestHealth-234"><span class="linenos">234</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="TestHealth-235"><a href="#TestHealth-235"><span class="linenos">235</span></a><span class="sd">    Create and destroy all DSECTs defined in the HZSQUAA data area.</span>
-</span><span id="TestHealth-236"><a href="#TestHealth-236"><span class="linenos">236</span></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="TestHealth-237"><a href="#TestHealth-237"><span class="linenos">237</span></a>    <span class="n">dsects</span> <span class="o">=</span> <span class="p">(</span><span class="n">HZSQUAAHDR</span><span class="p">,</span> <span class="n">HZSQUAAHDR64</span><span class="p">,</span> <span class="n">HZSQUAAC</span><span class="p">,</span> <span class="n">HZSQUAAC1</span><span class="p">,</span> <span class="n">HZSQUAAG</span><span class="p">,</span> <span class="n">HZSQUAACS</span><span class="p">)</span>
-</span><span id="TestHealth-238"><a href="#TestHealth-238"><span class="linenos">238</span></a>    <span class="k">for</span> <span class="n">D</span> <span class="ow">in</span> <span class="n">dsects</span><span class="p">:</span>
-</span><span id="TestHealth-239"><a href="#TestHealth-239"><span class="linenos">239</span></a>      <span class="n">d</span> <span class="o">=</span> <span class="n">D</span><span class="p">()</span>
-</span><span id="TestHealth-240"><a href="#TestHealth-240"><span class="linenos">240</span></a>      <span class="k">del</span> <span class="n">d</span>
-</span><span id="TestHealth-241"><a href="#TestHealth-241"><span class="linenos">241</span></a>
-</span><span id="TestHealth-242"><a href="#TestHealth-242"><span class="linenos">242</span></a>  <span class="k">def</span><span class="w"> </span><span class="nf">test_hzszcons</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="TestHealth-243"><a href="#TestHealth-243"><span class="linenos">243</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="TestHealth-244"><a href="#TestHealth-244"><span class="linenos">244</span></a><span class="sd">    Create and destroy all DSECTs defined in the HZSZCONS data area.</span>
-</span><span id="TestHealth-245"><a href="#TestHealth-245"><span class="linenos">245</span></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="TestHealth-246"><a href="#TestHealth-246"><span class="linenos">246</span></a>    <span class="n">dsects</span> <span class="o">=</span> <span class="p">[]</span>
-</span><span id="TestHealth-247"><a href="#TestHealth-247"><span class="linenos">247</span></a>    <span class="k">for</span> <span class="n">D</span> <span class="ow">in</span> <span class="n">dsects</span><span class="p">:</span>
-</span><span id="TestHealth-248"><a href="#TestHealth-248"><span class="linenos">248</span></a>      <span class="n">d</span> <span class="o">=</span> <span class="n">D</span><span class="p">()</span>
-</span><span id="TestHealth-249"><a href="#TestHealth-249"><span class="linenos">249</span></a>      <span class="k">del</span> <span class="n">d</span>
-</span><span id="TestHealth-250"><a href="#TestHealth-250"><span class="linenos">250</span></a>
-</span><span id="TestHealth-251"><a href="#TestHealth-251"><span class="linenos">251</span></a>  <span class="k">def</span><span class="w"> </span><span class="nf">test_hzscpar</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="TestHealth-252"><a href="#TestHealth-252"><span class="linenos">252</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="TestHealth-253"><a href="#TestHealth-253"><span class="linenos">253</span></a><span class="sd">    Create and destroy all DSECTs defined in the HZSCPAR data area.</span>
-</span><span id="TestHealth-254"><a href="#TestHealth-254"><span class="linenos">254</span></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="TestHealth-255"><a href="#TestHealth-255"><span class="linenos">255</span></a>    <span class="n">dsects</span> <span class="o">=</span> <span class="p">(</span><span class="n">CPARAREA</span><span class="p">,</span> <span class="n">CPARKEYWORDENTRY</span><span class="p">,</span> <span class="n">CPARKEYWORDVALUEENTRY</span><span class="p">,</span>
-</span><span id="TestHealth-256"><a href="#TestHealth-256"><span class="linenos">256</span></a>      <span class="n">CPARKEYWORDINFO</span><span class="p">,</span> <span class="n">CPARKEYWORDFLAGS</span><span class="p">,</span> <span class="n">CPARKEYWORDDATA</span><span class="p">)</span>
-</span><span id="TestHealth-257"><a href="#TestHealth-257"><span class="linenos">257</span></a>    <span class="k">for</span> <span class="n">D</span> <span class="ow">in</span> <span class="n">dsects</span><span class="p">:</span>
-</span><span id="TestHealth-258"><a href="#TestHealth-258"><span class="linenos">258</span></a>      <span class="n">d</span> <span class="o">=</span> <span class="n">D</span><span class="p">()</span>
-</span><span id="TestHealth-259"><a href="#TestHealth-259"><span class="linenos">259</span></a>      <span class="k">del</span> <span class="n">d</span>
-</span><span id="TestHealth-260"><a href="#TestHealth-260"><span class="linenos">260</span></a>
-</span><span id="TestHealth-261"><a href="#TestHealth-261"><span class="linenos">261</span></a>  <span class="k">def</span><span class="w"> </span><span class="nf">test_hzszenf</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="TestHealth-262"><a href="#TestHealth-262"><span class="linenos">262</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="TestHealth-263"><a href="#TestHealth-263"><span class="linenos">263</span></a><span class="sd">    Create and destroy all DSECTs defined in the HZSCZENF data area.</span>
-</span><span id="TestHealth-264"><a href="#TestHealth-264"><span class="linenos">264</span></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="TestHealth-265"><a href="#TestHealth-265"><span class="linenos">265</span></a>    <span class="n">dsects</span> <span class="o">=</span> <span class="p">(</span><span class="n">ENF067</span><span class="p">,</span> <span class="n">ENF067_BITQUAL</span><span class="p">)</span>
-</span><span id="TestHealth-266"><a href="#TestHealth-266"><span class="linenos">266</span></a>    <span class="k">for</span> <span class="n">D</span> <span class="ow">in</span> <span class="n">dsects</span><span class="p">:</span>
-</span><span id="TestHealth-267"><a href="#TestHealth-267"><span class="linenos">267</span></a>      <span class="n">d</span> <span class="o">=</span> <span class="n">D</span><span class="p">()</span>
-</span><span id="TestHealth-268"><a href="#TestHealth-268"><span class="linenos">268</span></a>      <span class="k">del</span> <span class="n">d</span>
-</span><span id="TestHealth-269"><a href="#TestHealth-269"><span class="linenos">269</span></a>
-</span><span id="TestHealth-270"><a href="#TestHealth-270"><span class="linenos">270</span></a>  <span class="k">def</span><span class="w"> </span><span class="nf">test_hzszhckl</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="TestHealth-271"><a href="#TestHealth-271"><span class="linenos">271</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="TestHealth-272"><a href="#TestHealth-272"><span class="linenos">272</span></a><span class="sd">    Create and destroy all DSECTs defined in the HZSZHCKL data area.</span>
-</span><span id="TestHealth-273"><a href="#TestHealth-273"><span class="linenos">273</span></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="TestHealth-274"><a href="#TestHealth-274"><span class="linenos">274</span></a>    <span class="n">dsects</span> <span class="o">=</span> <span class="p">(</span><span class="n">HCKLOG</span><span class="p">,</span> <span class="n">HCKLOGE</span><span class="p">)</span>
-</span><span id="TestHealth-275"><a href="#TestHealth-275"><span class="linenos">275</span></a>    <span class="k">for</span> <span class="n">D</span> <span class="ow">in</span> <span class="n">dsects</span><span class="p">:</span>
-</span><span id="TestHealth-276"><a href="#TestHealth-276"><span class="linenos">276</span></a>      <span class="n">d</span> <span class="o">=</span> <span class="n">D</span><span class="p">()</span>
-</span><span id="TestHealth-277"><a href="#TestHealth-277"><span class="linenos">277</span></a>      <span class="k">del</span> <span class="n">d</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="TestHealth-204"><a href="#TestHealth-204"><span class="linenos">204</span></a><span class="k">class</span><span class="w"> </span><span class="nc">TestHealth</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+</span><span id="TestHealth-205"><a href="#TestHealth-205"><span class="linenos">205</span></a><span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="TestHealth-206"><a href="#TestHealth-206"><span class="linenos">206</span></a><span class="sd">  Tests for the `health.py` module.</span>
+</span><span id="TestHealth-207"><a href="#TestHealth-207"><span class="linenos">207</span></a><span class="sd">  &quot;&quot;&quot;</span>
+</span><span id="TestHealth-208"><a href="#TestHealth-208"><span class="linenos">208</span></a>  <span class="k">def</span><span class="w"> </span><span class="nf">test_hzsdpqe</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="TestHealth-209"><a href="#TestHealth-209"><span class="linenos">209</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="TestHealth-210"><a href="#TestHealth-210"><span class="linenos">210</span></a><span class="sd">    Create and destroy all DSECTs defined in the HZSDPQEMGB data area.</span>
+</span><span id="TestHealth-211"><a href="#TestHealth-211"><span class="linenos">211</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="TestHealth-212"><a href="#TestHealth-212"><span class="linenos">212</span></a>    <span class="n">dsects</span> <span class="o">=</span> <span class="p">(</span><span class="n">HZSDPQE</span><span class="p">,</span> <span class="n">DPQE_LASTUPDATEDBY_TYPE</span><span class="p">)</span>
+</span><span id="TestHealth-213"><a href="#TestHealth-213"><span class="linenos">213</span></a>    <span class="k">for</span> <span class="n">D</span> <span class="ow">in</span> <span class="n">dsects</span><span class="p">:</span>
+</span><span id="TestHealth-214"><a href="#TestHealth-214"><span class="linenos">214</span></a>      <span class="n">d</span> <span class="o">=</span> <span class="n">D</span><span class="p">()</span>
+</span><span id="TestHealth-215"><a href="#TestHealth-215"><span class="linenos">215</span></a>      <span class="k">del</span> <span class="n">d</span>
+</span><span id="TestHealth-216"><a href="#TestHealth-216"><span class="linenos">216</span></a>
+</span><span id="TestHealth-217"><a href="#TestHealth-217"><span class="linenos">217</span></a>  <span class="k">def</span><span class="w"> </span><span class="nf">test_hzsmgb</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="TestHealth-218"><a href="#TestHealth-218"><span class="linenos">218</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="TestHealth-219"><a href="#TestHealth-219"><span class="linenos">219</span></a><span class="sd">    Create and destroy all DSECTs defined in the HZSMGB data area.</span>
+</span><span id="TestHealth-220"><a href="#TestHealth-220"><span class="linenos">220</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="TestHealth-221"><a href="#TestHealth-221"><span class="linenos">221</span></a>    <span class="n">dsects</span> <span class="o">=</span> <span class="p">(</span><span class="n">HZSMGB</span><span class="p">,</span> <span class="n">MGB_MSGINSERTD</span><span class="p">,</span> <span class="n">HZSMGB1</span><span class="p">,</span> <span class="n">MGB1_MSGINSERTDESC</span><span class="p">)</span>
+</span><span id="TestHealth-222"><a href="#TestHealth-222"><span class="linenos">222</span></a>    <span class="k">for</span> <span class="n">D</span> <span class="ow">in</span> <span class="n">dsects</span><span class="p">:</span>
+</span><span id="TestHealth-223"><a href="#TestHealth-223"><span class="linenos">223</span></a>      <span class="n">d</span> <span class="o">=</span> <span class="n">D</span><span class="p">()</span>
+</span><span id="TestHealth-224"><a href="#TestHealth-224"><span class="linenos">224</span></a>      <span class="k">del</span> <span class="n">d</span>
+</span><span id="TestHealth-225"><a href="#TestHealth-225"><span class="linenos">225</span></a>
+</span><span id="TestHealth-226"><a href="#TestHealth-226"><span class="linenos">226</span></a>  <span class="k">def</span><span class="w"> </span><span class="nf">test_hzspqe</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="TestHealth-227"><a href="#TestHealth-227"><span class="linenos">227</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="TestHealth-228"><a href="#TestHealth-228"><span class="linenos">228</span></a><span class="sd">    Create and destroy all DSECTs defined in the HZSPQE data area.</span>
+</span><span id="TestHealth-229"><a href="#TestHealth-229"><span class="linenos">229</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="TestHealth-230"><a href="#TestHealth-230"><span class="linenos">230</span></a>    <span class="n">dsects</span> <span class="o">=</span> <span class="p">(</span><span class="n">HZSPQE</span><span class="p">,</span> <span class="n">PQE_LASTUPDATEDBY_TYPE</span><span class="p">)</span>
+</span><span id="TestHealth-231"><a href="#TestHealth-231"><span class="linenos">231</span></a>    <span class="k">for</span> <span class="n">D</span> <span class="ow">in</span> <span class="n">dsects</span><span class="p">:</span>
+</span><span id="TestHealth-232"><a href="#TestHealth-232"><span class="linenos">232</span></a>      <span class="n">d</span> <span class="o">=</span> <span class="n">D</span><span class="p">()</span>
+</span><span id="TestHealth-233"><a href="#TestHealth-233"><span class="linenos">233</span></a>      <span class="k">del</span> <span class="n">d</span>
+</span><span id="TestHealth-234"><a href="#TestHealth-234"><span class="linenos">234</span></a>
+</span><span id="TestHealth-235"><a href="#TestHealth-235"><span class="linenos">235</span></a>  <span class="k">def</span><span class="w"> </span><span class="nf">test_hzsquaa</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="TestHealth-236"><a href="#TestHealth-236"><span class="linenos">236</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="TestHealth-237"><a href="#TestHealth-237"><span class="linenos">237</span></a><span class="sd">    Create and destroy all DSECTs defined in the HZSQUAA data area.</span>
+</span><span id="TestHealth-238"><a href="#TestHealth-238"><span class="linenos">238</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="TestHealth-239"><a href="#TestHealth-239"><span class="linenos">239</span></a>    <span class="n">dsects</span> <span class="o">=</span> <span class="p">(</span><span class="n">HZSQUAAHDR</span><span class="p">,</span> <span class="n">HZSQUAAHDR64</span><span class="p">,</span> <span class="n">HZSQUAAC</span><span class="p">,</span> <span class="n">HZSQUAAC1</span><span class="p">,</span> <span class="n">HZSQUAAG</span><span class="p">,</span> <span class="n">HZSQUAACS</span><span class="p">)</span>
+</span><span id="TestHealth-240"><a href="#TestHealth-240"><span class="linenos">240</span></a>    <span class="k">for</span> <span class="n">D</span> <span class="ow">in</span> <span class="n">dsects</span><span class="p">:</span>
+</span><span id="TestHealth-241"><a href="#TestHealth-241"><span class="linenos">241</span></a>      <span class="n">d</span> <span class="o">=</span> <span class="n">D</span><span class="p">()</span>
+</span><span id="TestHealth-242"><a href="#TestHealth-242"><span class="linenos">242</span></a>      <span class="k">del</span> <span class="n">d</span>
+</span><span id="TestHealth-243"><a href="#TestHealth-243"><span class="linenos">243</span></a>
+</span><span id="TestHealth-244"><a href="#TestHealth-244"><span class="linenos">244</span></a>  <span class="k">def</span><span class="w"> </span><span class="nf">test_hzszcons</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="TestHealth-245"><a href="#TestHealth-245"><span class="linenos">245</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="TestHealth-246"><a href="#TestHealth-246"><span class="linenos">246</span></a><span class="sd">    Create and destroy all DSECTs defined in the HZSZCONS data area.</span>
+</span><span id="TestHealth-247"><a href="#TestHealth-247"><span class="linenos">247</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="TestHealth-248"><a href="#TestHealth-248"><span class="linenos">248</span></a>    <span class="n">dsects</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span id="TestHealth-249"><a href="#TestHealth-249"><span class="linenos">249</span></a>    <span class="k">for</span> <span class="n">D</span> <span class="ow">in</span> <span class="n">dsects</span><span class="p">:</span>
+</span><span id="TestHealth-250"><a href="#TestHealth-250"><span class="linenos">250</span></a>      <span class="n">d</span> <span class="o">=</span> <span class="n">D</span><span class="p">()</span>
+</span><span id="TestHealth-251"><a href="#TestHealth-251"><span class="linenos">251</span></a>      <span class="k">del</span> <span class="n">d</span>
+</span><span id="TestHealth-252"><a href="#TestHealth-252"><span class="linenos">252</span></a>
+</span><span id="TestHealth-253"><a href="#TestHealth-253"><span class="linenos">253</span></a>  <span class="k">def</span><span class="w"> </span><span class="nf">test_hzscpar</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="TestHealth-254"><a href="#TestHealth-254"><span class="linenos">254</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="TestHealth-255"><a href="#TestHealth-255"><span class="linenos">255</span></a><span class="sd">    Create and destroy all DSECTs defined in the HZSCPAR data area.</span>
+</span><span id="TestHealth-256"><a href="#TestHealth-256"><span class="linenos">256</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="TestHealth-257"><a href="#TestHealth-257"><span class="linenos">257</span></a>    <span class="n">dsects</span> <span class="o">=</span> <span class="p">(</span><span class="n">CPARAREA</span><span class="p">,</span> <span class="n">CPARKEYWORDENTRY</span><span class="p">,</span> <span class="n">CPARKEYWORDVALUEENTRY</span><span class="p">,</span>
+</span><span id="TestHealth-258"><a href="#TestHealth-258"><span class="linenos">258</span></a>      <span class="n">CPARKEYWORDINFO</span><span class="p">,</span> <span class="n">CPARKEYWORDFLAGS</span><span class="p">,</span> <span class="n">CPARKEYWORDDATA</span><span class="p">)</span>
+</span><span id="TestHealth-259"><a href="#TestHealth-259"><span class="linenos">259</span></a>    <span class="k">for</span> <span class="n">D</span> <span class="ow">in</span> <span class="n">dsects</span><span class="p">:</span>
+</span><span id="TestHealth-260"><a href="#TestHealth-260"><span class="linenos">260</span></a>      <span class="n">d</span> <span class="o">=</span> <span class="n">D</span><span class="p">()</span>
+</span><span id="TestHealth-261"><a href="#TestHealth-261"><span class="linenos">261</span></a>      <span class="k">del</span> <span class="n">d</span>
+</span><span id="TestHealth-262"><a href="#TestHealth-262"><span class="linenos">262</span></a>
+</span><span id="TestHealth-263"><a href="#TestHealth-263"><span class="linenos">263</span></a>  <span class="k">def</span><span class="w"> </span><span class="nf">test_hzszenf</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="TestHealth-264"><a href="#TestHealth-264"><span class="linenos">264</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="TestHealth-265"><a href="#TestHealth-265"><span class="linenos">265</span></a><span class="sd">    Create and destroy all DSECTs defined in the HZSCZENF data area.</span>
+</span><span id="TestHealth-266"><a href="#TestHealth-266"><span class="linenos">266</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="TestHealth-267"><a href="#TestHealth-267"><span class="linenos">267</span></a>    <span class="n">dsects</span> <span class="o">=</span> <span class="p">(</span><span class="n">ENF067</span><span class="p">,</span> <span class="n">ENF067_BITQUAL</span><span class="p">)</span>
+</span><span id="TestHealth-268"><a href="#TestHealth-268"><span class="linenos">268</span></a>    <span class="k">for</span> <span class="n">D</span> <span class="ow">in</span> <span class="n">dsects</span><span class="p">:</span>
+</span><span id="TestHealth-269"><a href="#TestHealth-269"><span class="linenos">269</span></a>      <span class="n">d</span> <span class="o">=</span> <span class="n">D</span><span class="p">()</span>
+</span><span id="TestHealth-270"><a href="#TestHealth-270"><span class="linenos">270</span></a>      <span class="k">del</span> <span class="n">d</span>
+</span><span id="TestHealth-271"><a href="#TestHealth-271"><span class="linenos">271</span></a>
+</span><span id="TestHealth-272"><a href="#TestHealth-272"><span class="linenos">272</span></a>  <span class="k">def</span><span class="w"> </span><span class="nf">test_hzszhckl</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="TestHealth-273"><a href="#TestHealth-273"><span class="linenos">273</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="TestHealth-274"><a href="#TestHealth-274"><span class="linenos">274</span></a><span class="sd">    Create and destroy all DSECTs defined in the HZSZHCKL data area.</span>
+</span><span id="TestHealth-275"><a href="#TestHealth-275"><span class="linenos">275</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="TestHealth-276"><a href="#TestHealth-276"><span class="linenos">276</span></a>    <span class="n">dsects</span> <span class="o">=</span> <span class="p">(</span><span class="n">HCKLOG</span><span class="p">,</span> <span class="n">HCKLOGE</span><span class="p">)</span>
+</span><span id="TestHealth-277"><a href="#TestHealth-277"><span class="linenos">277</span></a>    <span class="k">for</span> <span class="n">D</span> <span class="ow">in</span> <span class="n">dsects</span><span class="p">:</span>
+</span><span id="TestHealth-278"><a href="#TestHealth-278"><span class="linenos">278</span></a>      <span class="n">d</span> <span class="o">=</span> <span class="n">D</span><span class="p">()</span>
+</span><span id="TestHealth-279"><a href="#TestHealth-279"><span class="linenos">279</span></a>      <span class="k">del</span> <span class="n">d</span>
 </span></pre></div>
 
 
@@ -1831,14 +1841,14 @@ of inserts.</p>
 
     </div>
     <a class="headerlink" href="#TestHealth.test_hzsdpqe"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="TestHealth.test_hzsdpqe-206"><a href="#TestHealth.test_hzsdpqe-206"><span class="linenos">206</span></a>  <span class="k">def</span><span class="w"> </span><span class="nf">test_hzsdpqe</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="TestHealth.test_hzsdpqe-207"><a href="#TestHealth.test_hzsdpqe-207"><span class="linenos">207</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="TestHealth.test_hzsdpqe-208"><a href="#TestHealth.test_hzsdpqe-208"><span class="linenos">208</span></a><span class="sd">    Create and destroy all DSECTs defined in the HZSDPQEMGB data area.</span>
-</span><span id="TestHealth.test_hzsdpqe-209"><a href="#TestHealth.test_hzsdpqe-209"><span class="linenos">209</span></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="TestHealth.test_hzsdpqe-210"><a href="#TestHealth.test_hzsdpqe-210"><span class="linenos">210</span></a>    <span class="n">dsects</span> <span class="o">=</span> <span class="p">(</span><span class="n">HZSDPQE</span><span class="p">,</span> <span class="n">DPQE_LASTUPDATEDBY_TYPE</span><span class="p">)</span>
-</span><span id="TestHealth.test_hzsdpqe-211"><a href="#TestHealth.test_hzsdpqe-211"><span class="linenos">211</span></a>    <span class="k">for</span> <span class="n">D</span> <span class="ow">in</span> <span class="n">dsects</span><span class="p">:</span>
-</span><span id="TestHealth.test_hzsdpqe-212"><a href="#TestHealth.test_hzsdpqe-212"><span class="linenos">212</span></a>      <span class="n">d</span> <span class="o">=</span> <span class="n">D</span><span class="p">()</span>
-</span><span id="TestHealth.test_hzsdpqe-213"><a href="#TestHealth.test_hzsdpqe-213"><span class="linenos">213</span></a>      <span class="k">del</span> <span class="n">d</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="TestHealth.test_hzsdpqe-208"><a href="#TestHealth.test_hzsdpqe-208"><span class="linenos">208</span></a>  <span class="k">def</span><span class="w"> </span><span class="nf">test_hzsdpqe</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="TestHealth.test_hzsdpqe-209"><a href="#TestHealth.test_hzsdpqe-209"><span class="linenos">209</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="TestHealth.test_hzsdpqe-210"><a href="#TestHealth.test_hzsdpqe-210"><span class="linenos">210</span></a><span class="sd">    Create and destroy all DSECTs defined in the HZSDPQEMGB data area.</span>
+</span><span id="TestHealth.test_hzsdpqe-211"><a href="#TestHealth.test_hzsdpqe-211"><span class="linenos">211</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="TestHealth.test_hzsdpqe-212"><a href="#TestHealth.test_hzsdpqe-212"><span class="linenos">212</span></a>    <span class="n">dsects</span> <span class="o">=</span> <span class="p">(</span><span class="n">HZSDPQE</span><span class="p">,</span> <span class="n">DPQE_LASTUPDATEDBY_TYPE</span><span class="p">)</span>
+</span><span id="TestHealth.test_hzsdpqe-213"><a href="#TestHealth.test_hzsdpqe-213"><span class="linenos">213</span></a>    <span class="k">for</span> <span class="n">D</span> <span class="ow">in</span> <span class="n">dsects</span><span class="p">:</span>
+</span><span id="TestHealth.test_hzsdpqe-214"><a href="#TestHealth.test_hzsdpqe-214"><span class="linenos">214</span></a>      <span class="n">d</span> <span class="o">=</span> <span class="n">D</span><span class="p">()</span>
+</span><span id="TestHealth.test_hzsdpqe-215"><a href="#TestHealth.test_hzsdpqe-215"><span class="linenos">215</span></a>      <span class="k">del</span> <span class="n">d</span>
 </span></pre></div>
 
 
@@ -1858,14 +1868,14 @@ of inserts.</p>
 
     </div>
     <a class="headerlink" href="#TestHealth.test_hzsmgb"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="TestHealth.test_hzsmgb-215"><a href="#TestHealth.test_hzsmgb-215"><span class="linenos">215</span></a>  <span class="k">def</span><span class="w"> </span><span class="nf">test_hzsmgb</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="TestHealth.test_hzsmgb-216"><a href="#TestHealth.test_hzsmgb-216"><span class="linenos">216</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="TestHealth.test_hzsmgb-217"><a href="#TestHealth.test_hzsmgb-217"><span class="linenos">217</span></a><span class="sd">    Create and destroy all DSECTs defined in the HZSMGB data area.</span>
-</span><span id="TestHealth.test_hzsmgb-218"><a href="#TestHealth.test_hzsmgb-218"><span class="linenos">218</span></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="TestHealth.test_hzsmgb-219"><a href="#TestHealth.test_hzsmgb-219"><span class="linenos">219</span></a>    <span class="n">dsects</span> <span class="o">=</span> <span class="p">(</span><span class="n">HZSMGB</span><span class="p">,</span> <span class="n">MGB_MSGINSERTD</span><span class="p">,</span> <span class="n">HZSMGB1</span><span class="p">,</span> <span class="n">MGB1_MSGINSERTDESC</span><span class="p">)</span>
-</span><span id="TestHealth.test_hzsmgb-220"><a href="#TestHealth.test_hzsmgb-220"><span class="linenos">220</span></a>    <span class="k">for</span> <span class="n">D</span> <span class="ow">in</span> <span class="n">dsects</span><span class="p">:</span>
-</span><span id="TestHealth.test_hzsmgb-221"><a href="#TestHealth.test_hzsmgb-221"><span class="linenos">221</span></a>      <span class="n">d</span> <span class="o">=</span> <span class="n">D</span><span class="p">()</span>
-</span><span id="TestHealth.test_hzsmgb-222"><a href="#TestHealth.test_hzsmgb-222"><span class="linenos">222</span></a>      <span class="k">del</span> <span class="n">d</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="TestHealth.test_hzsmgb-217"><a href="#TestHealth.test_hzsmgb-217"><span class="linenos">217</span></a>  <span class="k">def</span><span class="w"> </span><span class="nf">test_hzsmgb</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="TestHealth.test_hzsmgb-218"><a href="#TestHealth.test_hzsmgb-218"><span class="linenos">218</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="TestHealth.test_hzsmgb-219"><a href="#TestHealth.test_hzsmgb-219"><span class="linenos">219</span></a><span class="sd">    Create and destroy all DSECTs defined in the HZSMGB data area.</span>
+</span><span id="TestHealth.test_hzsmgb-220"><a href="#TestHealth.test_hzsmgb-220"><span class="linenos">220</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="TestHealth.test_hzsmgb-221"><a href="#TestHealth.test_hzsmgb-221"><span class="linenos">221</span></a>    <span class="n">dsects</span> <span class="o">=</span> <span class="p">(</span><span class="n">HZSMGB</span><span class="p">,</span> <span class="n">MGB_MSGINSERTD</span><span class="p">,</span> <span class="n">HZSMGB1</span><span class="p">,</span> <span class="n">MGB1_MSGINSERTDESC</span><span class="p">)</span>
+</span><span id="TestHealth.test_hzsmgb-222"><a href="#TestHealth.test_hzsmgb-222"><span class="linenos">222</span></a>    <span class="k">for</span> <span class="n">D</span> <span class="ow">in</span> <span class="n">dsects</span><span class="p">:</span>
+</span><span id="TestHealth.test_hzsmgb-223"><a href="#TestHealth.test_hzsmgb-223"><span class="linenos">223</span></a>      <span class="n">d</span> <span class="o">=</span> <span class="n">D</span><span class="p">()</span>
+</span><span id="TestHealth.test_hzsmgb-224"><a href="#TestHealth.test_hzsmgb-224"><span class="linenos">224</span></a>      <span class="k">del</span> <span class="n">d</span>
 </span></pre></div>
 
 
@@ -1885,14 +1895,14 @@ of inserts.</p>
 
     </div>
     <a class="headerlink" href="#TestHealth.test_hzspqe"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="TestHealth.test_hzspqe-224"><a href="#TestHealth.test_hzspqe-224"><span class="linenos">224</span></a>  <span class="k">def</span><span class="w"> </span><span class="nf">test_hzspqe</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="TestHealth.test_hzspqe-225"><a href="#TestHealth.test_hzspqe-225"><span class="linenos">225</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="TestHealth.test_hzspqe-226"><a href="#TestHealth.test_hzspqe-226"><span class="linenos">226</span></a><span class="sd">    Create and destroy all DSECTs defined in the HZSPQE data area.</span>
-</span><span id="TestHealth.test_hzspqe-227"><a href="#TestHealth.test_hzspqe-227"><span class="linenos">227</span></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="TestHealth.test_hzspqe-228"><a href="#TestHealth.test_hzspqe-228"><span class="linenos">228</span></a>    <span class="n">dsects</span> <span class="o">=</span> <span class="p">(</span><span class="n">HZSPQE</span><span class="p">,</span> <span class="n">PQE_LASTUPDATEDBY_TYPE</span><span class="p">)</span>
-</span><span id="TestHealth.test_hzspqe-229"><a href="#TestHealth.test_hzspqe-229"><span class="linenos">229</span></a>    <span class="k">for</span> <span class="n">D</span> <span class="ow">in</span> <span class="n">dsects</span><span class="p">:</span>
-</span><span id="TestHealth.test_hzspqe-230"><a href="#TestHealth.test_hzspqe-230"><span class="linenos">230</span></a>      <span class="n">d</span> <span class="o">=</span> <span class="n">D</span><span class="p">()</span>
-</span><span id="TestHealth.test_hzspqe-231"><a href="#TestHealth.test_hzspqe-231"><span class="linenos">231</span></a>      <span class="k">del</span> <span class="n">d</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="TestHealth.test_hzspqe-226"><a href="#TestHealth.test_hzspqe-226"><span class="linenos">226</span></a>  <span class="k">def</span><span class="w"> </span><span class="nf">test_hzspqe</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="TestHealth.test_hzspqe-227"><a href="#TestHealth.test_hzspqe-227"><span class="linenos">227</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="TestHealth.test_hzspqe-228"><a href="#TestHealth.test_hzspqe-228"><span class="linenos">228</span></a><span class="sd">    Create and destroy all DSECTs defined in the HZSPQE data area.</span>
+</span><span id="TestHealth.test_hzspqe-229"><a href="#TestHealth.test_hzspqe-229"><span class="linenos">229</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="TestHealth.test_hzspqe-230"><a href="#TestHealth.test_hzspqe-230"><span class="linenos">230</span></a>    <span class="n">dsects</span> <span class="o">=</span> <span class="p">(</span><span class="n">HZSPQE</span><span class="p">,</span> <span class="n">PQE_LASTUPDATEDBY_TYPE</span><span class="p">)</span>
+</span><span id="TestHealth.test_hzspqe-231"><a href="#TestHealth.test_hzspqe-231"><span class="linenos">231</span></a>    <span class="k">for</span> <span class="n">D</span> <span class="ow">in</span> <span class="n">dsects</span><span class="p">:</span>
+</span><span id="TestHealth.test_hzspqe-232"><a href="#TestHealth.test_hzspqe-232"><span class="linenos">232</span></a>      <span class="n">d</span> <span class="o">=</span> <span class="n">D</span><span class="p">()</span>
+</span><span id="TestHealth.test_hzspqe-233"><a href="#TestHealth.test_hzspqe-233"><span class="linenos">233</span></a>      <span class="k">del</span> <span class="n">d</span>
 </span></pre></div>
 
 
@@ -1912,14 +1922,14 @@ of inserts.</p>
 
     </div>
     <a class="headerlink" href="#TestHealth.test_hzsquaa"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="TestHealth.test_hzsquaa-233"><a href="#TestHealth.test_hzsquaa-233"><span class="linenos">233</span></a>  <span class="k">def</span><span class="w"> </span><span class="nf">test_hzsquaa</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="TestHealth.test_hzsquaa-234"><a href="#TestHealth.test_hzsquaa-234"><span class="linenos">234</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="TestHealth.test_hzsquaa-235"><a href="#TestHealth.test_hzsquaa-235"><span class="linenos">235</span></a><span class="sd">    Create and destroy all DSECTs defined in the HZSQUAA data area.</span>
-</span><span id="TestHealth.test_hzsquaa-236"><a href="#TestHealth.test_hzsquaa-236"><span class="linenos">236</span></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="TestHealth.test_hzsquaa-237"><a href="#TestHealth.test_hzsquaa-237"><span class="linenos">237</span></a>    <span class="n">dsects</span> <span class="o">=</span> <span class="p">(</span><span class="n">HZSQUAAHDR</span><span class="p">,</span> <span class="n">HZSQUAAHDR64</span><span class="p">,</span> <span class="n">HZSQUAAC</span><span class="p">,</span> <span class="n">HZSQUAAC1</span><span class="p">,</span> <span class="n">HZSQUAAG</span><span class="p">,</span> <span class="n">HZSQUAACS</span><span class="p">)</span>
-</span><span id="TestHealth.test_hzsquaa-238"><a href="#TestHealth.test_hzsquaa-238"><span class="linenos">238</span></a>    <span class="k">for</span> <span class="n">D</span> <span class="ow">in</span> <span class="n">dsects</span><span class="p">:</span>
-</span><span id="TestHealth.test_hzsquaa-239"><a href="#TestHealth.test_hzsquaa-239"><span class="linenos">239</span></a>      <span class="n">d</span> <span class="o">=</span> <span class="n">D</span><span class="p">()</span>
-</span><span id="TestHealth.test_hzsquaa-240"><a href="#TestHealth.test_hzsquaa-240"><span class="linenos">240</span></a>      <span class="k">del</span> <span class="n">d</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="TestHealth.test_hzsquaa-235"><a href="#TestHealth.test_hzsquaa-235"><span class="linenos">235</span></a>  <span class="k">def</span><span class="w"> </span><span class="nf">test_hzsquaa</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="TestHealth.test_hzsquaa-236"><a href="#TestHealth.test_hzsquaa-236"><span class="linenos">236</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="TestHealth.test_hzsquaa-237"><a href="#TestHealth.test_hzsquaa-237"><span class="linenos">237</span></a><span class="sd">    Create and destroy all DSECTs defined in the HZSQUAA data area.</span>
+</span><span id="TestHealth.test_hzsquaa-238"><a href="#TestHealth.test_hzsquaa-238"><span class="linenos">238</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="TestHealth.test_hzsquaa-239"><a href="#TestHealth.test_hzsquaa-239"><span class="linenos">239</span></a>    <span class="n">dsects</span> <span class="o">=</span> <span class="p">(</span><span class="n">HZSQUAAHDR</span><span class="p">,</span> <span class="n">HZSQUAAHDR64</span><span class="p">,</span> <span class="n">HZSQUAAC</span><span class="p">,</span> <span class="n">HZSQUAAC1</span><span class="p">,</span> <span class="n">HZSQUAAG</span><span class="p">,</span> <span class="n">HZSQUAACS</span><span class="p">)</span>
+</span><span id="TestHealth.test_hzsquaa-240"><a href="#TestHealth.test_hzsquaa-240"><span class="linenos">240</span></a>    <span class="k">for</span> <span class="n">D</span> <span class="ow">in</span> <span class="n">dsects</span><span class="p">:</span>
+</span><span id="TestHealth.test_hzsquaa-241"><a href="#TestHealth.test_hzsquaa-241"><span class="linenos">241</span></a>      <span class="n">d</span> <span class="o">=</span> <span class="n">D</span><span class="p">()</span>
+</span><span id="TestHealth.test_hzsquaa-242"><a href="#TestHealth.test_hzsquaa-242"><span class="linenos">242</span></a>      <span class="k">del</span> <span class="n">d</span>
 </span></pre></div>
 
 
@@ -1939,14 +1949,14 @@ of inserts.</p>
 
     </div>
     <a class="headerlink" href="#TestHealth.test_hzszcons"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="TestHealth.test_hzszcons-242"><a href="#TestHealth.test_hzszcons-242"><span class="linenos">242</span></a>  <span class="k">def</span><span class="w"> </span><span class="nf">test_hzszcons</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="TestHealth.test_hzszcons-243"><a href="#TestHealth.test_hzszcons-243"><span class="linenos">243</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="TestHealth.test_hzszcons-244"><a href="#TestHealth.test_hzszcons-244"><span class="linenos">244</span></a><span class="sd">    Create and destroy all DSECTs defined in the HZSZCONS data area.</span>
-</span><span id="TestHealth.test_hzszcons-245"><a href="#TestHealth.test_hzszcons-245"><span class="linenos">245</span></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="TestHealth.test_hzszcons-246"><a href="#TestHealth.test_hzszcons-246"><span class="linenos">246</span></a>    <span class="n">dsects</span> <span class="o">=</span> <span class="p">[]</span>
-</span><span id="TestHealth.test_hzszcons-247"><a href="#TestHealth.test_hzszcons-247"><span class="linenos">247</span></a>    <span class="k">for</span> <span class="n">D</span> <span class="ow">in</span> <span class="n">dsects</span><span class="p">:</span>
-</span><span id="TestHealth.test_hzszcons-248"><a href="#TestHealth.test_hzszcons-248"><span class="linenos">248</span></a>      <span class="n">d</span> <span class="o">=</span> <span class="n">D</span><span class="p">()</span>
-</span><span id="TestHealth.test_hzszcons-249"><a href="#TestHealth.test_hzszcons-249"><span class="linenos">249</span></a>      <span class="k">del</span> <span class="n">d</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="TestHealth.test_hzszcons-244"><a href="#TestHealth.test_hzszcons-244"><span class="linenos">244</span></a>  <span class="k">def</span><span class="w"> </span><span class="nf">test_hzszcons</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="TestHealth.test_hzszcons-245"><a href="#TestHealth.test_hzszcons-245"><span class="linenos">245</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="TestHealth.test_hzszcons-246"><a href="#TestHealth.test_hzszcons-246"><span class="linenos">246</span></a><span class="sd">    Create and destroy all DSECTs defined in the HZSZCONS data area.</span>
+</span><span id="TestHealth.test_hzszcons-247"><a href="#TestHealth.test_hzszcons-247"><span class="linenos">247</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="TestHealth.test_hzszcons-248"><a href="#TestHealth.test_hzszcons-248"><span class="linenos">248</span></a>    <span class="n">dsects</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span id="TestHealth.test_hzszcons-249"><a href="#TestHealth.test_hzszcons-249"><span class="linenos">249</span></a>    <span class="k">for</span> <span class="n">D</span> <span class="ow">in</span> <span class="n">dsects</span><span class="p">:</span>
+</span><span id="TestHealth.test_hzszcons-250"><a href="#TestHealth.test_hzszcons-250"><span class="linenos">250</span></a>      <span class="n">d</span> <span class="o">=</span> <span class="n">D</span><span class="p">()</span>
+</span><span id="TestHealth.test_hzszcons-251"><a href="#TestHealth.test_hzszcons-251"><span class="linenos">251</span></a>      <span class="k">del</span> <span class="n">d</span>
 </span></pre></div>
 
 
@@ -1966,15 +1976,15 @@ of inserts.</p>
 
     </div>
     <a class="headerlink" href="#TestHealth.test_hzscpar"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="TestHealth.test_hzscpar-251"><a href="#TestHealth.test_hzscpar-251"><span class="linenos">251</span></a>  <span class="k">def</span><span class="w"> </span><span class="nf">test_hzscpar</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="TestHealth.test_hzscpar-252"><a href="#TestHealth.test_hzscpar-252"><span class="linenos">252</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="TestHealth.test_hzscpar-253"><a href="#TestHealth.test_hzscpar-253"><span class="linenos">253</span></a><span class="sd">    Create and destroy all DSECTs defined in the HZSCPAR data area.</span>
-</span><span id="TestHealth.test_hzscpar-254"><a href="#TestHealth.test_hzscpar-254"><span class="linenos">254</span></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="TestHealth.test_hzscpar-255"><a href="#TestHealth.test_hzscpar-255"><span class="linenos">255</span></a>    <span class="n">dsects</span> <span class="o">=</span> <span class="p">(</span><span class="n">CPARAREA</span><span class="p">,</span> <span class="n">CPARKEYWORDENTRY</span><span class="p">,</span> <span class="n">CPARKEYWORDVALUEENTRY</span><span class="p">,</span>
-</span><span id="TestHealth.test_hzscpar-256"><a href="#TestHealth.test_hzscpar-256"><span class="linenos">256</span></a>      <span class="n">CPARKEYWORDINFO</span><span class="p">,</span> <span class="n">CPARKEYWORDFLAGS</span><span class="p">,</span> <span class="n">CPARKEYWORDDATA</span><span class="p">)</span>
-</span><span id="TestHealth.test_hzscpar-257"><a href="#TestHealth.test_hzscpar-257"><span class="linenos">257</span></a>    <span class="k">for</span> <span class="n">D</span> <span class="ow">in</span> <span class="n">dsects</span><span class="p">:</span>
-</span><span id="TestHealth.test_hzscpar-258"><a href="#TestHealth.test_hzscpar-258"><span class="linenos">258</span></a>      <span class="n">d</span> <span class="o">=</span> <span class="n">D</span><span class="p">()</span>
-</span><span id="TestHealth.test_hzscpar-259"><a href="#TestHealth.test_hzscpar-259"><span class="linenos">259</span></a>      <span class="k">del</span> <span class="n">d</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="TestHealth.test_hzscpar-253"><a href="#TestHealth.test_hzscpar-253"><span class="linenos">253</span></a>  <span class="k">def</span><span class="w"> </span><span class="nf">test_hzscpar</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="TestHealth.test_hzscpar-254"><a href="#TestHealth.test_hzscpar-254"><span class="linenos">254</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="TestHealth.test_hzscpar-255"><a href="#TestHealth.test_hzscpar-255"><span class="linenos">255</span></a><span class="sd">    Create and destroy all DSECTs defined in the HZSCPAR data area.</span>
+</span><span id="TestHealth.test_hzscpar-256"><a href="#TestHealth.test_hzscpar-256"><span class="linenos">256</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="TestHealth.test_hzscpar-257"><a href="#TestHealth.test_hzscpar-257"><span class="linenos">257</span></a>    <span class="n">dsects</span> <span class="o">=</span> <span class="p">(</span><span class="n">CPARAREA</span><span class="p">,</span> <span class="n">CPARKEYWORDENTRY</span><span class="p">,</span> <span class="n">CPARKEYWORDVALUEENTRY</span><span class="p">,</span>
+</span><span id="TestHealth.test_hzscpar-258"><a href="#TestHealth.test_hzscpar-258"><span class="linenos">258</span></a>      <span class="n">CPARKEYWORDINFO</span><span class="p">,</span> <span class="n">CPARKEYWORDFLAGS</span><span class="p">,</span> <span class="n">CPARKEYWORDDATA</span><span class="p">)</span>
+</span><span id="TestHealth.test_hzscpar-259"><a href="#TestHealth.test_hzscpar-259"><span class="linenos">259</span></a>    <span class="k">for</span> <span class="n">D</span> <span class="ow">in</span> <span class="n">dsects</span><span class="p">:</span>
+</span><span id="TestHealth.test_hzscpar-260"><a href="#TestHealth.test_hzscpar-260"><span class="linenos">260</span></a>      <span class="n">d</span> <span class="o">=</span> <span class="n">D</span><span class="p">()</span>
+</span><span id="TestHealth.test_hzscpar-261"><a href="#TestHealth.test_hzscpar-261"><span class="linenos">261</span></a>      <span class="k">del</span> <span class="n">d</span>
 </span></pre></div>
 
 
@@ -1994,14 +2004,14 @@ of inserts.</p>
 
     </div>
     <a class="headerlink" href="#TestHealth.test_hzszenf"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="TestHealth.test_hzszenf-261"><a href="#TestHealth.test_hzszenf-261"><span class="linenos">261</span></a>  <span class="k">def</span><span class="w"> </span><span class="nf">test_hzszenf</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="TestHealth.test_hzszenf-262"><a href="#TestHealth.test_hzszenf-262"><span class="linenos">262</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="TestHealth.test_hzszenf-263"><a href="#TestHealth.test_hzszenf-263"><span class="linenos">263</span></a><span class="sd">    Create and destroy all DSECTs defined in the HZSCZENF data area.</span>
-</span><span id="TestHealth.test_hzszenf-264"><a href="#TestHealth.test_hzszenf-264"><span class="linenos">264</span></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="TestHealth.test_hzszenf-265"><a href="#TestHealth.test_hzszenf-265"><span class="linenos">265</span></a>    <span class="n">dsects</span> <span class="o">=</span> <span class="p">(</span><span class="n">ENF067</span><span class="p">,</span> <span class="n">ENF067_BITQUAL</span><span class="p">)</span>
-</span><span id="TestHealth.test_hzszenf-266"><a href="#TestHealth.test_hzszenf-266"><span class="linenos">266</span></a>    <span class="k">for</span> <span class="n">D</span> <span class="ow">in</span> <span class="n">dsects</span><span class="p">:</span>
-</span><span id="TestHealth.test_hzszenf-267"><a href="#TestHealth.test_hzszenf-267"><span class="linenos">267</span></a>      <span class="n">d</span> <span class="o">=</span> <span class="n">D</span><span class="p">()</span>
-</span><span id="TestHealth.test_hzszenf-268"><a href="#TestHealth.test_hzszenf-268"><span class="linenos">268</span></a>      <span class="k">del</span> <span class="n">d</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="TestHealth.test_hzszenf-263"><a href="#TestHealth.test_hzszenf-263"><span class="linenos">263</span></a>  <span class="k">def</span><span class="w"> </span><span class="nf">test_hzszenf</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="TestHealth.test_hzszenf-264"><a href="#TestHealth.test_hzszenf-264"><span class="linenos">264</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="TestHealth.test_hzszenf-265"><a href="#TestHealth.test_hzszenf-265"><span class="linenos">265</span></a><span class="sd">    Create and destroy all DSECTs defined in the HZSCZENF data area.</span>
+</span><span id="TestHealth.test_hzszenf-266"><a href="#TestHealth.test_hzszenf-266"><span class="linenos">266</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="TestHealth.test_hzszenf-267"><a href="#TestHealth.test_hzszenf-267"><span class="linenos">267</span></a>    <span class="n">dsects</span> <span class="o">=</span> <span class="p">(</span><span class="n">ENF067</span><span class="p">,</span> <span class="n">ENF067_BITQUAL</span><span class="p">)</span>
+</span><span id="TestHealth.test_hzszenf-268"><a href="#TestHealth.test_hzszenf-268"><span class="linenos">268</span></a>    <span class="k">for</span> <span class="n">D</span> <span class="ow">in</span> <span class="n">dsects</span><span class="p">:</span>
+</span><span id="TestHealth.test_hzszenf-269"><a href="#TestHealth.test_hzszenf-269"><span class="linenos">269</span></a>      <span class="n">d</span> <span class="o">=</span> <span class="n">D</span><span class="p">()</span>
+</span><span id="TestHealth.test_hzszenf-270"><a href="#TestHealth.test_hzszenf-270"><span class="linenos">270</span></a>      <span class="k">del</span> <span class="n">d</span>
 </span></pre></div>
 
 
@@ -2021,14 +2031,14 @@ of inserts.</p>
 
     </div>
     <a class="headerlink" href="#TestHealth.test_hzszhckl"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="TestHealth.test_hzszhckl-270"><a href="#TestHealth.test_hzszhckl-270"><span class="linenos">270</span></a>  <span class="k">def</span><span class="w"> </span><span class="nf">test_hzszhckl</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="TestHealth.test_hzszhckl-271"><a href="#TestHealth.test_hzszhckl-271"><span class="linenos">271</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="TestHealth.test_hzszhckl-272"><a href="#TestHealth.test_hzszhckl-272"><span class="linenos">272</span></a><span class="sd">    Create and destroy all DSECTs defined in the HZSZHCKL data area.</span>
-</span><span id="TestHealth.test_hzszhckl-273"><a href="#TestHealth.test_hzszhckl-273"><span class="linenos">273</span></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="TestHealth.test_hzszhckl-274"><a href="#TestHealth.test_hzszhckl-274"><span class="linenos">274</span></a>    <span class="n">dsects</span> <span class="o">=</span> <span class="p">(</span><span class="n">HCKLOG</span><span class="p">,</span> <span class="n">HCKLOGE</span><span class="p">)</span>
-</span><span id="TestHealth.test_hzszhckl-275"><a href="#TestHealth.test_hzszhckl-275"><span class="linenos">275</span></a>    <span class="k">for</span> <span class="n">D</span> <span class="ow">in</span> <span class="n">dsects</span><span class="p">:</span>
-</span><span id="TestHealth.test_hzszhckl-276"><a href="#TestHealth.test_hzszhckl-276"><span class="linenos">276</span></a>      <span class="n">d</span> <span class="o">=</span> <span class="n">D</span><span class="p">()</span>
-</span><span id="TestHealth.test_hzszhckl-277"><a href="#TestHealth.test_hzszhckl-277"><span class="linenos">277</span></a>      <span class="k">del</span> <span class="n">d</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="TestHealth.test_hzszhckl-272"><a href="#TestHealth.test_hzszhckl-272"><span class="linenos">272</span></a>  <span class="k">def</span><span class="w"> </span><span class="nf">test_hzszhckl</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="TestHealth.test_hzszhckl-273"><a href="#TestHealth.test_hzszhckl-273"><span class="linenos">273</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="TestHealth.test_hzszhckl-274"><a href="#TestHealth.test_hzszhckl-274"><span class="linenos">274</span></a><span class="sd">    Create and destroy all DSECTs defined in the HZSZHCKL data area.</span>
+</span><span id="TestHealth.test_hzszhckl-275"><a href="#TestHealth.test_hzszhckl-275"><span class="linenos">275</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="TestHealth.test_hzszhckl-276"><a href="#TestHealth.test_hzszhckl-276"><span class="linenos">276</span></a>    <span class="n">dsects</span> <span class="o">=</span> <span class="p">(</span><span class="n">HCKLOG</span><span class="p">,</span> <span class="n">HCKLOGE</span><span class="p">)</span>
+</span><span id="TestHealth.test_hzszhckl-277"><a href="#TestHealth.test_hzszhckl-277"><span class="linenos">277</span></a>    <span class="k">for</span> <span class="n">D</span> <span class="ow">in</span> <span class="n">dsects</span><span class="p">:</span>
+</span><span id="TestHealth.test_hzszhckl-278"><a href="#TestHealth.test_hzszhckl-278"><span class="linenos">278</span></a>      <span class="n">d</span> <span class="o">=</span> <span class="n">D</span><span class="p">()</span>
+</span><span id="TestHealth.test_hzszhckl-279"><a href="#TestHealth.test_hzszhckl-279"><span class="linenos">279</span></a>      <span class="k">del</span> <span class="n">d</span>
 </span></pre></div>
 
 

@@ -58,15 +58,17 @@ class MGB_MSGINSERTD(DSECT):
   """
   Map the MGB_MSGINSERTD data area, described in MVS Data Areas, Volume 2.
   """
-  # Insert description
+  """Insert description"""
   MGB_MSGINSERTD_HEADER = DS('0CL2')
-  # The length of the insert For a null insert, use a length of 0.
+  """The length of the insert For a null insert, use a length of 0."""
   MGB_MSGILEN = DS('H')
   MGB_MSGINSERTD_DATA = DS('0C')
-  # The insert value
+  """The insert value"""
   MGB_MSGIVAL = DS('C')
   MGB_MSGINSERTLEN = 0x100
-  # "*-MGB_MsgInsertD"
+  """
+  "*-MGB_MsgInsertD\"
+  """
   MGB_MSGINSERTD_LEN = 0x2
 
 class HZSMGB1(DSECT):
