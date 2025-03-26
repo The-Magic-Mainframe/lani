@@ -32,6 +32,7 @@ LANI += $(INSTALL)/variable$(PYSUFFIX)
 # lani.tests package
 LANI_TESTS := $(INSTALL)/tests/__init__.py
 LANI_TESTS += $(INSTALL)/tests/all.py
+LANI_TESTS += $(INSTALL)/tests/console.py
 LANI_TESTS += $(INSTALL)/tests/fuller.py
 LANI_TESTS += $(INSTALL)/tests/health.py
 

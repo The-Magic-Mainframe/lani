@@ -7,22 +7,24 @@ class T:
   def __call__(self, *args):
     pass
 
-DSECT = \
-RSECT = \
+# temporary
 AMODE = \
-RMODE = \
-TITLE = \
-SPACE = \
+BR    = \
+DROP  = \
+DS    = \
+DSECT = \
 EJECT = \
-USING = \
-DROP = \
-J = \
-LARL = \
-LM  = \
-LHI = \
-STM = \
-BR = \
+J     = \
+LARL  = \
+LHI   = \
+LM    = \
 LTORG = \
-DS = \
-ORG = \
+ORG   = \
+RMODE = \
+RSECT = \
+SPACE = \
+STM   = \
+SVC   = \
+TITLE = \
+USING = \
 T
