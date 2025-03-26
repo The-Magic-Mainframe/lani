@@ -1,11 +1,11 @@
-"""core.py - Lani core types and objects."""
+"""core.py - Core types and objects in the `lani` package."""
 
 class T:
   def __init__(self, *args):
-    raise NotImplementedError('Sorry about that!')
+    pass
 
-  def __call__(self):
-    raise NotImplementedError('Sorry about that!')
+  def __call__(self, *args):
+    pass
 
   def dump(self):
     print(repr(self))
