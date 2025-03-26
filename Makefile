@@ -23,7 +23,9 @@ LANI += $(INSTALL)/variable$(PYSUFFIX)
 
 # lani.tests package
 LANI_TESTS := $(INSTALL)/tests/__init__.py
+LANI_TESTS += $(INSTALL)/tests/all.py
 LANI_TESTS += $(INSTALL)/tests/fuller.py
+LANI_TESTS += $(INSTALL)/tests/health.py
 
 # headers
 HEADERS := $(INC)/variable.h
@@ -31,10 +33,10 @@ HEADERS := $(INC)/variable.h
 # default rule - build, compile, and test
 default: $(LANI) $(LANI_TESTS)
 	$(PYTHON) -m compileall $(INSTALL)
-	$(PYTHON) -m unittest lani.tests.fuller
+	$(PYTHON) -m unittest lani.tests.all
 
 # build everything
-all: $(LANI) $(LANI_TESTS)
+lani: $(LANI) $(LANI_TESTS)
 
 # copy python source files
 $(INSTALL)/%.py: $(PYSRC)/%.py
@@ -57,7 +59,7 @@ compile:
 
 # run tests
 test:
-	$(PYTHON) -m unittest lani.tests.fuller
+	$(PYTHON) -m unittest lani.tests.all
 
 # clean up 
 clean:
