@@ -5,6 +5,16 @@ import unittest
 from ..core import *
 
 #-------------------------------------------------------------------#
+#     HZSDPQE data areas.                                           #
+#-------------------------------------------------------------------#
+
+class HZSDPQE(DSECT):
+  pass
+
+class DPQE_LASTUPDATEDBY_TYPE(DSECT):
+  pass
+
+#-------------------------------------------------------------------#
 #     HZSMGB data areas.                                            #
 #-------------------------------------------------------------------#
 
@@ -110,10 +120,34 @@ class MGB1_MSGINSERTDESC(DSECT):
 #     HZSPQE data areas.                                            #
 #-------------------------------------------------------------------#
 
+class HZSPQE(DSECT):
+  pass
+
+class PQE_LASTUPDATEDBY_TYPE(DSECT):
+	pass
+
 #-------------------------------------------------------------------#
 #     HZSQUAA data areas.                                           #
 #-------------------------------------------------------------------#
 
+class HZSQUAAHDR(DSECT):
+  pass
+  
+class HZSQUAAHDR64(DSECT):
+  pass
+  
+class HZSQUAAC(DSECT):
+  pass
+  
+class HZSQUAAC1(DSECT):
+  pass
+  
+class HZSQUAAG(DSECT):
+  pass
+  
+class HZSQUAACS(DSECT):
+  pass
+  
 #-------------------------------------------------------------------#
 #     HZSCONS data areas.                                           #
 #-------------------------------------------------------------------#
@@ -122,18 +156,44 @@ class MGB1_MSGINSERTDESC(DSECT):
 #     HZSZCPAR data areas.                                          #
 #-------------------------------------------------------------------#
 
-#-------------------------------------------------------------------#
-#     HZSZENF data areas.                                           #
-#-------------------------------------------------------------------#
+class CPARAREA(DSECT):
+  pass
+  
+class CPARKEYWORDENTRY(DSECT):
+  pass
+  
+class CPARKEYWORDVALUEENTRY(DSECT):
+  pass
+  
+class CPARKEYWORDINFO(DSECT):
+  pass
+  
+class CPARKEYWORDFLAGS(DSECT):
+  pass
+  
+class CPARKEYWORDDATA(DSECT):
+  pass
 
 #-------------------------------------------------------------------#
 #     HZSZENF data areas.                                           #
 #-------------------------------------------------------------------#
 
+class ENF067(DSECT):
+  pass
+  
+class ENF067_BITQUAL(DSECT):
+  pass
+  
 #-------------------------------------------------------------------#
 #     HZSZHCKL data areas.                                          # 
 #-------------------------------------------------------------------#
 
+class HCKLOG(DSECT):
+  pass
+  
+class HCKLOGE(DSECT):
+  pass
+  
 #-------------------------------------------------------------------#
 #     Tests.                                                        #
 #-------------------------------------------------------------------#
@@ -142,11 +202,75 @@ class TestHealth(unittest.TestCase):
   """
   Tests for the `health.py` module.
   """
+  def test_hzsdpqe(self):
+    """
+    Create and destroy all DSECTs defined in the HZSDPQEMGB data area.
+    """
+    dsects = (HZSDPQE, DPQE_LASTUPDATEDBY_TYPE)
+    for D in dsects:
+      d = D()
+      del d
+
   def test_hzsmgb(self):
     """
     Create and destroy all DSECTs defined in the HZSMGB data area.
     """
     dsects = (HZSMGB, MGB_MSGINSERTD, HZSMGB1, MGB1_MSGINSERTDESC)
+    for D in dsects:
+      d = D()
+      del d
+
+  def test_hzspqe(self):
+    """
+    Create and destroy all DSECTs defined in the HZSPQE data area.
+    """
+    dsects = (HZSPQE, PQE_LASTUPDATEDBY_TYPE)
+    for D in dsects:
+      d = D()
+      del d
+
+  def test_hzsquaa(self):
+    """
+    Create and destroy all DSECTs defined in the HZSQUAA data area.
+    """
+    dsects = (HZSQUAAHDR, HZSQUAAHDR64, HZSQUAAC, HZSQUAAC1, HZSQUAAG, HZSQUAACS)
+    for D in dsects:
+      d = D()
+      del d
+
+  def test_hzszcons(self):
+    """
+    Create and destroy all DSECTs defined in the HZSZCONS data area.
+    """
+    dsects = []
+    for D in dsects:
+      d = D()
+      del d
+
+  def test_hzscpar(self):
+    """
+    Create and destroy all DSECTs defined in the HZSCPAR data area.
+    """
+    dsects = (CPARAREA, CPARKEYWORDENTRY, CPARKEYWORDVALUEENTRY,
+      CPARKEYWORDINFO, CPARKEYWORDFLAGS, CPARKEYWORDDATA)
+    for D in dsects:
+      d = D()
+      del d
+
+  def test_hzszenf(self):
+    """
+    Create and destroy all DSECTs defined in the HZSCZENF data area.
+    """
+    dsects = (ENF067, ENF067_BITQUAL)
+    for D in dsects:
+      d = D()
+      del d
+
+  def test_hzszhckl(self):
+    """
+    Create and destroy all DSECTs defined in the HZSZHCKL data area.
+    """
+    dsects = (HCKLOG, HCKLOGE)
     for D in dsects:
       d = D()
       del d
