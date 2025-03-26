@@ -4,6 +4,7 @@ SRC = c
 PYSRC = py
 OBJ = o
 INC = h
+TXT = txt
 
 # compiler and flags
 CC = gcc
@@ -61,9 +62,17 @@ compile:
 test:
 	$(PYTHON) -m unittest lani.tests.all
 
+# full build with logging
+logs:
+	make clean
+	mkdir -p $(TXT)
+	make lani > $(TXT)/build.txt
+	make compile > $(TXT)/compile.txt
+	make test > $(TXT)/tests.txt
+
 # clean up 
 clean:
-	rm -rf $(INSTALL) $(OBJ)
+	rm -rf $(INSTALL) $(OBJ) $(TXT)
 
 # keep these around
 .PRECIOUS: $(OBJ)/%.o
