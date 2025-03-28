@@ -40,31 +40,22 @@
 
             </li>
             <li>
-                    <a class="variable" href="#DSECT">DSECT</a>
-            </li>
-            <li>
-                    <a class="variable" href="#RSECT">RSECT</a>
-            </li>
-            <li>
                     <a class="variable" href="#AMODE">AMODE</a>
             </li>
             <li>
-                    <a class="variable" href="#RMODE">RMODE</a>
-            </li>
-            <li>
-                    <a class="variable" href="#TITLE">TITLE</a>
-            </li>
-            <li>
-                    <a class="variable" href="#SPACE">SPACE</a>
-            </li>
-            <li>
-                    <a class="variable" href="#EJECT">EJECT</a>
-            </li>
-            <li>
-                    <a class="variable" href="#USING">USING</a>
+                    <a class="variable" href="#BR">BR</a>
             </li>
             <li>
                     <a class="variable" href="#DROP">DROP</a>
+            </li>
+            <li>
+                    <a class="variable" href="#DS">DS</a>
+            </li>
+            <li>
+                    <a class="variable" href="#DSECT">DSECT</a>
+            </li>
+            <li>
+                    <a class="variable" href="#EJECT">EJECT</a>
             </li>
             <li>
                     <a class="variable" href="#J">J</a>
@@ -73,25 +64,37 @@
                     <a class="variable" href="#LARL">LARL</a>
             </li>
             <li>
-                    <a class="variable" href="#LM">LM</a>
-            </li>
-            <li>
                     <a class="variable" href="#LHI">LHI</a>
             </li>
             <li>
-                    <a class="variable" href="#STM">STM</a>
-            </li>
-            <li>
-                    <a class="variable" href="#BR">BR</a>
+                    <a class="variable" href="#LM">LM</a>
             </li>
             <li>
                     <a class="variable" href="#LTORG">LTORG</a>
             </li>
             <li>
-                    <a class="variable" href="#DS">DS</a>
+                    <a class="variable" href="#ORG">ORG</a>
             </li>
             <li>
-                    <a class="variable" href="#ORG">ORG</a>
+                    <a class="variable" href="#RMODE">RMODE</a>
+            </li>
+            <li>
+                    <a class="variable" href="#RSECT">RSECT</a>
+            </li>
+            <li>
+                    <a class="variable" href="#SPACE">SPACE</a>
+            </li>
+            <li>
+                    <a class="variable" href="#STM">STM</a>
+            </li>
+            <li>
+                    <a class="variable" href="#SVC">SVC</a>
+            </li>
+            <li>
+                    <a class="variable" href="#TITLE">TITLE</a>
+            </li>
+            <li>
+                    <a class="variable" href="#USING">USING</a>
             </li>
     </ul>
 
@@ -125,25 +128,27 @@
 </span><span id="L-7"><a href="#L-7"><span class="linenos"> 7</span></a>  <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
 </span><span id="L-8"><a href="#L-8"><span class="linenos"> 8</span></a>    <span class="k">pass</span>
 </span><span id="L-9"><a href="#L-9"><span class="linenos"> 9</span></a>
-</span><span id="L-10"><a href="#L-10"><span class="linenos">10</span></a><span class="n">DSECT</span> <span class="o">=</span> \
-</span><span id="L-11"><a href="#L-11"><span class="linenos">11</span></a><span class="n">RSECT</span> <span class="o">=</span> \
-</span><span id="L-12"><a href="#L-12"><span class="linenos">12</span></a><span class="n">AMODE</span> <span class="o">=</span> \
-</span><span id="L-13"><a href="#L-13"><span class="linenos">13</span></a><span class="n">RMODE</span> <span class="o">=</span> \
-</span><span id="L-14"><a href="#L-14"><span class="linenos">14</span></a><span class="n">TITLE</span> <span class="o">=</span> \
-</span><span id="L-15"><a href="#L-15"><span class="linenos">15</span></a><span class="n">SPACE</span> <span class="o">=</span> \
+</span><span id="L-10"><a href="#L-10"><span class="linenos">10</span></a><span class="c1"># temporary</span>
+</span><span id="L-11"><a href="#L-11"><span class="linenos">11</span></a><span class="n">AMODE</span> <span class="o">=</span> \
+</span><span id="L-12"><a href="#L-12"><span class="linenos">12</span></a><span class="n">BR</span>    <span class="o">=</span> \
+</span><span id="L-13"><a href="#L-13"><span class="linenos">13</span></a><span class="n">DROP</span>  <span class="o">=</span> \
+</span><span id="L-14"><a href="#L-14"><span class="linenos">14</span></a><span class="n">DS</span>    <span class="o">=</span> \
+</span><span id="L-15"><a href="#L-15"><span class="linenos">15</span></a><span class="n">DSECT</span> <span class="o">=</span> \
 </span><span id="L-16"><a href="#L-16"><span class="linenos">16</span></a><span class="n">EJECT</span> <span class="o">=</span> \
-</span><span id="L-17"><a href="#L-17"><span class="linenos">17</span></a><span class="n">USING</span> <span class="o">=</span> \
-</span><span id="L-18"><a href="#L-18"><span class="linenos">18</span></a><span class="n">DROP</span> <span class="o">=</span> \
-</span><span id="L-19"><a href="#L-19"><span class="linenos">19</span></a><span class="n">J</span> <span class="o">=</span> \
-</span><span id="L-20"><a href="#L-20"><span class="linenos">20</span></a><span class="n">LARL</span> <span class="o">=</span> \
-</span><span id="L-21"><a href="#L-21"><span class="linenos">21</span></a><span class="n">LM</span>  <span class="o">=</span> \
-</span><span id="L-22"><a href="#L-22"><span class="linenos">22</span></a><span class="n">LHI</span> <span class="o">=</span> \
-</span><span id="L-23"><a href="#L-23"><span class="linenos">23</span></a><span class="n">STM</span> <span class="o">=</span> \
-</span><span id="L-24"><a href="#L-24"><span class="linenos">24</span></a><span class="n">BR</span> <span class="o">=</span> \
-</span><span id="L-25"><a href="#L-25"><span class="linenos">25</span></a><span class="n">LTORG</span> <span class="o">=</span> \
-</span><span id="L-26"><a href="#L-26"><span class="linenos">26</span></a><span class="n">DS</span> <span class="o">=</span> \
-</span><span id="L-27"><a href="#L-27"><span class="linenos">27</span></a><span class="n">ORG</span> <span class="o">=</span> \
-</span><span id="L-28"><a href="#L-28"><span class="linenos">28</span></a><span class="n">T</span>
+</span><span id="L-17"><a href="#L-17"><span class="linenos">17</span></a><span class="n">J</span>     <span class="o">=</span> \
+</span><span id="L-18"><a href="#L-18"><span class="linenos">18</span></a><span class="n">LARL</span>  <span class="o">=</span> \
+</span><span id="L-19"><a href="#L-19"><span class="linenos">19</span></a><span class="n">LHI</span>   <span class="o">=</span> \
+</span><span id="L-20"><a href="#L-20"><span class="linenos">20</span></a><span class="n">LM</span>    <span class="o">=</span> \
+</span><span id="L-21"><a href="#L-21"><span class="linenos">21</span></a><span class="n">LTORG</span> <span class="o">=</span> \
+</span><span id="L-22"><a href="#L-22"><span class="linenos">22</span></a><span class="n">ORG</span>   <span class="o">=</span> \
+</span><span id="L-23"><a href="#L-23"><span class="linenos">23</span></a><span class="n">RMODE</span> <span class="o">=</span> \
+</span><span id="L-24"><a href="#L-24"><span class="linenos">24</span></a><span class="n">RSECT</span> <span class="o">=</span> \
+</span><span id="L-25"><a href="#L-25"><span class="linenos">25</span></a><span class="n">SPACE</span> <span class="o">=</span> \
+</span><span id="L-26"><a href="#L-26"><span class="linenos">26</span></a><span class="n">STM</span>   <span class="o">=</span> \
+</span><span id="L-27"><a href="#L-27"><span class="linenos">27</span></a><span class="n">SVC</span>   <span class="o">=</span> \
+</span><span id="L-28"><a href="#L-28"><span class="linenos">28</span></a><span class="n">TITLE</span> <span class="o">=</span> \
+</span><span id="L-29"><a href="#L-29"><span class="linenos">29</span></a><span class="n">USING</span> <span class="o">=</span> \
+</span><span id="L-30"><a href="#L-30"><span class="linenos">30</span></a><span class="n">T</span>
 </span></pre></div>
 
 
@@ -189,30 +194,6 @@
 
                             </div>
                 </section>
-                <section id="DSECT">
-                    <div class="attr variable">
-            <span class="name">DSECT</span>        =
-<span class="default_value">&lt;class &#39;<a href="#T">T</a>&#39;&gt;</span>
-
-        
-    </div>
-    <a class="headerlink" href="#DSECT"></a>
-    
-    
-
-                </section>
-                <section id="RSECT">
-                    <div class="attr variable">
-            <span class="name">RSECT</span>        =
-<span class="default_value">&lt;class &#39;<a href="#T">T</a>&#39;&gt;</span>
-
-        
-    </div>
-    <a class="headerlink" href="#RSECT"></a>
-    
-    
-
-                </section>
                 <section id="AMODE">
                     <div class="attr variable">
             <span class="name">AMODE</span>        =
@@ -225,62 +206,14 @@
     
 
                 </section>
-                <section id="RMODE">
+                <section id="BR">
                     <div class="attr variable">
-            <span class="name">RMODE</span>        =
+            <span class="name">BR</span>        =
 <span class="default_value">&lt;class &#39;<a href="#T">T</a>&#39;&gt;</span>
 
         
     </div>
-    <a class="headerlink" href="#RMODE"></a>
-    
-    
-
-                </section>
-                <section id="TITLE">
-                    <div class="attr variable">
-            <span class="name">TITLE</span>        =
-<span class="default_value">&lt;class &#39;<a href="#T">T</a>&#39;&gt;</span>
-
-        
-    </div>
-    <a class="headerlink" href="#TITLE"></a>
-    
-    
-
-                </section>
-                <section id="SPACE">
-                    <div class="attr variable">
-            <span class="name">SPACE</span>        =
-<span class="default_value">&lt;class &#39;<a href="#T">T</a>&#39;&gt;</span>
-
-        
-    </div>
-    <a class="headerlink" href="#SPACE"></a>
-    
-    
-
-                </section>
-                <section id="EJECT">
-                    <div class="attr variable">
-            <span class="name">EJECT</span>        =
-<span class="default_value">&lt;class &#39;<a href="#T">T</a>&#39;&gt;</span>
-
-        
-    </div>
-    <a class="headerlink" href="#EJECT"></a>
-    
-    
-
-                </section>
-                <section id="USING">
-                    <div class="attr variable">
-            <span class="name">USING</span>        =
-<span class="default_value">&lt;class &#39;<a href="#T">T</a>&#39;&gt;</span>
-
-        
-    </div>
-    <a class="headerlink" href="#USING"></a>
+    <a class="headerlink" href="#BR"></a>
     
     
 
@@ -293,6 +226,42 @@
         
     </div>
     <a class="headerlink" href="#DROP"></a>
+    
+    
+
+                </section>
+                <section id="DS">
+                    <div class="attr variable">
+            <span class="name">DS</span>        =
+<span class="default_value">&lt;class &#39;<a href="#T">T</a>&#39;&gt;</span>
+
+        
+    </div>
+    <a class="headerlink" href="#DS"></a>
+    
+    
+
+                </section>
+                <section id="DSECT">
+                    <div class="attr variable">
+            <span class="name">DSECT</span>        =
+<span class="default_value">&lt;class &#39;<a href="#T">T</a>&#39;&gt;</span>
+
+        
+    </div>
+    <a class="headerlink" href="#DSECT"></a>
+    
+    
+
+                </section>
+                <section id="EJECT">
+                    <div class="attr variable">
+            <span class="name">EJECT</span>        =
+<span class="default_value">&lt;class &#39;<a href="#T">T</a>&#39;&gt;</span>
+
+        
+    </div>
+    <a class="headerlink" href="#EJECT"></a>
     
     
 
@@ -321,18 +290,6 @@
     
 
                 </section>
-                <section id="LM">
-                    <div class="attr variable">
-            <span class="name">LM</span>        =
-<span class="default_value">&lt;class &#39;<a href="#T">T</a>&#39;&gt;</span>
-
-        
-    </div>
-    <a class="headerlink" href="#LM"></a>
-    
-    
-
-                </section>
                 <section id="LHI">
                     <div class="attr variable">
             <span class="name">LHI</span>        =
@@ -345,26 +302,14 @@
     
 
                 </section>
-                <section id="STM">
+                <section id="LM">
                     <div class="attr variable">
-            <span class="name">STM</span>        =
+            <span class="name">LM</span>        =
 <span class="default_value">&lt;class &#39;<a href="#T">T</a>&#39;&gt;</span>
 
         
     </div>
-    <a class="headerlink" href="#STM"></a>
-    
-    
-
-                </section>
-                <section id="BR">
-                    <div class="attr variable">
-            <span class="name">BR</span>        =
-<span class="default_value">&lt;class &#39;<a href="#T">T</a>&#39;&gt;</span>
-
-        
-    </div>
-    <a class="headerlink" href="#BR"></a>
+    <a class="headerlink" href="#LM"></a>
     
     
 
@@ -381,18 +326,6 @@
     
 
                 </section>
-                <section id="DS">
-                    <div class="attr variable">
-            <span class="name">DS</span>        =
-<span class="default_value">&lt;class &#39;<a href="#T">T</a>&#39;&gt;</span>
-
-        
-    </div>
-    <a class="headerlink" href="#DS"></a>
-    
-    
-
-                </section>
                 <section id="ORG">
                     <div class="attr variable">
             <span class="name">ORG</span>        =
@@ -401,6 +334,90 @@
         
     </div>
     <a class="headerlink" href="#ORG"></a>
+    
+    
+
+                </section>
+                <section id="RMODE">
+                    <div class="attr variable">
+            <span class="name">RMODE</span>        =
+<span class="default_value">&lt;class &#39;<a href="#T">T</a>&#39;&gt;</span>
+
+        
+    </div>
+    <a class="headerlink" href="#RMODE"></a>
+    
+    
+
+                </section>
+                <section id="RSECT">
+                    <div class="attr variable">
+            <span class="name">RSECT</span>        =
+<span class="default_value">&lt;class &#39;<a href="#T">T</a>&#39;&gt;</span>
+
+        
+    </div>
+    <a class="headerlink" href="#RSECT"></a>
+    
+    
+
+                </section>
+                <section id="SPACE">
+                    <div class="attr variable">
+            <span class="name">SPACE</span>        =
+<span class="default_value">&lt;class &#39;<a href="#T">T</a>&#39;&gt;</span>
+
+        
+    </div>
+    <a class="headerlink" href="#SPACE"></a>
+    
+    
+
+                </section>
+                <section id="STM">
+                    <div class="attr variable">
+            <span class="name">STM</span>        =
+<span class="default_value">&lt;class &#39;<a href="#T">T</a>&#39;&gt;</span>
+
+        
+    </div>
+    <a class="headerlink" href="#STM"></a>
+    
+    
+
+                </section>
+                <section id="SVC">
+                    <div class="attr variable">
+            <span class="name">SVC</span>        =
+<span class="default_value">&lt;class &#39;<a href="#T">T</a>&#39;&gt;</span>
+
+        
+    </div>
+    <a class="headerlink" href="#SVC"></a>
+    
+    
+
+                </section>
+                <section id="TITLE">
+                    <div class="attr variable">
+            <span class="name">TITLE</span>        =
+<span class="default_value">&lt;class &#39;<a href="#T">T</a>&#39;&gt;</span>
+
+        
+    </div>
+    <a class="headerlink" href="#TITLE"></a>
+    
+    
+
+                </section>
+                <section id="USING">
+                    <div class="attr variable">
+            <span class="name">USING</span>        =
+<span class="default_value">&lt;class &#39;<a href="#T">T</a>&#39;&gt;</span>
+
+        
+    </div>
+    <a class="headerlink" href="#USING"></a>
     
     
 
