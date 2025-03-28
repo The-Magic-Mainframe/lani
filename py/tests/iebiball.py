@@ -87,5 +87,6 @@ class Tests(unittest.TestCase):
     """
     Assemble, load, and execute the IEBIBALL.
     """
+    print('\n'.join(self.messages))
     f = IEBIBALL(self.messages)
     f()
