@@ -88,7 +88,6 @@ operating system mediation layer as needed.
 * `lani`
   * `lani.Memory`
     * `lani.Instruction`
-
 * `lani.vm`
   * `lani.vm.Machine`
   * `lani.vm.Register`
@@ -96,6 +95,11 @@ operating system mediation layer as needed.
     * `lani.vm.ControlRegister`
     * `lani.vm.PSWE`
 * `lani.vos`
+  * `lani.vos.stckconv`
+  * `lani.vos.storage`
+  * `lani.vos.iarst64`
+  * `lani.vos.svc35` - WTO
+  * [SVC descriptions](https://www.ibm.com/docs/en/zos/2.1.0?topic=summary-svc-descriptions)
 * `lani.vutil`
   * `lani.vutil.fuller`
   * `lani.vutil.iefbr142`
