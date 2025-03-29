@@ -95,10 +95,9 @@ operating system mediation layer as needed.
     * `lani.vm.GeneralRegister`
     * `lani.vm.ControlRegister`
     * `lani.vm.PSWE`
-
 * `lani.vos`
-
 * `lani.vutil`
   * `lani.vutil.fuller`
   * `lani.vutil.iefbr142`
   * `lani.vutil.submit`
+  * [Z Open Automation Utilities](https://www.ibm.com/docs/en/zoau/1.2.x?topic=zoau-functionality-overview)
