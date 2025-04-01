@@ -9,12 +9,22 @@ mkdir -p o
 gcc -Wall -Wextra -O2 -fPIC -I/usr/include/python3.10 -I/usr/include/python3.10 -Ih -c c/variable.c -o o/variable.o
 mkdir -p lani
 gcc -L/usr/lib/python3.10/config-3.10-x86_64-linux-gnu -L/usr/lib/x86_64-linux-gnu  -lcrypt -ldl  -lm -lm  -shared o/variable.o -o lani/variable.cpython-310-x86_64-linux-gnu.so
+mkdir -p lani/general
+cp py/general/__init__.py lani/general/__init__.py
+mkdir -p lani/general
+cp py/general/all.py lani/general/all.py
+mkdir -p lani/general
+cp py/general/add_logical_high.py lani/general/add_logical_high.py
 mkdir -p lani/tests
 cp py/tests/__init__.py lani/tests/__init__.py
 mkdir -p lani/tests
 cp py/tests/all.py lani/tests/all.py
 mkdir -p lani/tests
+cp py/tests/console.py lani/tests/console.py
+mkdir -p lani/tests
 cp py/tests/fuller.py lani/tests/fuller.py
 mkdir -p lani/tests
 cp py/tests/health.py lani/tests/health.py
+mkdir -p lani/tests
+cp py/tests/iebiball.py lani/tests/iebiball.py
 make[1]: Leaving directory '/home/nicholas/lani'
