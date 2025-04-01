@@ -112,7 +112,7 @@ $(PDF)/pops_z16.pdf:
 # convert PDFs to text files (requires pdftotext package)
 convert:
 	mkdir -p $(TXT)
-	pdftotext -layout $(PDF)/pops_z16.pdf > $(TXT)/pops_z16.txt
+	pdftotext -layout $(PDF)/pops_z16.pdf $(TXT)/pops_z16.txt
 
 # clean up 
 clean:
