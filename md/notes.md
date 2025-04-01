@@ -86,10 +86,14 @@ operating system mediation layer as needed.
   * `submit` - Submit jobs to batch processing subsystem.
   * [Z Open Automation Utilities](https://www.ibm.com/docs/en/zoau/1.2.x?topic=zoau-functionality-overview)
 
-## Packages
+## Package Layout
 * `lani`
   * `lani.Memory`
-    * `lani.Instruction`
+  * `lani.Instruction`
+  * `lani.formats`
+    * `lani.formats.RRFInstruction`
+  * `lani.general.ALHHHR`
+  * `lani.general.ALHHLR`
 * `lani.vm`
   * `lani.vm.Machine`
   * `lani.vm.Register`
