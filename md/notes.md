@@ -79,10 +79,12 @@ operating system mediation layer as needed.
     * Backup
   * I/O and Device Manager
   * Communication Protocols and Servers
+  * [SVC descriptions](https://www.ibm.com/docs/en/zos/2.1.0?topic=summary-svc-descriptions)
 * `lani-vutil` - Tools for the lani virtual operating system.
   * `IEFBR142` - Just another "do nothing" program
   * `fuller` - A [fuller](https://github.com/The-Magic-Mainframe/fuller) SPOOL archiver.
   * `submit` - Submit jobs to batch processing subsystem.
+  * [Z Open Automation Utilities](https://www.ibm.com/docs/en/zoau/1.2.x?topic=zoau-functionality-overview)
 
 ## Packages
 * `lani`
@@ -95,13 +97,12 @@ operating system mediation layer as needed.
     * `lani.vm.ControlRegister`
     * `lani.vm.PSWE`
 * `lani.vos`
+  * `lani.vos.iarst64`
   * `lani.vos.stckconv`
   * `lani.vos.storage`
-  * `lani.vos.iarst64`
-  * `lani.vos.svc35` - WTO
-  * [SVC descriptions](https://www.ibm.com/docs/en/zos/2.1.0?topic=summary-svc-descriptions)
+  * `lani.vos.svc35`
 * `lani.vutil`
+  * `lani.vutil.dtouch`
   * `lani.vutil.fuller`
   * `lani.vutil.iefbr142`
   * `lani.vutil.submit`
-  * [Z Open Automation Utilities](https://www.ibm.com/docs/en/zoau/1.2.x?topic=zoau-functionality-overview)
