@@ -7,6 +7,7 @@ INSTALL = lani
 DOC = docs
 INC = h
 OBJ = o
+PDF = pdf
 PYSRC = py
 SRC = c
 TXT = txt
@@ -29,6 +30,11 @@ LANI += $(INSTALL)/all.py
 LANI += $(INSTALL)/core.py
 LANI += $(INSTALL)/variable$(PYSUFFIX)
 
+# lani.general (instructions) package
+LANI_GENERAL := $(INSTALL)/general/__init__.py
+LANI_GENERAL += $(INSTALL)/general/all.py
+LANI_GENERAL += $(INSTALL)/general/add_logical_high.py
+
 # lani.tests package
 LANI_TESTS := $(INSTALL)/tests/__init__.py
 LANI_TESTS += $(INSTALL)/tests/all.py
@@ -40,14 +46,18 @@ LANI_TESTS += $(INSTALL)/tests/iebiball.py
 # headers
 HEADERS := $(INC)/variable.h
 
+# PDFs
+PDFS := $(PDF)/pops_z16.pdf
+
 # default rule - build, compile, and test
-default: $(LANI) $(LANI_TESTS)
+default: $(LANI) $(LANI_GENERAL) $(LANI_TESTS)
 	$(PYTHON) -m compileall $(INSTALL)
 	#$(PYTHON) -m pdoc -o $(DOC) $(INSTALL)
+	$(PYTHON) -m unittest lani.all
 	$(PYTHON) -m unittest lani.tests.all
 
 # build everything
-lani: $(LANI) $(LANI_TESTS)
+lani: $(LANI) $(LANI_GENERAL) $(LANI_TESTS)
 
 # copy python source files
 $(INSTALL)/%.py: $(PYSRC)/%.py
@@ -70,6 +80,7 @@ compile:
 
 # run tests
 test:
+	$(PYTHON) -m unittest lani.all
 	$(PYTHON) -m unittest lani.tests.all
 
 # create documentation
@@ -97,13 +108,26 @@ reqs:
 freeze:
 	$(PIP) freeze > requirements.txt
 
+# download all PDFs
+pdf: $(PDFS)
+
+# PDF sources
+$(PDF)/pops_z16.pdf:
+	mkdir -p $(@D)
+	curl https://publibfp.dhe.ibm.com/epubs/pdf/a227832d.pdf > $(PDF)/pops_z16.pdf
+
+# convert PDFs to text files (requires pdftotext package)
+convert:
+	mkdir -p $(TXT)
+	pdftotext -layout $(PDF)/pops_z16.pdf $(TXT)/pops_z16.txt
+
 # clean up 
 clean:
 	rm -rf $(INSTALL) $(OBJ) $(DOC)
 
-# clean up, including python virtual environment
+# clean up, including python virtual environment and PDF directory
 cleanall:
-	rm -rf $(INSTALL) $(OBJ) $(DOC) $(VENV)
+	rm -rf $(INSTALL) $(OBJ) $(DOC) $(VENV) $(PDF)
 
 # keep these around
 .PRECIOUS: $(OBJ)/%.o
