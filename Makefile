@@ -109,6 +109,11 @@ $(PDF)/pops_z16.pdf:
 	mkdir -p $(@D)
 	curl https://publibfp.dhe.ibm.com/epubs/pdf/a227832d.pdf > $(PDF)/pops_z16.pdf
 
+# convert PDFs to text files (requires pdftotext package)
+convert:
+	mkdir -p $(TXT)
+	pdftotext -layout $(PDF)/pops_z16.pdf > $(TXT)/pops_z16.txt
+
 # clean up 
 clean:
 	rm -rf $(INSTALL) $(OBJ) $(DOC)

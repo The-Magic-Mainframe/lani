@@ -1,5 +1,7 @@
 *.swp
-docs/
+docs
 lani
 o
+pdf
+txt
 venv
