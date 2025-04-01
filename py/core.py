@@ -28,3 +28,7 @@ SVC   = \
 TITLE = \
 USING = \
 T
+
+# instruction formats
+RRFInstruction = \
+T

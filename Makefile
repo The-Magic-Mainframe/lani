@@ -30,6 +30,11 @@ LANI += $(INSTALL)/all.py
 LANI += $(INSTALL)/core.py
 LANI += $(INSTALL)/variable$(PYSUFFIX)
 
+# lani.general (instructions) package
+LANI_GENERAL := $(INSTALL)/general/__init__.py
+LANI_GENERAL += $(INSTALL)/general/all.py
+LANI_GENERAL += $(INSTALL)/general/add_logical_high.py
+
 # lani.tests package
 LANI_TESTS := $(INSTALL)/tests/__init__.py
 LANI_TESTS += $(INSTALL)/tests/all.py
@@ -45,13 +50,14 @@ HEADERS := $(INC)/variable.h
 PDFS := $(PDF)/pops_z16.pdf
 
 # default rule - build, compile, and test
-default: $(LANI) $(LANI_TESTS)
+default: $(LANI) $(LANI_GENERAL) $(LANI_TESTS)
 	$(PYTHON) -m compileall $(INSTALL)
 	#$(PYTHON) -m pdoc -o $(DOC) $(INSTALL)
+	$(PYTHON) -m unittest lani.all
 	$(PYTHON) -m unittest lani.tests.all
 
 # build everything
-lani: $(LANI) $(LANI_TESTS)
+lani: $(LANI) $(LANI_GENERAL) $(LANI_TESTS)
 
 # copy python source files
 $(INSTALL)/%.py: $(PYSRC)/%.py
@@ -74,6 +80,7 @@ compile:
 
 # run tests
 test:
+	$(PYTHON) -m unittest lani.all
 	$(PYTHON) -m unittest lani.tests.all
 
 # create documentation
