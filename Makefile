@@ -7,6 +7,7 @@ INSTALL = lani
 DOC = docs
 INC = h
 OBJ = o
+PDF = pdf
 PYSRC = py
 SRC = c
 TXT = txt
@@ -39,6 +40,9 @@ LANI_TESTS += $(INSTALL)/tests/iebiball.py
 
 # headers
 HEADERS := $(INC)/variable.h
+
+# PDFs
+PDFS := $(PDF)/pops_z16.pdf
 
 # default rule - build, compile, and test
 default: $(LANI) $(LANI_TESTS)
@@ -97,13 +101,21 @@ reqs:
 freeze:
 	$(PIP) freeze > requirements.txt
 
+# download all PDFs
+pdf: $(PDFS)
+
+# PDF sources
+$(PDF)/pops_z16.pdf:
+	mkdir -p $(@D)
+	curl https://publibfp.dhe.ibm.com/epubs/pdf/a227832d.pdf > $(PDF)/pops_z16.pdf
+
 # clean up 
 clean:
 	rm -rf $(INSTALL) $(OBJ) $(DOC)
 
-# clean up, including python virtual environment
+# clean up, including python virtual environment and PDF directory
 cleanall:
-	rm -rf $(INSTALL) $(OBJ) $(DOC) $(VENV)
+	rm -rf $(INSTALL) $(OBJ) $(DOC) $(VENV) $(PDF)
 
 # keep these around
 .PRECIOUS: $(OBJ)/%.o
