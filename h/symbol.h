@@ -22,7 +22,7 @@ typedef struct {
   char boundary;
 
   // type of data
-  // TODO
+  char datatype;
 
 } Symbol;
 
