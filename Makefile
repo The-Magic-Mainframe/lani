@@ -46,8 +46,18 @@ LANI_TESTS += $(INSTALL)/tests/iebiball.py
 # headers
 HEADERS := $(INC)/symbol.h
 
-# PDFs
-PDFS := $(PDF)/pops_z16.pdf
+# PDFs - POPs
+PDFS := $(PDF)/a227832d.pdf # z16
+
+# PDFs - HLASM
+PDFS += $(PDF)/asmg1021.pdf # General Information
+PDFS += $(PDF)/asmi1021.pdf # Installation and Customization Guide
+PDFS += $(PDF)/asmr1021.pdf # Language Reference
+PDFS += $(PDF)/asmp1021.pdf # Programmer's Guide
+PDFS += $(PDF)/asmtis21.pdf # Toolkit Feature Debug Reference Summary
+PDFS += $(PDF)/asmtic21.pdf # TK Feature Installation And Customization Guide
+PDFS += $(PDF)/asmtiu21.pdf # TK Feature Interactive Debug Facility User's Guide
+PDFS += $(PDF)/asmtug21.pdf # TK Feature User's Guide
 
 # default rule - build, compile, and test
 default: $(LANI) $(LANI_GENERAL) $(LANI_TESTS)
@@ -112,14 +122,18 @@ freeze:
 pdf: $(PDFS)
 
 # PDF sources
-$(PDF)/pops_z16.pdf:
+$(PDF)/a227832d.pdf:
 	mkdir -p $(@D)
-	curl https://publibfp.dhe.ibm.com/epubs/pdf/a227832d.pdf > $(PDF)/pops_z16.pdf
+	curl https://publibfp.dhe.ibm.com/epubs/pdf/a227832d.pdf > $(PDF)/a227832d.pdf
+
+$(PDF)/asm%.pdf:
+	mkdir -p $(@D)
+	curl https://www.ibm.com/docs/en/SSLTBW_2.1.0/pdf/$(@F) > $(PDF)/$(@F)
 
 # convert PDFs to text files (requires pdftotext package)
 convert:
 	mkdir -p $(TXT)
-	pdftotext -layout $(PDF)/pops_z16.pdf $(TXT)/pops_z16.txt
+	pdftotext -layout $(PDF)/a227832d.pdf $(TXT)/a227832d.txt
 
 # clean up 
 clean:
