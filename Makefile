@@ -28,7 +28,7 @@ PYSUFFIX = $(shell $(PYTHON)-config --extension-suffix)
 LANI := $(INSTALL)/__init__.py
 LANI += $(INSTALL)/all.py
 LANI += $(INSTALL)/core.py
-LANI += $(INSTALL)/variable$(PYSUFFIX)
+LANI += $(INSTALL)/symbol$(PYSUFFIX)
 
 # lani.general (instructions) package
 LANI_GENERAL := $(INSTALL)/general/__init__.py
@@ -44,7 +44,7 @@ LANI_TESTS += $(INSTALL)/tests/health.py
 LANI_TESTS += $(INSTALL)/tests/iebiball.py
 
 # headers
-HEADERS := $(INC)/variable.h
+HEADERS := $(INC)/symbol.h
 
 # PDFs
 PDFS := $(PDF)/pops_z16.pdf
