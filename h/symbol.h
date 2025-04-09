@@ -10,10 +10,16 @@ typedef struct {
   // pointer to storage
   void *storage;
 
+  // space for immediate (literal) data
+  char immediate[8];
+
   // dimension, size, and dim*size of storage
   size_t dim;
   size_t size;
   size_t length;
+
+  // 1-byte, 2-half word, 4-full word, 8-double word, or 16-quad word boundary
+  char boundary;
 
   // type of data
   // TODO
