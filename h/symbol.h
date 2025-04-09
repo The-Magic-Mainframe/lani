@@ -1,5 +1,5 @@
-#ifndef LANI_VARIABLE_H
-#define LANI_VARIABLE_H
+#ifndef LANI_SYMBOL_H
+#define LANI_SYMBOL_H
 
 #define PY_SSIZE_T_CLEAN
 #include <Python.h>
@@ -18,6 +18,6 @@ typedef struct {
   // type of data
   // TODO
 
-} Variable;
+} Symbol;
 
 #endif
