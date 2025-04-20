@@ -137,7 +137,7 @@ convert:
 
 # clean up 
 clean:
-	rm -rf $(INSTALL) $(OBJ) $(DOC)
+	rm -rf $(INSTALL) $(OBJ)
 
 # clean up, including python virtual environment and PDF directory
 cleanall:
