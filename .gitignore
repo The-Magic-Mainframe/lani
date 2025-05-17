@@ -1,7 +1,7 @@
 *.swp
 doc
 lani
-o
+obj
 pdf
 txt
 venv
