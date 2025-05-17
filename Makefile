@@ -72,10 +72,8 @@ HEADERS := $(INC)/symbol.h
 # default rule - build, compile, and test
 default: $(LANI) $(LANI_INSTRUCTIONS) $(LANI_TESTS)
 	$(PYTHON) -m compileall $(INSTALL)
-	#$(PYTHON) -m pdoc -o $(DOC) $(INSTALL)
 	$(PYTHON) -m unittest lani.all
-	#$(PYTHON) -m unittest lani.tests.all
-	$(PYTHON) -m unittest lani.tests.symbol
+	$(PYTHON) -m unittest lani.tests.all
 
 # build everything
 lani: $(LANI) $(LANI_INSTRUCTIONS) $(LANI_TESTS)
@@ -103,7 +101,6 @@ compile:
 test:
 	$(PYTHON) -m unittest lani.all
 	$(PYTHON) -m unittest lani.tests.all
-	$(PYTHON) -m unittest lani.tests.symbol
 
 # create documentation
 doc:
