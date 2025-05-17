@@ -4,7 +4,7 @@
 INSTALL = lani
 
 # source and target directories
-DOC = doc
+DOC = docs
 INC = include
 OBJ = obj
 SRC = src
@@ -106,7 +106,7 @@ test:
 	$(PYTHON) -m unittest lani.tests.symbol
 
 # create documentation
-docs:
+doc:
 	mkdir -p $(DOC)
 	$(PYTHON) -m pdoc -o $(DOC) $(INSTALL)
 
