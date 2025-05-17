@@ -106,7 +106,7 @@ test:
 	$(PYTHON) -m unittest lani.tests.symbol
 
 # create documentation
-doc:
+docs:
 	mkdir -p $(DOC)
 	$(PYTHON) -m pdoc -o $(DOC) $(INSTALL)
 
