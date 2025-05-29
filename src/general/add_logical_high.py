@@ -29,7 +29,11 @@ from ..core import RRFInstruction as _RRFInstruction
 class ALHHHR(_RRFInstruction):
   """
   ALHHHR   R1,R2,R3      [RRF-a]
+<<<<<<< HEAD
   +--------+----+----+----+----+
+=======
+  +----------------------------+
+>>>>>>> main
   | 0xB9CA | R3 |////| R1 | R2 |   
   +--------+----+----+----+----+
   0        16   20   24   28  31
