@@ -30,5 +30,6 @@ USING = \
 T
 
 # instruction formats
+RRInstruction = \
 RRFInstruction = \
 T
