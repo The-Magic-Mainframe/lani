@@ -28,6 +28,13 @@ The code is set as specified by bits 34 and 35 of general register R1.
 Program Exceptions: None
 
 * [SA22-7832-13] IBM Principles of Operations, pg 7-382""")
+  (0x04, 'SPM', 'SET PROGRAM MASK', 'RR', 'general', ['R1'], 
+  """SPM   R1        [RR]
+  +--------+----+----+
+  | 0x04   | R1 |////|
+  +--------+----+----+
+  0        8    12  15""",
+  """The first operand is used to set the condition code and the pgoram mask of
 ]
 
 # generate
