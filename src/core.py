@@ -30,6 +30,7 @@ USING = \
 T
 
 # instruction formats
+"""
 I   Instruction = \
 E   Instruction = \
 IE  Instruction = \
@@ -51,4 +52,27 @@ RX  Instruction = \
 RXE Instruction = \
 RXF Instruction = \
 RXY Instruction = \
+T
+"""
+IInstruction = \
+EInstruction = \
+IEInstruction = \
+MIIInstruction = \
+RIInstruction = \
+RIEInstruction = \
+RILInstruction = \
+RISInstruction = \
+RRInstruction = \
+RRDInstruction = \
+RREInstruction = \
+RRFInstruction = \
+RRRInstruction = \
+RRSInstruction = \
+RSEInstruction = \
+RSInstruction = \
+RSLInstruction = \
+RXInstruction = \
+RXEInstruction = \
+RXFInstruction = \
+RXYInstruction = \
 T
