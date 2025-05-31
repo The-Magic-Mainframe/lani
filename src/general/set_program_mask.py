@@ -1,6 +1,6 @@
 """set_program_mask.py - SET PROGRAM MASK
-  
-The first operand is used to set the condition code and the pgoram mask of
+
+The first operand is used to set the condition code and the program mask of
 the current PSW.
 
 Bits 34 and 35 of general register R1 replace the condition code, and bits
