@@ -7,14 +7,22 @@ See: z16 POPs - https://publibfp.dhe.ibm.com/epubs/pdf/a227832d.pdf
 
 # S/360 general instructions - 
 #   (opcode, mnemonic, name, iformat, itype, [operands], diagram, description)
-instructions = [
-  (0x04, 'SPM', 'SET PROGRAM MASK', 'RR', 'general', ['R1'], 
-  """SPM   R1        [RR]
+instructions = {
+  0x04: ('SPM', 'SET PROGRAM MASK', 'RR', 'general', ['R1']),
+}
+
+diagrams = {
+  0x04: """
+  SPM   R1        [RR]
   +--------+----+----+
   | 0x04   | R1 |////|
   +--------+----+----+
   0        8    12  15""",
-  """The first operand is used to set the condition code and the program mask of
+}
+
+descriptions = {
+  0x04: """
+The first operand is used to set the condition code and the program mask of
 the current PSW.
 
 Bits 34 and 35 of general register R1 replace the condition code, and bits
@@ -27,28 +35,24 @@ The code is set as specified by bits 34 and 35 of general register R1.
 
 Program Exceptions: None
 
-* [SA22-7832-13] IBM Principles of Operations, pg 7-382""")
-  (0x04, 'SPM', 'SET PROGRAM MASK', 'RR', 'general', ['R1'], 
-  """SPM   R1        [RR]
-  +--------+----+----+
-  | 0x04   | R1 |////|
-  +--------+----+----+
-  0        8    12  15""",
-  """The first operand is used to set the condition code and the pgoram mask of
-]
+* [SA22-7832-13] IBM Principles of Operations, pg 7-382""",
+}
 
 # generate
-for (opcode, mnemonic, name, iformat, itype, operands, diagram, description) in instructions:
+for opcode in instructions:
+  mnemonic, name, iformat, itype, operands = instructions[opcode]
   camel_name = ''.join(s[0].upper() + s[1:].lower() for s in name.split())
-  code = f'''"""{name.replace(' ', '_').lower()}.py - {name.upper()}
-  
+  under_name = name.replace(' ', '_').lower()
+  file_name = f"{itype}/{under_name}.py"
+  description = descriptions[opcode]
+  diagram = diagrams[opcode]
+  code = f'''"""{under_name}.py - {name.upper()}
 {description}
 """
 from ..core import {iformat}Instruction as _{iformat}Instruction
 
 class {mnemonic.upper()}(_{iformat}Instruction):
-  """
-  {diagram}
+  """{diagram}
   """
   def __init__(self, {', '.join(operands)}):
     """
@@ -57,8 +61,7 @@ class {mnemonic.upper()}(_{iformat}Instruction):
     super().__init__({hex(opcode)}, {', '.join(operands)})'''
 
   # write to file
-  fn = f"{itype}/{name.replace(' ', '_').lower()}.py"
-  print(f"Opening '{fn}'")
-  with open(fn, 'w') as f:
-    print(f"Writing to '{fn}'")
+  print(f"Opening '{file_name}'")
+  with open(file_name, 'w') as f:
+    print(f"Writing to '{file_name}'")
     f.write(code)
