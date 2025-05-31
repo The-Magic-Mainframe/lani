@@ -14,7 +14,7 @@ instructions = [
   | 0x04   | R1 |////|
   +--------+----+----+
   0        8    12  15""",
-  """The first operand is used to set the condition code and the pgoram mask of
+  """The first operand is used to set the condition code and the program mask of
 the current PSW.
 
 Bits 34 and 35 of general register R1 replace the condition code, and bits
