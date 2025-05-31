@@ -8,7 +8,6 @@ static void Symbol_dealloc(Symbol *self) {
   /*
   Destructor.
   */
-
   return;
 }
 
@@ -19,6 +18,13 @@ static PyObject *Symbol_new(PyTypeObject *type, PyObject *args,
   */
   Symbol *self;
   self = (Symbol *) type->tp_alloc(type, 0);
+  self->storage = NULL;
+  self->size = 0;
+  self->dim = 0;
+  self->length = 0;
+  self->boundary = 0;
+  self->datatype = 'U';
+  self->exttype = 0;
   return (PyObject *) self;
 }
 
@@ -27,9 +33,17 @@ static int Symbol_init(Symbol *self, PyObject *args,
   /*
   Initialization.
   */
-  static char *keywords[] = {NULL};
+  PyObject *value = NULL;
+  PyObject *section = NULL;
 
-  if (!PyArg_ParseTupleAndKeywords(args, kwargs, "", keywords))
+  static char *keywords[] = {
+    "value", "size", "dim", "boundary", "datatype", "exttype", "section", NULL};
+
+  if (!PyArg_ParseTupleAndKeywords(args, kwargs, "|OKKbCCO", keywords,
+      &value,
+      &self->size, &self->dim, &self->boundary,
+      &self->datatype, &self->exttype,
+      &section))
     return -1;
 
   return 0;

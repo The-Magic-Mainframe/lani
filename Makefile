@@ -32,6 +32,7 @@ LANI += $(INSTALL)/symbol$(PYSUFFIX)
 LANI_GENERAL := $(INSTALL)/general/__init__.py
 LANI_GENERAL += $(INSTALL)/general/all.py
 LANI_GENERAL += $(INSTALL)/general/add_logical_high.py
+LANI_GENERAL += $(INSTALL)/general/set_program_mask.py
 
 # lani.decimal (instructions) subpackage
 LANI_DECIMAL := $(INSTALL)/decimal/__init__.py

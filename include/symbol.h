@@ -16,15 +16,19 @@ typedef struct {
   char immediate[64];
 
   // dimension, size, and dim*size of storage
-  uint64_t dim;
-  uint64_t size;
-  uint64_t length;
+  unsigned long long size;
+  unsigned long long dim;
+  unsigned long long length;
 
   // 1-byte, 2-half word, 4-full word, 8-double word, or 16-quad word boundary
   char boundary;
 
   // type of data
   char datatype;
+  char exttype;
+
+  // parent symbol or section
+  PyObject *section;
 
 } Symbol;
 
