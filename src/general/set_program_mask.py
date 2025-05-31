@@ -14,8 +14,8 @@ The code is set as specified by bits 34 and 35 of general register R1.
 Program Exceptions: None
 
 * [SA22-7832-13] IBM Principles of Operations, pg 7-382
-"""
-from ..core import RRInstruction as _RRInstruction
+  """
+from ..core import generalInstruction as _RRInstruction:
 
 class SPM(_RRInstruction):
   """
@@ -25,6 +25,7 @@ class SPM(_RRInstruction):
   +--------+----+----+
   0        8    12  15
   """
+
   def __init__(self, R1):
     """
     Build the SPM instruction.

@@ -47,8 +47,14 @@ for opcode in instructions:
   diagram = diagrams[opcode]
   description = descriptions[opcode]
   code = f'''"""{under_name}.py - {name.upper()}
-  {diagram}
+{description}
   """
+from ..core import {itype}Instruction as _{iformat}Instruction:
+
+class {mnemonic.upper()}(_{iformat}Instruction):
+  """{diagram}
+  """
+
   def __init__(self, {', '.join(operands)}):
     """
     Build the {mnemonic.upper()} instruction.
