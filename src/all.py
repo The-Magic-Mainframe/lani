@@ -8,7 +8,7 @@ from .core import *
 # all instructions
 from .control.all import *
 from .decimal.all import *
-from .floating_point.all import *
+from .floating.all import *
 from .general.all import *
 from .io.all import *
 from .vector.all import *

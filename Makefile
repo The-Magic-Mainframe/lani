@@ -38,9 +38,9 @@ LANI_GENERAL += $(INSTALL)/general/set_program_mask.py
 LANI_DECIMAL := $(INSTALL)/decimal/__init__.py
 LANI_DECIMAL += $(INSTALL)/decimal/all.py
 
-# lani.floating_point (instructions) subpackage
-LANI_FLOATING_POINT := $(INSTALL)/floating_point/__init__.py
-LANI_FLOATING_POINT += $(INSTALL)/floating_point/all.py
+# lani.floating (instructions) subpackage
+LANI_FLOATING_POINT := $(INSTALL)/floating/__init__.py
+LANI_FLOATING_POINT += $(INSTALL)/floating/all.py
 
 # lani.control (instructions) subpackage
 LANI_CONTROL := $(INSTALL)/control/__init__.py
