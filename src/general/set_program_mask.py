@@ -11,7 +11,11 @@ Resulting Condition Code:
 
 The code is set as specified by bits 34 and 35 of general register R1.
 
-Program Exceptions: None
+Program Exceptions:
+
+None
+
+Source:
 
 * [SA22-7832-13] IBM Principles of Operations, pg 7-382
 """
