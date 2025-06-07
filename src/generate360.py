@@ -4,6 +4,7 @@
 See: Wikibooks - https://en.wikibooks.org/wiki/360_Assembly/360_Instructions
 See: z16 POPs - https://publibfp.dhe.ibm.com/epubs/pdf/a227832d.pdf
 """
+import os
 
 # POPS chapters
 #   07 - general
@@ -13,7 +14,7 @@ See: z16 POPs - https://publibfp.dhe.ibm.com/epubs/pdf/a227832d.pdf
 #   14 - I/O
 #   18 - floating hexadecimal
 #   19 - floating binary
-#   20 - floating decimal
+#i  20 - floating decimal
 #   22 - vector integer
 #   23 - vector string
 #   24 - vector floating
@@ -22,15 +23,14 @@ See: z16 POPs - https://publibfp.dhe.ibm.com/epubs/pdf/a227832d.pdf
 # S/360 general instructions - 
 #   (opcode, mnemonic, name, iformat, itype, [operands], diagram, description)
 instructions = {
-  #0x00: ('', '', '', 'general', []),
   0x04: ('SPM', 'SET PROGRAM MASK', 'RR', 'general', ['R1']),
   0x05: ('BALR', 'BRANCH AND LINK', 'RR',  'general', ['R1', 'R2']),
-  0x06: ('BCTR', 'BRANCH ON COUNT', 'RR', 'genera;', ['R1', 'R2']),
+  0x06: ('BCTR', 'BRANCH ON COUNT', 'RR', 'general', ['R1', 'R2']),
   0x07: ('BCR', 'BRANCH ON CONDITION', 'RR', 'general', ['M1', 'R1']),
-  0x08: ('SSK', 'SET STORAGE KEY', 'RR', 'general', []),
-  0x09: ('ISK', 'INSERT STORAGE KEY', 'RR', 'general', []),
+  #0x08: ('SSK', 'SET STORAGE KEY', 'RR', 'general', ['R1', 'R2']),
+  #0x09: ('ISK', 'INSERT STORAGE KEY', 'RR', 'general', ['R1', 'R2']),
   0x0a: ('SVC', 'SUPERVISOR CALL', 'I', 'general', ['I']),
-  0x0d: ('BASR', 'BRANCH AND SAVE', 'RR', 'general', []),
+  0x0d: ('BASR', 'BRANCH AND SAVE', 'RR', 'general', ['R1', 'R2']),
   0x10: ('LPR', 'LOAD POSITIVE', 'RR', 'general', ['R1', 'R2']),
   0x11: ('LNR', 'LOAD NEGATIVE', 'RR', 'general', ['R1', 'R2']),
   0x12: ('LTR', 'LOAD AND TEST', 'RR', 'general', ['R1', 'R2']),
@@ -130,8 +130,8 @@ instructions = {
   0x80: ('SSM', 'SET SYSTEM MASK', 'SI', 'control', ['D2', 'B2']),
   0x82: ('LPSW', 'LOAD PROGRAM STATUS WORD', 'SI', 'control', ['D2', 'B2']),
   0x83: ('DIAGNOSE', 'DIAGNOSE', 'RX', 'general', ['R1', 'D2', 'X2', 'B2']),
-  0x84: ('WRD', 'WRITE DIRECT', 'RX', 'io', ['R1', 'D2', 'X2', 'B2']),
-  0x85: ('RDD', 'READ DIRECT', 'RX', 'io', ['R1', 'D2', 'X2', 'B2']),
+  #0x84: ('WRD', 'WRITE DIRECT', 'RX', 'io', ['R1', 'D2', 'X2', 'B2']),
+  #0x85: ('RDD', 'READ DIRECT', 'RX', 'io', ['R1', 'D2', 'X2', 'B2']),
   0x86: ('BXH', 'BRANCH ON INDEX HIGH', 'RS', 'general', ['R1', 'R3', 'D2', 'B2']),
   0x87: ('BXLE', 'BRANCH ON INDEX LOW OR EQUAL', 'RS', 'general', ['R1', 'R3', 'D2', 'B2']),
   0x88: ('SRL', 'SHIFT RIGHT SINGLE LOGICAL', 'RS', 'general', ['R1', 'D2', 'B2']),
@@ -151,10 +151,10 @@ instructions = {
   0x96: ('OI', 'OR', 'SI', 'general', ['D2', 'B2', 'I1']),
   0x97: ('XI', 'EXCLUSIVE OR', 'SI', 'general', ['D2', 'B2', 'I1']),
   0x98: ('LM', 'LOAD MULTIPLE', 'RS', 'general', ['R1', 'R3', 'D2', 'B2']),
-  0x9c: ('SIO', 'START IO', 'SI', 'io', ['D2', 'B2']),
-  0x9d: ('TIO', 'TEST IO', 'SI', 'io', ['D2', 'B2']),
-  0x9e: ('HIO', 'HALT IO', 'SI', 'io', ['D2', 'B2']),
-  0x9f: ('TCH', 'TEST CHANNEL', 'SI', 'io', ['D2', 'B2']),
+  #0x9c: ('SIO', 'START IO', 'SI', 'io', ['D2', 'B2']),
+  #0x9d: ('TIO', 'TEST IO', 'SI', 'io', ['D2', 'B2']),
+  #0x9e: ('HIO', 'HALT IO', 'SI', 'io', ['D2', 'B2']),
+  #0x9f: ('TCH', 'TEST CHANNEL', 'SI', 'io', ['D2', 'B2']),
   0xd1: ('MVN', 'MOVE NUMERICS', 'SS', 'general', ['L', 'D1', 'B1', 'D2', 'B2']),
   0xd2: ('MVC', 'MOVE', 'SS', 'general', ['L', 'D1', 'B1', 'D2', 'B2']),
   0xd3: ('MVZ', 'MOVE ZONES', 'SS', 'general', ['L', 'D1', 'B1', 'D2', 'B2']),
@@ -185,6 +185,48 @@ diagrams = {
   | 0x04   | R1 |////|
   +--------+----+----+
   0        8    12  15""",
+  0x05: """
+  BALR  R1,R2     [RR]
+  +--------+----+----+
+  | 0x05   | R1 | R2 |
+  +--------+----+----+
+  0        8    12  15""",
+  0x06: """
+  BCTR  R1,R2     [RR]
+  +--------+----+----+
+  | 0x06   | R1 | R2 |
+  +--------+----+----+
+  0        8    12  15""",
+  0x07: """
+  BCR   M1,R2     [RR]
+  +--------+----+----+
+  | 0x07   | M1 | R2 |
+  +--------+----+----+
+  0        8    12  15""",
+  0x0a: """
+  SVC   I          [I]
+  +--------+---------+
+  | 0x0a   | I       |
+  +--------+---------+
+  0        8        15""",
+  0x0d: """
+  BASR  R1,R2     [RR]
+  +--------+---------+
+  | 0x0d   | R1 | R2 |
+  +--------+----+----+
+  0        8    12  15""",
+  0x80: """
+  SSM   D2,B2                  [SI]
+  +----+--------+----+------------+
+  |0x80|////////| B2 | D2         |
+  +----+--------+----+------------+
+  0    4        16   20          31""",
+  0x82: """
+  LPSW  D2,B2                  [SI]
+  +----+--------+----+------------+
+  |0x82|////////| B2 | D2         |
+  +----+--------+----+------------+
+  0    4        16   20          31""",
 }
 
 descriptions = {
@@ -200,10 +242,136 @@ Resulting Condition Code:
 
 The code is set as specified by bits 34 and 35 of general register R1.
 
-Program Exceptions: None
+Program Exceptions:
+
+None
+
+Source:
 
 * [SA22-7832-13] IBM Principles of Operations, pg 7-382""",
+  0x80: """
+Bits 0-7 of the current PSW are replaced by the byte at the location
+designated by the second-operand address.
+
+Bits 8-15 of the instruction are reserved and should contain zeros; otherwise,
+the program may not operate compatibly in the future.
+
+Special Conditions:
+
+When the SSM-suppression-control bit, bit 33 of control register 0, is one and
+the CPU is in the supervisor state, a special-operation exception is 
+recognized.
+
+The value to be loaded in the PSW is not checked for validity before loading.
+However, immediately after loading, a specification is recognized, and
+a program interruption occurs, if either (a) the contents of bit positions
+0 and 2-4 of the PSW are not all zeros, or (b) in the ESA/390-compatibility
+mode, bit position of the PSW does not contain a zero. In either of these
+cases, the instruction is completed, and the instruction-length code is set
+to 2 or 3. The specification exception, which is listed as a program
+exception for this instruction, is described in "Early Exception Recognition"
+on page 6-9.
+
+The operation is suppressed on all addressing and protection exceptions.
+
+Condition Code:
+
+The code remains unchanged.
+
+Program Exceptions:
+
+* Access (fetch, operand 2)
+* Privileged operation
+* Special operation
+* Specification
+* Transaction constraint
+
+Source:
+
+* [SA22-7832-13] IBM Principles of Operations, pg 10-143""",
+  0x82: """
+The current PSW is replaced by a 16-byte PSW formed from the contents of the
+doubleword at the location designated by the second-operand address.
+
+Bits 8-15 of the instruction are reserved and should contain zeros; otherwise,
+the program may not operate compatibly in the future.
+
+Bit 12 of the doubleword must be one; otherwise, depending on the model, a 
+specification exception may be recognized and the operation suppressed.
+
+Bits 0-11, 13-32, and 33-63 of the doubleword are placed in bit positions 0-11,
+13-32, and 97-127 of the current PSW, respectively. Bits 33-96 of the current
+PSW are set to zeros.
+
+Bit 12 of the doubleword is inverted and then placed in bit 12 of the current
+PSW. This applies in the z/Architecture architectural mode and in the 
+ESA/390-compatibility mode.
+
+A serialization and checkpoint-synchronization function is performed before or
+after the operand is fetched and again after the operation is completed.
+
+Special Conditions:
+
+The operand must be designated on a doubleword boundary; otherwise, a
+specification exception is recognized. A specification exception may be 
+recognized if the key alue in bits 8-11 of the operand is nonzero.
+
+The other PSW fields which are to be loaded by the instruction are not checked
+for validity before they are loaded, exception for the optional checking of
+bit 12. However, immediately after loading, a specification
+exception is recognized, and a program interruption occurs, when any of the
+following is true for the newly loaded PSW:
+
+* Any bits 0, 2-4, 12, or 25-30 is a one.
+
+* In the ESA/390-compatibility mode, bit 5 of the PSW is one.
+
+* Bit 24 is one (recognition of this condition is optional)
+
+* Bit 31 and 32 are both zero, and bits 97-103 are not all zeros.
+
+* Bits 31 and 32 are one and zero, respectively.
+
+* In the ESA/390-compatibility mode, bit 31 is one (recognition of this
+  condition is unpredictable).
+
+In these cases, the operation is completed, and the resulting instruction-
+length code is 0.
+
+The test for a specification after the PSW is loaded is described in "Early
+Exception Recognition" on page 6-9.
+
+The operation is suppressed on all addressing and protection exceptions.
+
+Resulting Condition Code:
+
+The code is set as specified in the new PSW loaded.
+
+Program Exceptions:
+
+* Access (fetch, operand 2)
+* Privileged operation
+* Special operation
+* Specification
+* Transaction constraint
+
+Source:
+
+* [SA22-7832-13] IBM Principles of Operations, pg 10-56""",
 }
+
+# remove existing files
+for opcode in instructions:
+  mnemonic, name, iformat, itype, operands = instructions[opcode]
+  camel_name = ''.join(s[0].upper() + s[1:].lower() for s in name.split())
+  under_name = name.replace(' ', '_').lower()
+  file_name = f"{itype}/{under_name}.py"
+
+  try:
+    os.remove(file_name)
+    print(f'Removed {file_name}')
+  except FileNotFoundError:
+    pass
 
 # generate
 for opcode in instructions:
@@ -211,8 +379,8 @@ for opcode in instructions:
   camel_name = ''.join(s[0].upper() + s[1:].lower() for s in name.split())
   under_name = name.replace(' ', '_').lower()
   file_name = f"{itype}/{under_name}.py"
-  description = descriptions[opcode]
-  diagram = diagrams[opcode]
+  description = descriptions[opcode] if opcode in descriptions else ""
+  diagram = diagrams[opcode] if opcode in diagrams else ""
   code = f'''"""{under_name}.py - {name.upper()}
 {description}
 """
@@ -225,10 +393,11 @@ class {mnemonic.upper()}(_{iformat}Instruction):
     """
     Build the {mnemonic.upper()} instruction.
     """
-    super().__init__({hex(opcode)}, {', '.join(operands)})'''
+    super().__init__({hex(opcode)}, {', '.join(operands)})
+'''
 
-  # write to file
+  # append to file
   print(f"Opening '{file_name}'")
-  with open(file_name, 'w') as f:
+  with open(file_name, 'a') as f:
     print(f"Writing to '{file_name}'")
     f.write(code)

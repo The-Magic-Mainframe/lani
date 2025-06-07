@@ -45,6 +45,8 @@ LANI_FLOATING_POINT += $(INSTALL)/floating/all.py
 # lani.control (instructions) subpackage
 LANI_CONTROL := $(INSTALL)/control/__init__.py
 LANI_CONTROL += $(INSTALL)/control/all.py
+LANI_CONTROL += $(INSTALL)/control/load_program_status_word.py
+LANI_CONTROL += $(INSTALL)/control/set_system_mask.py
 
 # lani.io (instructions) subpackage
 LANI_IO := $(INSTALL)/io/__init__.py
