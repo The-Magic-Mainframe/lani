@@ -43,13 +43,15 @@ static int Symbol_init(Symbol *self, PyObject *args,
       &value,
       &self->size, &self->dim, &self->boundary,
       &self->datatype, &self->exttype,
-      &section))
+      &self->section))
     return -1;
 
   return 0;
 }
 
 static PyMemberDef Symbol_members[] = {
+  {"size", T_ULONGLONG, offsetof(Symbol, size), READONLY,
+   "Size of the symbol in bytes."},
   {NULL}
 };
 

@@ -26,6 +26,7 @@ PYSUFFIX = $(shell $(PYTHON)-config --extension-suffix)
 LANI := $(INSTALL)/__init__.py
 LANI += $(INSTALL)/all.py
 LANI += $(INSTALL)/core.py
+LANI += $(INSTALL)/instruction$(PYSUFFIX)
 LANI += $(INSTALL)/symbol$(PYSUFFIX)
 
 # lani.general (instructions) subpackage
@@ -60,6 +61,7 @@ LANI_VECTOR += $(INSTALL)/vector/all.py
 LANI_TESTS := $(INSTALL)/tests/__init__.py
 LANI_TESTS += $(INSTALL)/tests/all.py
 LANI_TESTS += $(INSTALL)/tests/symbol.py
+LANI_TESTS += $(INSTALL)/tests/instruction.py
 
 # all instructions
 LANI_INSTRUCTIONS := $(LANI_GENERAL)
@@ -70,7 +72,8 @@ LANI_INSTRUCTIONS += $(LANI_IO)
 LANI_INSTRUCTIONS += $(LANI_VECTOR)
 
 # headers
-HEADERS := $(INC)/symbol.h
+HEADERS := $(INC)/instruction.h
+HEADERS += $(INC)/symbol.h
 
 # default rule - build, compile, and test
 default: $(LANI) $(LANI_INSTRUCTIONS) $(LANI_TESTS)
