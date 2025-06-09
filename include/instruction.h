@@ -28,9 +28,9 @@ typedef struct {
   Instruction instruction;
   
   // operands
-  unsigned char *r1;
-  unsigned char *r2;
-  unsigned char *r3;
+  unsigned char r1;
+  unsigned char r2;
+  unsigned char r3;
 
 } RRFInstruction;
 
