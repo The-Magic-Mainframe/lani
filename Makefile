@@ -26,6 +26,7 @@ PYSUFFIX = $(shell $(PYTHON)-config --extension-suffix)
 LANI := $(INSTALL)/__init__.py
 LANI += $(INSTALL)/all.py
 LANI += $(INSTALL)/core.py
+LANI += $(INSTALL)/instruction$(PYSUFFIX)
 LANI += $(INSTALL)/symbol$(PYSUFFIX)
 
 # lani.general (instructions) subpackage
@@ -38,13 +39,15 @@ LANI_GENERAL += $(INSTALL)/general/set_program_mask.py
 LANI_DECIMAL := $(INSTALL)/decimal/__init__.py
 LANI_DECIMAL += $(INSTALL)/decimal/all.py
 
-# lani.floating_point (instructions) subpackage
-LANI_FLOATING_POINT := $(INSTALL)/floating_point/__init__.py
-LANI_FLOATING_POINT += $(INSTALL)/floating_point/all.py
+# lani.floating (instructions) subpackage
+LANI_FLOATING_POINT := $(INSTALL)/floating/__init__.py
+LANI_FLOATING_POINT += $(INSTALL)/floating/all.py
 
 # lani.control (instructions) subpackage
 LANI_CONTROL := $(INSTALL)/control/__init__.py
 LANI_CONTROL += $(INSTALL)/control/all.py
+LANI_CONTROL += $(INSTALL)/control/load_program_status_word.py
+LANI_CONTROL += $(INSTALL)/control/set_system_mask.py
 
 # lani.io (instructions) subpackage
 LANI_IO := $(INSTALL)/io/__init__.py
@@ -58,6 +61,7 @@ LANI_VECTOR += $(INSTALL)/vector/all.py
 LANI_TESTS := $(INSTALL)/tests/__init__.py
 LANI_TESTS += $(INSTALL)/tests/all.py
 LANI_TESTS += $(INSTALL)/tests/symbol.py
+LANI_TESTS += $(INSTALL)/tests/instruction.py
 
 # all instructions
 LANI_INSTRUCTIONS := $(LANI_GENERAL)
@@ -68,7 +72,8 @@ LANI_INSTRUCTIONS += $(LANI_IO)
 LANI_INSTRUCTIONS += $(LANI_VECTOR)
 
 # headers
-HEADERS := $(INC)/symbol.h
+HEADERS := $(INC)/instruction.h
+HEADERS += $(INC)/symbol.h
 
 # default rule - build, compile, and test
 default: $(LANI) $(LANI_INSTRUCTIONS) $(LANI_TESTS)

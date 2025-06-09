@@ -24,7 +24,7 @@ Source:
 
 * [SA22-7832-13] IBM Principles of Operations, pg 7-30
 """  
-from ..core import RRFInstruction as _RRFInstruction
+from ..instruction import RRFInstruction as _RRFInstruction
 
 class ALHHHR(_RRFInstruction):
   """
